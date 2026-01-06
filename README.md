@@ -10,7 +10,6 @@ This repository contains all materials from my PhD research on detecting early w
 
 ```
 PhD/
-├── MatlabCodePhD/       # Analysis code and core functions
 ├── PythonCode/          # Python scripts and notebooks
 ├── Papers/              # Published and in-progress papers
 ├── Thesis/              # PhD thesis (LaTeX source)
@@ -23,23 +22,16 @@ PhD/
 └── *.pdf                # Final thesis and publications
 ```
 
-## Key Outputs
-
-| Document | Description |
-|----------|-------------|
-| `JPrettyman_PhD.pdf` | Final submitted PhD thesis |
-| `Prettyman_Thesis.pdf` | Thesis with corrections |
-
 ## Publications
 
-### Paper 1 - EPL (Europhysics Letters)
-Early warning signals using scaling indicators (DFA, PSE) applied to model systems.
+**Prettyman, J.**, Kuna, T., & Livina, V. (2018). A novel scaling indicator of early warning signals helps anticipate tropical cyclones. *EPL (Europhysics Letters)*, 121(1), 10002.
+[doi:10.1209/0295-5075/121/10002](https://doi.org/10.1209/0295-5075/121/10002)
 
-### Paper 2 - Chaos
-Multidimensional early warning signals using EOF-based methods.
+**Prettyman, J.**, Kuna, T., & Livina, V. (2019). Generalized early warning signals in multivariate and gridded data with an application to tropical cyclones. *Chaos: An Interdisciplinary Journal of Nonlinear Science*, 29(7), 073105.
+[doi:10.1063/1.5093495](https://doi.org/10.1063/1.5093495)
 
-### Paper 3 - ERL (Environmental Research Letters)
-Application to paleoclimate transitions (African Humid Period).
+**Prettyman, J.**, Kuna, T., & Livina, V. (2022). Power spectrum scaling as a measure of critical slowing down and precursor to tipping points in dynamical systems. *Environmental Research Letters*, 17(3), 035004.
+[doi:10.1088/1748-9326/ac526f](https://doi.org/10.1088/1748-9326/ac526f)
 
 ## Code
 
