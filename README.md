@@ -4,13 +4,13 @@
 
 This repository contains all materials from my PhD research on detecting early warning signals (EWS) that precede critical transitions in complex systems. The work spans theoretical analysis, numerical simulations, and applications to real-world climate and weather data.
 
-> **Note:** The MATLAB analysis code is maintained in a separate repository: [PhD_Matlab](https://github.com/DrPrettyman/PhD_Matlab)
+> **Note:** The MATLAB analysis code is maintained in a separate repository: [MatlabCodePhD](https://github.com/DrPrettyman/MatlabCodePhD)
 
 ## Repository Structure
 
 ```
 PhD/
-├── MatlabCode/          # Analysis code and core functions
+├── MatlabCodePhD/       # Analysis code and core functions
 ├── PythonCode/          # Python scripts and notebooks
 ├── Papers/              # Published and in-progress papers
 ├── Thesis/              # PhD thesis (LaTeX source)
@@ -43,14 +43,14 @@ Application to paleoclimate transitions (African Humid Period).
 
 ## Code
 
-### MatlabCode/
+### MatlabCodePhD/
 Primary codebase containing:
 - **Core_Functions/** - Reusable EWS analysis functions (ACF, DFA, PSE, EOF)
 - **Projects/** - Paper-specific analysis scripts
 - **Data/** - HadISD weather data, ice cores, processed datasets
 - **Tests/** - Unit tests for core functions
 
-See [MatlabCode/README.md](MatlabCode/README.md) for detailed documentation.
+See [MatlabCodePhD/README.md](MatlabCodePhD/README.md) for detailed documentation.
 
 ### PythonCode/
 Supplementary Python analysis and visualization scripts.
@@ -90,7 +90,7 @@ The phenomenon where systems approaching a tipping point recover more slowly fro
 
 1. **Run MATLAB analysis:**
    ```matlab
-   cd MatlabCode
+   cd MatlabCodePhD
    addpath(genpath('Core_Functions'))
    % Run any project script
    ```
