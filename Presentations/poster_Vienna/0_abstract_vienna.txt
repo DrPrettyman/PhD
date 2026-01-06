@@ -1,0 +1,7 @@
+Abstract for Vienna: A novel scaling indicator of early warning signals helps anticipate tropical cyclones
+
+Tipping events have been studied in many climatological and ecological contexts, often modelled by the decay of stable equilibria, or critical modes. It is possible to detect the presence of a critical mode by estimating its decay rate, and indicators of changes in these properties may therefore be used to provide an early warning signal for an impending tipping event. The lag-1 autocorrelation function (ACF(1)) indicator and the detrended fluctuation analysis (DFA) indicator have previously been used in such a way. 
+
+We shall discuss a novel scaling indicator based on the decay rate of the power spectrum, introduced in a recent paper*, and compare this with existing indicators. Besides considering artificial and model data, we shall also demonstrate the possible use of this new method to anticipate impending tropical cyclones using sea-level pressure data. In this case, we see that the new method appears to offer an improvement over the ACF(1) and DFA indicators.
+
+* J. Prettyman, et al.. submitted to Europhysics Letters. 

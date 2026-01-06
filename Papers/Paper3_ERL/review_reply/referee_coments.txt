@@ -1,0 +1,58 @@
+*****
+EDITORIAL NOTE:
+We notice that the length of your article is beyond the word limit for research articles in ERL (4000 words, excluding figures, abstract and references). Please ensure that, after making the necessary revisions, your article does not exceed 5000 words. If you believe your article will exceed this length then please contact the Editorial team (erl@ioppublishing.org) before resubmitting. Please note that you can publish supplementary material of unlimited length alongside your article.
+
+REFEREE REPORT(S):
+Referee: 1
+
+COMMENTS TO THE AUTHOR(S)
+The paper deals with the use of power spectrum scaling in order to detect critical slowing down and therefore potential tipping points. The paper is based on theoretical examples (AR1 models for instance) that not reflect any environmental dynamical model. So it is not a big deal because the contribution is purely mathematical. The paper is quite interesting but I think the paper does not fit the scope of ERL. The paper will be more suitable in a mathematical journal. I stopped my detailed review when I realized that there was a mismatch between the submitted paper and the journal. The paper (of interest) has to be submitted in an appropriate journal.
+
+Referee: 2
+
+COMMENTS TO THE AUTHOR(S)
+I read the submitted manuscript with much interest. Prettyman and colleagues conducted theoretical analyses to show power spectrum scaling exponent can serve as a useful early warning indicator of upcoming tipping points when the power spectrum does not exhibit power-law scaling or when the shape of the power spectrum is changing over time. This work contributes to enriching the early warning toolbox for anticipating tipping points in complex ecological/environmental systems. Therefore I think it merits publication in ERL.
+
+Major comments: the theoretical analyses are well presented in general, but the current form seems a bit too mathematical for the general audience of ERL. I have spent time going through the mathematical details and they look correct. It would be great to embed the results, discussion and implications into the context of real-world systems, to better inform when/how to apply this method to systems of interest (this is a methodological paper mostly after all). Good examples of early warning indicator papers can be easily found in ecological journals and I believe the authors do not need my reference to these papers. Anyway, I think most non-mathematical readers may not be able to well receive the message.
+
+Minor points: 
+The abstract could be more clearly and more friendly to non-mathematical readers. For example, L26-27 it is not fully clear " considering the CSD phenomenon directly". I think it is critical to provide some intuitions/links to reality to convey the core message to the audience of this (environmental science) journal.
+The derivation of Eq. 14 seems a bit too oversimplified (I myself have some difficulties understanding this part) - could you elaborate?
+
+Referee: 3
+
+COMMENTS TO THE AUTHOR(S)
+BOARD MEMBER ADJUDICATION
+See [Comments.pdf]:
+I disagree with reviewer #1’s comments about suitability of this manuscript for ERL, particularly for this focus. 
+(1)	I think that this MS perfectly fit our focus call, an important contribution to the topic “Early-warning signals”.
+(2)	I don’t worry a broad readership form this MS in a long-term perspective. This manuscript provides a theoretical base to use power spectrum of time serious as an indicator for early-warning signals of tipping point. It will be useful for many environmental issues to examine the tipping behaviors due to ecological-social systems are facing so many sudden changes not only from climate change but also from pandemic virus. This is why ERL has this focus.
+(3)	As suggested by reviewer #2, a case of the method’s application by real data should be illustrated. I don’t think that this is difficult for authors from their previous publications below.
+(4)	I guess that this is a part of PhD thesis.
+
+[8] Prettyman, J. Tipping points and early warning signals with applications to geophysical data. PhD thesis, University of Reading, 2021. 
+[9] Prettyman, J., Kuna, T., and Livina, V. A novel scaling indicator of early warning signals helps anticipate tropical cyclones. EPL (Europhysics Letters) 121, 1 (2018), 10002. 
+[10] Prettyman, J., Kuna, T., and Livina, V. Generalized early warning signals in multivariate and gridded data with an application to tropical cyclones. Chaos: An Interdisciplinary Journal of Nonlinear Science 29, 7 (2019), 073105.
+
+
+Referee: 4
+
+COMMENTS TO THE AUTHOR(S)
+This paper discusses a new tool, the power spectrum (PS) scaling exponent, used from a time series to indicate if the system producing the time series is near a tipping point point — presumably a parameter at which a saddle-node bifurcation is reached, and a stable state ‘disappears’, leading to the dynamics swiftly evolving to an undesirable state.
+
+The authors do a brief intro to this topic and seem to think the readers of the journal will be familiar enough with the applications to environmental or ecological forecasting, as they don’t give specific examples. I might suggest they give some examples or perhaps add a real world example to the end, in addition to just the analytical examples.
+
+The disturbances about a stable state are modelled by an AR(1) process, a single parameter auto regressive process, where that single parameter is mu. A tipping point is detected as mu goes from 0 to 1. 
+
+The authors introduce the PS exponent into the canon of diagnostics to detect mu, and thus a tipping point, due to the phenomenon of critical slowing down.  They consider some analytical examples and how the PS exponent compares to other methods, such as the autocorrelation function. The PS performs better for some realistic circumstances, but seems to require a large time series, on the order of thousands of measurements. For some annual time series, at most a few tens or a few hundred of data points are known, so where do the authors think their method, which requires N greater than, say, 10^4, would be useful?
+
+And again, I suggest they give some examples or perhaps add a real world example to the end, in addition to only the analytical examples.
+
+Overall, the authors show that their method has some advantages to the autocorrelation function, but it isn’t yet clear what types of time series they could apply it to.
+
+
+Minor comments:
+
+All the times seem to be nondimensional, as are frequencies etc. Is the setting naturally non-dimensional since we are looking at changes over a discrete time of 1?  How is \Delta t defined in Eqn 1 (it isn’t currently listed)?
+
+Page 6, line 51, second column: particularly instead of particular

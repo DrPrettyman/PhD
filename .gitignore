@@ -1,0 +1,72 @@
+# MatlabCode has its own git repository
+MatlabCode/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Thumbnails
+Thumbs.db
+
+# Large binary files
+*.pdf
+*.eps
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.tiff
+*.bmp
+
+# Affinity design files
+*.afdesign
+*.afphoto
+*.afpub
+
+# MATLAB generated files
+*.asv
+*.m~
+*.mat
+*.fig
+*.mlx
+
+# LaTeX auxiliary files
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+
+# Compiled files
+*.o
+*.pyc
+__pycache__/
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Claude Code
+.claude/
+
+# Backup files
+*~
+*.bak
+*.backup
+*.orig
+
+# Allow specific important files
+!README.md
+!.gitignore

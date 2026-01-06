@@ -1,0 +1,387 @@
+\documentclass[10pt, final]{beamer}
+
+\mode<presentation>
+{
+  \usetheme{mpe}
+}
+\graphicspath{{../../../Assets/SharedFigures/}} % shared figures folder
+
+\usepackage{ragged2e}
+\usepackage{lipsum}
+\usepackage{subcaption}
+\usepackage{xspace}
+\captionsetup{compatibility=false}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\usepackage{amsmath,amssymb}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+%\usepackage{tristan-presentation}
+\usepackage[orientation=portrait,size=a0,scale=1.0,debug]{beamerposter} 
+
+\title[I like to make posters]{Early Warning Signals for Tipping-Points in Dynamical Systems}
+
+\author[T]{Joshua Prettyman}
+
+\institute[SMS]{University of Reading\\ National Physical Laboratory}
+
+\date{\today}
+
+\newcommand{\pd}[2]{\ensuremath{\partial_{#1}{#2}}\xspace}
+\renewcommand{\div}{\operatorname{div}}
+\renewcommand{\vec}[1]{{\bf #1}}
+\providecommand{\figwidth}{\textwidth}
+\newcommand{\figscale}{1.2}
+
+%\setlength{\leftmargini}{20pt}
+
+\begin{document}
+
+
+
+\begin{frame}{} 
+  \begin{columns}[T]
+    \begin{column}{0.32\textwidth}
+    		\begin{block}{Introduction}
+    		
+    		Many physical systems are governed by dynamics that permit more than one state, such as the glacial/interglacial cycle of our climate. Moreover, a bifurcation in the dynamics may change the number of permitted states. \\
+    		\vspace{1cm}
+    		A dramatic and relatively sudden shift from one state to another is known as a tipping point. Hopefully the time series from a measurement of the system will reveal the tipping point. 
+		
+    		\end{block}
+    		
+    		\begin{block}{Project Aims}
+    		There are two possible goals whose paths of approach are intertwined:
+    		\vspace{1cm}
+    			\begin{enumerate}
+    			\setlength{\itemindent}{3em}
+    			\item Detecting a tipping point
+    			\item Predicting a future tipping point
+    			\end{enumerate}
+    		\vspace{1cm}
+    		This PhD project aims to develop a multi-purpose prediction tool for tipping points in physical systems. Several techniques are used to analyse time series for Early Warning Signals. \\
+    		\vspace{0.5cm}
+    		These techniques are also applied to toy models in order to understand their limitations. 
+    		\end{block}
+    		
+    \end{column}
+    \begin{column}{0.66\textwidth}
+    
+    
+    \begin{block}{A Simple Example of a Tipping Point}
+    \begin{columns}[T]
+    		\begin{column}{0.5\textwidth}
+    Equation (\ref{eqn1}) describes a stochastic dynamical system $z(t)$ in the form of a potential function with added noise $\eta_t$. The shape of the potential function changes as $t$ increases (see figure, right), removing the stable mode at $z=0$ and creating a double well potential.
+    \vspace{0.5cm}
+\begin{align}
+\dot{z}(t) & = -\frac{\partial}{\partial z}(z^4 + \left(3-\frac{t}{200}\right)z^2) + \eta_t
+\label{eqn1}
+\end{align}
+\vspace{0.5cm}
+
+The $\eta_t$ are iid Gaussian. At $t=600$ the $z^2$ term is zero and the bifurcation occurs. This is seen in the time series plot below, a model run with $z(0)=0$.
+		\end{column}
+		\begin{column}{0.4\textwidth}
+\begin{figure}
+\includegraphics[width = \textwidth]{changing_potential.png}
+\end{figure}
+		
+		\end{column}
+	\end{columns}
+	
+\begin{figure}
+\includegraphics[width = \textwidth]{one_and_many_timeseries.png}
+\end{figure}
+
+    \end{block}
+
+	
+    
+    %\vspace{10cm} 
+    \end{column}
+  \end{columns}
+     
+  	%\begin{block}{Block 1}
+    %			Hello, this block is very small
+    	%\end{block}
+    	   \vskip1cm
+     \begin{columns}[T]
+%    		\begin{column}{0.49\textwidth}
+%    			\begin{block}{Measuring Autocorrelation in a Time Series}
+%    			
+%		It is proposed that a a tipping point visible in a time series will be anticipated by a rise in the series' autocorrelation [1,2], as a forcing pushes the system towards the tipping point. Equation (\ref{ACF_estimator}) gives the Auto-Correlation Function with a lag of 1 ($\text{ACF}_{(1)}$), for a time series $x$. 
+%		\begin{align}
+%\text{ACF}_{(1)}([x_i]_{1}^N) = \frac{\frac{1}{N-1}\sum_{i=2}^N (x_{i-1} - \overline{x})(x_i - \overline{x})}{\text{Var}(x)}
+%	\label{ACF_estimator}
+%	\end{align}
+%		Detrended Fluctuation Analysis (DFA) also provides an indicator of autocorrelation [3]. In the continuous, stationary case, the DFA coefficient is linearly related to the ACF.\\
+%	\vspace{1cm}
+%	\begin{columns}
+%		\begin{column}{0.02\textwidth}
+%		\end{column}
+%		\begin{column}{0.48\textwidth}
+%		\begin{figure}
+%		\includegraphics[width = \textwidth]{PowerSpectrum.png}
+%		\end{figure}				
+%		\end{column}
+%		
+%		\begin{column}{0.48\textwidth}
+%		We may also find the Scaling Exponent of the series' power spectrum (or PSSE). In the figure (left) the power spectrum is plotted for the part of the series (using the Equation (\ref{eqn1}) example) where the bifurcation occurs. The slope of the line is $-1.74$, giving a PSSE of $1.74$, similar to Brownian Motion. For the first part of the series the PSSE is $\approx 0$, which is the same as for white noise. \\
+%		\vspace{1cm}
+%		The PSSE is also (in the stationary, continuous case) linearly related to the ACF and DFA coefficients.
+%		\end{column}
+%		\begin{column}{0.02\textwidth}
+%		\end{column}
+%   	\end{columns}
+%
+%    			\end{block}
+%    		\end{column}
+    		\begin{column}{0.49\textwidth}
+    			\begin{block}{Tipping Point Prediction: Fingerprinting}
+    			It is proposed that a a tipping point visible in a time series will be anticipated by a rise in the series' autocorrelation [1,2], as a forcing pushes the system towards the tipping point.
+    			To detect a rise in autocorrelation we calculate possible indicators in a sliding window of $\sim N/5$ points.
+    			\vspace{1cm}
+    		\begin{columns}[T]
+    		\begin{column}{0.02\textwidth}
+			\end{column} 
+			\begin{column}{0.45\textwidth}
+			\begin{figure}
+			\includegraphics[width = \textwidth]{one_and_many_ACF.png}
+			
+			\caption{\label{ACF_all} The ACF lag-1 estimator is calculated for 100 model runs upto the point of bifurcation ($t=600$). }
+			\end{figure}				
+			\end{column} 
+			\begin{column}{0.45\textwidth}
+			\begin{figure}
+			\includegraphics[width = \textwidth]{method_comparison.png}
+			\caption{\label{comparison} A comparison of the three autocorrelation indicators discussed. In each case the indicators are calculated for all 100 series, using a widow of 200 points, and then the mean of all is taken as in Figure \ref{ACF_all}. The scaling exponent and DFA coefficient have been scaled linearly to fit on the same axis.}
+			\end{figure}			
+				
+			\end{column}
+			\begin{column}{0.02\textwidth}
+			\end{column} 
+		\end{columns}
+		\vspace{1cm}
+		
+		In Figure \ref{comparison} we see that all indicators begin to rise at $t\approx 400$, at $t=500$ an upward trend is clear. In this case, all three provide a good EWS. In many situations we may not be able to take the mean of 100 experiments, certainly for predicting a geophysical event we will have only one time series. In Figure \ref{ACF_all} we see that the ACF signal is not so clear in this case, it is thus worth considering all indicators.
+    			\vspace{2cm}
+    			\end{block}
+    		\end{column}
+    		
+    		\begin{column}{0.49\textwidth}
+    			\begin{block}{Multi-dimensional systems}
+    			There is the potential for data to be multidimensional in various ways: that several variables are recorded; and also that measurements are made at many points in space, giving an array of time series. There is likely to be a trade-off between having enough data to ensure a reliable Early Warning Signal, and too much noise.\\
+    			\vspace{0.5cm}
+    			\begin{columns}[T]
+    			\begin{column}{0.05\textwidth}
+    			\end{column}
+    			\begin{column}{0.48\textwidth}
+    			It is common in geophysical applications to reduce the dimension of a system using Empirical Orthogonal Functions [1,2]. Taking the ``first EOF'' we project a time series onto coordinates such that the variance is maximised. It is assumed that this captures the ``interesting'' aspects of the system.\\
+    			\vspace{0.5cm}
+    			We have studied the system 
+    			\begin{align*}
+    			\mathbf{x}_{t} = B(t)\mathbf{x}_{t-1} + S\eta_t
+    			\end{align*}
+    			to test the conditions under which the EOF assumption may fail. The system either spirals to zero, or diverges, depending on the eigenvalues of $B$. It is unclear whether these states are represented by the EOF.
+    			\vspace{0.5cm}
+    			\begin{figure}
+    			\includegraphics[width = 0.8\textwidth]{spiral.png}
+    			\caption{In this case the eigenvectors of $B$ are in the direction $(3,1)$ and $(-6,1)$}
+    			\end{figure} 
+    			
+    			\end{column}
+    			\vrule
+    			\begin{column}{0.02\textwidth}
+    	   		\end{column}
+    			\begin{column}{0.47\textwidth}
+    			It is also possible to consider several dimensions at once. In [6], a two-dimensional analogue of the ACF estimator ([1]) is formulated. The method is applied to the system 
+    			\begin{align*}
+    			\dot{x} = y,~~~~\dot{y}=\mu(t)-x^2
+    			\end{align*}
+    			where $\mu$ is made to vary linearly from $0.5$ to zero. At zero ($t=100$) the system experiences a homoclinic bifurcation.
+    			
+    			\vspace{0.5cm}
+    			\begin{figure}
+    			\includegraphics[width = 0.8\textwidth]{Williamson.png}
+    			\caption{It is hoped that the eigenvalues of the ``2-D ACF'' provide an Early Warning Signal.}
+    			\end{figure} 
+    			\vspace{0.5cm}
+    			Note the imaginary part of the first eigenvalue decreases as the tipping point approaches. It is not clear that this method will work in general. 
+    			
+    			
+    			
+    			\end{column}
+    			\begin{column}{0.05\textwidth}
+    			\end{column}
+    			\end{columns}
+    			\end{block}
+    		\end{column}
+    			
+   	\end{columns}
+   	
+   	\vskip1cm
+   	
+   	\begin{columns}[T]
+   	
+		 	
+   	
+    		\begin{column}{0.32\textwidth}
+   			\begin{block}{Applications of Fingerprinting}
+    			
+    			\begin{columns}[T]
+    			%\begin{column}{0.02\textwidth}
+			%\end{column}
+    			
+    			
+    			
+    			\begin{column}{0.99\textwidth}
+    			The fingerprinting technique is applied to several time series by Dakos et al. [4], in this paper yet another indicator for auto- correlation is used: an autoregressive model of the form $x_{t+1} = \alpha x_t + \eta_t$ is fitted to the data using ordinary least squares, and the coefficient $\alpha$ is used as an indicator.     			
+    					\begin{columns}[T]
+    						\begin{column}{0.48\textwidth}
+   							\begin{figure}
+							\includegraphics[width = 0.92\textwidth]{endofgreenhouse.png}
+							\end{figure}
+						\end{column}
+    			
+    						\begin{column}{0.48\textwidth}
+    						\vspace{0.6cm}
+    							\begin{figure}
+							\includegraphics[width = 0.85\textwidth]{endofglaciation.png}
+							\end{figure}
+						\end{column}
+					\end{columns}
+					\vspace{0.6cm}
+					These figures (taken from [4]) show two examples, in both cases the indicator shows a significant trend sometime before the tipping point. Many more examples of tipping points can be found in [7].
+					
+			\end{column}    			
+    			
+    			
+    			\end{columns}
+    			
+    			\end{block}
+    	   
+    	   \end{column}
+    	   
+    	   
+    	   \begin{column}{0.33\textwidth}
+    	   
+    	   		\begin{block}{Potential Analysis: Detection of Tipping Points}
+    	   		One aim of tipping point research is detection. One approach (as in [5]) is to assume that a system resembles a $n$-well potential system, with a form similar to Equation (\ref{eqn1}), and to fit such an equation to a window of the time series. 
+    	   		
+    	   		\begin{columns}
+    	   		\begin{column}{0.02\textwidth}
+    	   		\end{column}
+    	   			\begin{column}{0.48\textwidth}
+    	   			\begin{figure}
+							\includegraphics[width = 0.99\textwidth]{temp_proxy.png}
+							\end{figure}
+    	   			\end{column}
+    	   			\begin{column}{0.48\textwidth}
+    	   			\begin{figure}
+							\includegraphics[width = 0.99\textwidth]{temp_proxy1_contour.png}
+							\end{figure}
+    	   			\end{column}
+    	   		\begin{column}{0.02\textwidth}
+    	   		\end{column}
+    	   		\end{columns}
+    	   		\vspace{0.5cm}
+			The figures (taken from [5]) show Antarctic ice-core temperature proxy data (left) and a contour plot showing the estimated number of potential wells of the best-fitting model: red - one; green - two; cyan - three; purple - four wells. The shape of the fitted potential function depends on the window size ($y$-axis of contour). This example does not show a clear bifurcation (as in the Equation (\ref{eqn1}) example) but a patchy pattern. Livina et  al. [5] show that further knowledge of a physical system my be necessary.   	   		
+    			\end{block}
+    			
+   		\end{column}
+   	
+   	
+   	
+   	
+   		\begin{column}{0.32\textwidth}
+   			\begin{block}{Building a model of Tropical Storms} 
+   			We suggest that tipping point analysis could be used to predict the approach of tropical storms, the ACF indicators of sea-level pressure (slp) or wind speed may behave similarly to those of a bifurcating system (eqn.1). This is shown to be the case in preliminary tests using slp, as shown in the figure:
+   			\begin{figure}
+   			\includegraphics[width=0.8\textwidth]{Katrina.png}
+   			\end{figure}
+   			However, this is not so clear for most storms. Complicating the analysis is noise from unrelated weather events and bi-daily (tidal) oscillations in slp. We propose creating a stochastic model which includes these features of the form
+   			\begin{align*}
+\frac{dx}{dt} = -\frac{\partial}{\partial x} U(x,t) + A_1(x,t)  + A_2(x,t) + T(x,t) + \eta
+			\end{align*} 
+			using the Unscented Kalman Filter to parametrise ([8]). By studying this model we hope to understand the dynamics and in which ways they are sensitive to tipping point analysis.
+   			\end{block}
+   		\end{column} 
+   	
+   	\end{columns}
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	\vskip1cm
+   	\vfill
+   	\begin{columns}[T]
+    		\begin{column}{0.76\textwidth}
+    			\begin{block}{References}
+    			        \footnotesize{
+        
+ [1] Livina, V. N., Kwasniok, F., Lohmann, G., Kantelhardt, J. W., and Lenton, T. M. (2011). Changing climate states and stability: from Pliocene to present. {\it \footnotesize Climate dynamics, 37(11-12), 2437-2453.}
+        
+        [2] Held, H. and Kleinen, T. (2004). Detection of climate system bifurcations by degenerate fingerprinting. {\it \footnotesize Geophys. Res. Lett. 31, L23207.}
+            
+        [3] Kantelhardt, J. W., Koscielny-Bunde, E., Rego, H. H., Havlin, S., and Bunde, A. (2001). Detecting long-range correlations with detrended fluctuation analysis. {\it \footnotesize Physica A: Statistical Mechanics, 295(3):441-454.}            
+            
+        [4]  Dakos, V., Scheffer, M., van Nes, E. H., Brovkin, V.,Petoukhov, V. and Held, H. (2008). Slowing down as an early warning signal for abrupt climate change. {\it \footnotesize Proc. Nat. Acad. Sci. USA 105, 14308-14312.}
+        
+        [5] Livina, V.N., Kwasniok, F., Lohmann, G., Kantelhardt, J.W. and Lenton, T.M., (2011). Changing climate states and stability: from Pliocene to present. {\it \footnotesize Climate dynamics, 37(11-12), pp.2437-2453.}
+            
+        [6] Williamson, M. S. and Lenton, T. M. (2015). Detection of bifurcations in noisy coupled systems from multiple time series. {\it \footnotesize Chaos: An Interdisciplinary Journal of Nonlinear Science, 25(3):036407.}
+        
+        [7] Lenton, T. M., Held, H., Kriegler, E., Hall, J. W., Lucht,W., Rahmstorf, S. and Schellnhuber, H. J. (2008). Tipping elements in the Earth's climate system. {\it \footnotesize Proc. Nat. Acad. Sci. USA 105, 1786-1793.}  
+        
+        [8] Kwasniok, F. and Lohmann, G. (2009). Deriving dynamical models from paleoclimatic records: Application to glacial millennial-scale climate variability. {\it \footnotesize Phys. Rev. E, 80(6), p.066104.}
+            
+            
+            
+        }
+    			\end{block}
+    		\end{column}
+    		\begin{column}{0.23\textwidth}
+    			\begin{block}{Acknowledgements}
+    			
+    			This PhD research has been funded by NPL, The Nation Center for Earth Observation, and the Mathematics of Planet Earth EPSRC CDT.
+    			\begin{figure}
+    			\includegraphics[width=0.8\textwidth]{MPElogo_verylong.png}
+    			\end{figure}
+    			
+    			\end{block}
+    		\end{column}
+   	\end{columns}
+	 	
+%\vspace{1cm}
+\end{frame}
+
+
+\end{document}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-PDF-mode: t

@@ -1,0 +1,118 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+
+\textheight=210mm
+\textwidth=155mm
+
+\hoffset=-1mm
+\voffset=-10mm
+
+\usepackage{color}
+\def\bb{\begin{color}{blue}}
+\def\eb{\end{color}\ }
+
+\begin{document}
+
+\begin{center}
+{\bf Response to Reviewer A's comments}\\
+on paper `` A novel scaling indicator of early warning signals helps anticipate tropical cyclones ''\\[5pt]
+by {\it J.~Prettyman, T.~Kuna, and V.~N.~Livina}
+\end{center}
+
+\vspace{3mm}
+
+\noindent We would like to thank the Reviewer for the positive review on the paper. 
+
+\begin{itemize}
+\item[\bf Preamble.]
+{\sl
+The paper follows ideas proposed by Scheffer et al. (ref. 6), which uses the well-known fact that in the special case of a system represented by a variable x(t) approaching a saddle-node bifurcation, the auto-correlation of x(t) will increase prior to the bifurcation (critical slow down) as $t \rightarrow t_c$. Other statistical quantities, such as increased variance (fluctuation dissipation theorem) and increased skewness are also indicators of a future saddle-node bifurcation. In the hope of foreseeing such a tipping point, these are dubbed early warning signals (EWS). Following that changes in other statistical quantities such as the scaling exponents obtained in detrended fluctuation analysis (DFA) have been used as indicators. Now the authors propose to monitor changes in the scaling exponent in the power spectrum of x(t) as yet another indicator. Obviously, since the power spectrum is the Fourier transform of the auto correlation and, in case of a scaling signal, the scaling exponents are directly related to the DFA exponent (eq. 4) this can be done.
+}
+
+\item[\bf Comment 1.] 
+{\sl 
+This is where my problem comes: For this to be useful the relevant issue is to establish under which circumstances the proposed PS indicator is better or worse than the other EWS indicators. This discussion is completely lacking. There are two problems that need to be addressed:
+}
+
+\item[\bf Response 1.] 
+The aim of this paper is not to understand analytically in which dynamical systems the PS-indicator will be better or worse than other EWS methods, but rather to show that, in principle, the PS-indicator may provide an EWS. This is done by comparison to the ACF(1) and DFA indicators - not to show that it is better or worse, but simply to show that it behaves similarly, which in theory it should (as is pointed out by the reviewer, above) since the PS scaling exponent is related analytically to the ACF scaling exponent. A comment to this effect has been added to the introduction.
+
+\item[\bf Comment 2.]
+{\sl 
+Firstly, in the case(s) where we have a theoretical foundation for how the EWS indicators behave (simple bifurcations), {\bf the question of length and resolution of the time series at hand in relation to estimating the different measures should be discussed}. From figure 3 it is apparent that PS is useless as EWS for the pitchfork bifurcation, DFA is marginal and only ACF(1) can be used. This is because in order to avoid false positives at the 1sigma level (very low, should be at least 2sigma), the mean should be outside the 1sigma level (gray band in fig 3). That does not happen for PS before t=600.  The simulation (eq. 6) is fine, and I think the right way of testing. It is identical to what we presented in (Ditlevsen and Johnsen, GRL 37, 2010) in the generic saddle node bifurcation case. In this connection the authors {\bf should argue why they omit using the increased variance}, which we demonstrate is the strongest EWS indicator.
+
+The authors may want to look at: (Peter D. Ditlevsen, "Tipping Points in the Climate System", to appear in "Nonlinear and Stochastic Climate Dynamics" (Ed. Christian Franzke and Terence O'Kane), Cambridge Univ. Press, 2017).
+}
+
+\item[\bf Response 2.] 
+We thank the reviewer for the reference to (Peter D. Ditlevsen, "Tipping Points in the Climate System", 2017), this will be useful.\\
+{\bf Length and resolution of time series:} {\bb Don't know how to reply.\eb} \\ 
+{\bf PS is useless for pitchfork bifurcation:} We have included a short discussion about the uselessness of the PS-indicator applied to the pitchfork bifurcation (figure 3), drawing attention to the fact that the mean does not rise above the 1sigma level.\\
+{\bf Omit increased variance:} We considered only ACF(1) (as a proxy for the auto correlation scaling exponent) and DFA, besides the novel power spectrum (PS) indicator because the inspiration came from [Kantelhardt et al. 2001], which provides a relationship between these three scaling exponents, and because the paper was considered a natural progression from [Livina and Lenton, GRL, 2007] where the DFA propagator is introduced, and in that paper is compared against the ACF indicator. Including other indicators, such as increase variance, we felt would crowd the discussion. Also, the point was to show similar behaviour to the ACF(1) and DFA indicators, not to discover the best indicator. 
+
+\item[\bf Comment 3.]
+{\sl 
+Secondly, beside the few generic cases of bifurcations, for other tipping points or critical transitions the statistical quantities behave differently. The idea of change in long range correlations comes from phase transitions in statistical mechanics. Here the transitions are usually characterized by emergence of long range correlations (power law behaviour), from the disordered state with short range (exponential) correlations and not by change of a scaling exponent. Actually the main characteristic of these critical transitions is the uniqueness (universality) of the scaling exponents. {\bf This should be discussed much more rigorously, especially also when a geophysical fluid dynamical situation as passing of cyclones is analysed. What type of dynamics is this, and what kind of EWS should we expect?}
+}
+
+\item[\bf Response 3.]
+{\bb Note: Tobias and I don't really understand what most of this means, or rather, how it is relevant. \eb}\\
+The pitchfork bifurcation is chosen as an example of a system where we will definitely expect the ACF(1) indicator to provide a very good EWS, therefore allowing us to see the new indicator applied to a familiar system. The approaching cyclone is chosen as an example of a system which (we believe) has not previously been studied using these tipping-point EWS methods, and for which the dynamics of the system are unknown, thus providing a "blind" experiment. The passing cyclone is not modelled as a phase transition, and it is not known whether there exists a critical point such that we might claim universality of the scaling exponents. Rather, we have a time series which superficially resembles other geophysical tipping-point examples (such as in [Dakos et al. {\it Slowing down as an early warning signal for abrupt climate change}, PNAS, 2008]), thus we wish to experiment with our existing EWS methods, and then compare the performance of our new indicator.
+
+
+
+\item[\bf Comment 4.] %%% DONE
+{\sl 
+In general the paper should be revised with a focus of more rigor:
+\begin{enumerate}
+\item What does ``scaling properties similar to ACF'' mean? In the standard cases (including eq. 6) the ACF is exponential, and the PS has two scaling regimes beta=0 and beta=2. This means that the PS indicator related to critical slow down is beta increasing from -2 to 0.
+\item Abstract: Define ``critical mode''. 2 lines after eq. 1: ``uncorrelated'' should be ``short range correlated''. Read the manuscript carefully again to correct these kinds of errors.
+\end{enumerate}
+}
+
+\item[\bf Response 4.]
+\begin{enumerate}
+\item In the phrase ``Since DFA provides a method to study the scaling properties, similarly to the ACF, the DFA scaling indicator has been introduced...'', we are making the point that the DFA indicator provides a method to study scaling properties, and in this respect it is similar to ACF. {\bb What is meant by ``two scaling regimes beta=0 and..''???\eb}
+\item Manuscript changed to accommodate suggestions (critical modes, short-range correlated).
+\end{enumerate}
+
+\item[\bf Comment 5.]
+{\sl 
+Minor comments:
+\begin{enumerate}
+\item How are data in Fig 1 generated? (I guess it is similar to Fig 2) .
+\item Eq. 5: I would have preferred something like a fractional Brownian motion (fBm) or some other less artificial standard process (and a discussion of why the usual Ornstein-Uhlenbeck red noise process is not relevant).
+\item Eq. 6: It should be discussed why the pitchfork bifurcation is studied rather than the generic saddle node. Pitchfork is special: It requires a perfect symmetry (and turns into saddle node with any small symmetry breaking perturbation). In perfectly symmetric systems, we often know more about the dynamics such that bifurcations can be predicted more precisely than what can be done with EWS.
+\end{enumerate}
+}
+
+\item[\bf Response 5.]
+\begin{enumerate}
+\item The data in fig.1 are indeed generated similarly to fig.2, the manuscript has been changed to explain this.
+\item We have chosen this artificial time series, rather than the Ornstein-Uhlenbeck process, to reflect the result in \cite{livina2012} and to provide an example specifically suited to the PS-indicator. A note of this has been included in the manuscript.
+\item {\bb Don't know how to reply. I disagree here a bit: is the pitchfork bifurcation really so "special"? I think it is more general than he says, and surely it doesn't matter anyway? The point is just that we expect the ACF(1) to provide a good EWS, so it is a good test of the PS-indicator, which is related. I would like to have a good reference to say "as an example of a highly correlated system, we expect the ACF(1) to provide a good EWS [citation]...". Unfortunately Ditlevsen and Johnsen (2010) show that the ACF(1) is a bad EWS for the saddle-node bifurcation (which is similar to pitchfork, so we certainly can't cite that. But according to our result (fig.3) the ACF(1) certainly IS a good EWS, in this case. \eb}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{itemize}
+
+\vspace{7mm}
+
+\noindent
+We hope that the revised manuscript is now suitable for publication in EPL.
+
+\vspace{5mm}
+
+\noindent
+Yours sincerely,
+
+\vspace{1mm}
+
+\noindent
+J.~Prettyman, T.~Kuna, and V.~N.~Livina
+
+\end{document}
+
+

@@ -1,0 +1,78 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{graphicx}
+
+\textheight=210mm
+\textwidth=155mm
+
+\hoffset=-1mm
+\voffset=-10mm
+
+%% for corrections 
+\usepackage{color}
+\newcommand\bb{\begin{color}{blue}}
+\newcommand\br{\begin{color}{red}}
+\newcommand\eb{\end{color}\ }
+
+\begin{document}
+
+\begin{center}
+{\bf Response to Referee~\#4's comments}\\
+on paper ``Power spectrum scaling as a measure of critical slowing down''\\[5pt]
+by {\it J.~Prettyman}
+\end{center}
+
+\vspace{3mm}
+
+\noindent We would like to thank the Referee for their time in reviewing this manuscript and for the comments which have informed the revisions made. 
+
+We agree with the Referee that it is not yet be clear in which contexts the introduced PS indicator might be used. The development of the indicator was motivated by the mathematical relation between the power-spectrum scaling exponent and the DFA exponent (already established as a tipping-point indicator) and the fact that the nature of the PS exponent means that the indicator will be ``naturally'' resilient to trends and periodicities in the time series. 
+
+The nature of the PS indicator also, however, means that a high time-resolution (in relation to the scale of the tipping point) is required, and examples of such data are rare in this field. It is our opinion, in spite of this fact, that the contribution of this paper is of interest to those studying tipping points in Earth Systems and we welcome suggestions of where the method presented here might be applied. 
+
+An application of the method is found in [Prettyman et al. 2019]\footnote{Prettyman, J., Kuna, T., and Livina, V. Generalized early warning signals in multivariate and gridded data with an application to tropical cyclones. Chaos: An Interdisciplinary Journal of Nonlinear Science 29, 7 (2019), 073105.}. During this revision we attempted to find another suitable application, while time constraints meant that we could not conduct new research to identify tipping points in different systems. We have therefore included a brief “application” section (Sec. 6) where we apply the PS indicator method to paleo temperature proxy records from GISP2, previously subject to tipping point analysis by [Lenton et al. 2012]\footnote{‌Lenton, T.M., Livina, V.N., Dakos, V. and Scheffer, M., 2012. Climate bifurcation during the last deglaciation?. Climate of the Past, 8(4), pp.1127-1139.} using other methods. The tipping point in these data occur over a period of about 2000 years, or about 100 data points. This is not good enough that the PS indicator is able to provide an early warning signal, but we note that the indicator does increase as the tipping point occurs (albeit not before) which further demonstrates the relationship to the indicators used in the above-mentioned paper (namely DFA and ACF-1), and provides evidence for the presence of slowing-down in the data.
+
+It is our hope that publication of this paper will allow the use of this novel tipping point indicator, possibly alongside other methods, in a greater variety of Earth system applications. We suggest at the end of Sec. 5.2 that modern meteorological records, which often provide hourly data, may provide a suitable application for the PS indicator in climate-linked tipping events over recent decades, such as coral bleaching. This will be an interesting direction for future research but was not possible to undertake in the time spent revising this manuscript. 
+
+\begin{itemize}
+
+\item[\bf Comment 1.]  %%% DONE
+{\sl Where do the authors think their method, which requires N greater than, say, $10^4$, would be useful?
+}
+
+\item[\bf Response.] We agree that this is a limitation of this method. It is our opinion that this is nevertheless a good method to have in one’s arsenal when studying tipping points and we hope to find a practical use for it in future research, possibly in tipping points effected by ocean warming where recent, high-frequency temperature data are available. 
+
+\item[\bf Comment 2.]
+{\sl All the times seem to be non-dimensional, as are frequencies etc. Is the setting naturally non-dimensional since we are looking at changes over a discrete time of 1?
+}
+
+\item[\bf Response.] Because we are only concerned with the change in the shape of the (non-dimensional) power spectrum we do not interested in the units of the time parameter. The reviewer is correct in assuming that when we use a toy model as an example we simply assume $\Delta t = 1$ to make the equations easier, and freely scale the time parameter. When considering an application to real data we generally talk in terms of $\Delta t$, rather than ‘number of points’. 
+
+\item[\bf Comment 3.] %%% DONE
+{\sl How is $\Delta t$ defined in Eqn. 1 (it isn’t currently listed)?
+}
+
+\item[\bf Response.] We noticed that the notation in Eqn. 1 was unnecessarily inconsistent with $z_n$ used as shorthand for $z(t_n)$. The notation has been changed accordingly. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{itemize}
+
+\vspace{7mm}
+
+\noindent
+We hope that the revised manuscript is now suitable for publication
+in the ERL special issue.
+
+\vspace{5mm}
+
+\noindent
+Yours sincerely,
+
+\vspace{1mm}
+
+\noindent
+T.~Kuna, V.~N.~Livina, and J.~Prettyman
+
+\end{document}
+

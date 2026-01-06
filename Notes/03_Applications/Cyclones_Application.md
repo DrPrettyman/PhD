@@ -1,0 +1,599 @@
+# Overview
+
+The project intends to create a multi-purpose tool to predict a tipping
+point (critical transition) in a dynamical system, specifically a
+geophysical system, given time series data as input, both in
+one-dimensional systems and in higher dimensions.\
+Table of contents:
+
+- Introduction to tipping points
+
+- Analytical derivation of one-dimensional Early Warning Signals (EWS)
+
+- Extension to gridded and multi-variate data (EOF/other)
+
+- Application to tropical cyclones
+
+# Introduction to tipping points
+
+This project is concerned with tipping points, or critical transitions
+(lenton2008; @scheffer2009), in dynamical systems, and methods that
+enable us to predict these. (livina2011) identifies three types of
+system changes which may be the cause of a tipping event:
+
+1.  A forced transition, where the potential function stays the same
+    shape, but is moved, so that there is a trend (or possibly a sudden
+    jump) in the time series.
+
+2.  A noise-induced transition, where the system shifts from one stable
+    state to another due to a large initial perturbation.
+
+3.  A genuine bifurcation, where the shape of the potential function is
+    changed.
+
+Given a set of time series data (e.g. a measurement variable of a
+physical system or computational model) where a transition or
+bifurcation has occurred, we wish to detect an Early Warning Signal
+(EWS), which should be measurable before the tipping point. This EWS can
+then be used to predict future tipping points.\
+(livina2011) study a system such as $$
+
+
+\dot{z}(t) & = -(z^4 - 2z^2)' + \sigma(t)\eta \\
+\sigma(t) & = -0.00007t+1.50045
+
+$$ where a double-well-potential system effectively becomes a
+single-well system as the noise term becomes so small that it is
+practically impossible for the system to change state. In section
+[2.3.1](#sec_pitchfork)
+we study a system with a genuine 'pitchfork' bifurcation, we also note
+the test of EWS on artificial data made from the concatenation of
+several short time series with different noise structures (livina2012).
+Thus, there are many possible time series on which the EWS may be
+tested.
+
+# Analytical derivation of one-dimensional EWS
+
+(dakos2008) lists several EWS techniques which have been attempted:
+analysis of spectral properties (kleinen2003), degenerate
+fingerprinting (held2004) and a modification of Detrended Fluctuation
+Analysis (DFA) (livina2007).\
+A key concept involved in these methods is that of resilience or
+recovery rates (scheffer2001; @dakos2012), that is, how quickly the
+system returns to the stable state having received a small perturbation.
+The theory states that the recovery rate will slow down as the system
+approaches a bifurcation point (scheffer2009), known as critical
+slowing down. As an example we take the system in equation
+[\[fork_system\]](#fork_system)
+: $$
+\dot{z}(t) & = -\frac{\partial}{\partial z}(z^4 + \left(3-t\right)z^2) + \eta_t
+
+$$ where $\eta_t$ are independent and Gaussian. This system
+is trapped within a single well of attraction (at $z=0$) for $t\leq 3$,
+at $t=3$ a bifurcation occurs creating a double well potential system
+for $t>3$. The shape of the potential at $t=0$, $t=2$ and $t=3$ is shown
+in figure [1](#three_shapes)
+. Intuitively, the system will take longer to
+return to the $z=0$ equilibrium, following a small perturbation, as the
+sides of the potential well become less steep. The hypothesis is that
+this critical slowing down will be seen in a wide variety of dynamical
+systems approaching a bifurcation.\
+
+
+![](../../notes/images/three_potential_function_shapes.png)
+Showing the shape of the system potential of the system in
+equation 
+[fork_system] at 
+t = 0, 2, 3. The sides of the
+potential well become less steep as the system approaches the
+bifurcation.
+
+
+(vannes2007) test this hypothesis with a number of ecological models
+and find that the intensity of the critical slowing down effect is
+linearly, or almost linearly, related to the distance from the tipping
+point in all cases.\
+
+## Degenerate fingerprinting: autocorrelation
+
+The use of autocorrelation as an EWS is justified by modelling a
+dynamical system using a one-dimensional autoregressive system:
+$$
+y_{n+1} = e^{\kappa\Delta t}y_{n} + \eta_n
+$$ (held2004; @scheffer2009). Where $\eta_n$ are independent
+and Gaussian, the state $y_n=0$ is the equilibrium. The system returns
+to equilibrium exponentially with rate $\kappa$ (the decay rate). If we
+simulate critical slowing down by decreasing $\kappa$, the
+autocorrelation coefficient $\alpha \equiv e^{\kappa\Delta t}$
+increases, $\alpha\xrightarrow[\kappa\rightarrow 0]{}1$. It is also
+shown that as the autocorrelation increases so does the variance, thus
+detecting an increase in variance provides another EWS.\
+(held2004) use this observation to argue that in a multi-dimensional
+system one should project onto the first EOF (the basis vector for which
+the variance of the system is maximised) as this is the one-dimensional
+basis in which the rise in autocorrelation (and also variance) will
+occur. We note that the basis in which the variance is maximimal may not
+be the same as the basis in which the variance is increasing. At least,
+this is not immediately obvious a priori and may be wanting further
+investigation. An investigation of this is an ongoing project, progress
+is documented in section [3](#sec_gridded)
+. In some dynamical systems it may be that while
+autocorrelation rises before a tipping point, variance does not
+(gsell2016), this property may also provide fruitful investigation.\
+The autocorrelation of a one-dimensional time series
+$X=\{x_k\}_{k=1}^{N}$ is estimated using the autocorrelation function
+(ACF) formula: $$
+
+\text{ACF}_{l}(X) = \frac{1}{(N-l)\sigma^2}\sum_{j=1}^{N-l}(x_{j}-\mu)(x_{j+l} - \mu)
+$$ (held2004), where $l$ is the lag and $\mu$ and $\sigma$
+are the mean and standard deviation of the series, it is likely in
+applications that $\mu$ and $\sigma$ are also estimated from the data,
+using the standard formulae. Other measures of autocorrelation such as
+the Mann-Kendall coefficient may be used (yue2002).\
+The rise in ACF --the "fingerprint" of the bifurcation-- is detected by
+calculating the ACF of a segment of the time series, say
+$\{X_i\}_{i=m-k}^{m}$, then sliding this window by one point ($m-k+1$ to
+$m+1$) and calculating the ACF of this new time series segment.
+
+## DFA and spectral properties
+
+Detrended Fluctuation Analysis (kantelhardt2001) is used by
+(livina2007) as an EWS, similarly to autocorrelation. Taking time
+series data $X$ of length $N$, the DFA method involves calculating the
+cumulative sum of $X$, splitting this into $\lfloor N/s \rfloor$
+non-overlapping segments and in each segment 'detrending' by subtracting
+an order-$n$ polynomial fit. These detrended segments are named
+$\{Y_i\}$. The formula in equation [\[DFA\]](#DFA)
+ gives the $s$-dependent fluctuation coefficient
+$F^{(n)}(s)$: $$
+F^{(n)}(s) = \sqrt{ \frac{1}{\lfloor N/s \rfloor} \sum_{i=1}^{\lfloor N/s \rfloor} \text{Var}(Y_i)}.
+
+$$ Using the relation $F^{(n)}(s) \propto s^{\alpha_n}$, we
+can perform the algorithm with many values of $s$ to arrive confidently
+at a value for $\alpha_n$. This value, which we will call
+$\text{DFA}_n(X)$, is used as an EWS in the same way as the ACF
+coefficient.\
+Spectral properties of the time series may also be used as indicators
+(kleinen2003), in particular the scaling exponent of the power
+spectrum. The use of spectral properties as an EWS will be useful when
+the tipping point is associated with a change in the structure of the
+noise, or the stationary system becoming non-stationary. However, a
+shift from a dominance of short-scale memory to long-scale memory, seen
+in the measurement of the power spectrum scaling exponent (PSE), will be
+associated with a rise in autocorrelation, and so in this respect the
+PSE and the ACF are related.
+
+## Comparison of one-dimensional EWS methods
+
+(livina2012) compare the performance ACF and DFA degenerate
+fingerprinting methods on artificial data. The potential analysis method
+(livina2011) is also used for comparison. The ACF and DFA methods are
+tested of an artificial time series produced by concatenating several
+series of increasingly correlated noise, from pure white noise to
+Brownian motion. This is an example of a time series which experiences a
+rise in autocorrelation simultaneously with a decrease in variance.
+
+### Model with a pitchfork bifurcation
+
+Here we study the pitchfork bifurcation seen in the model of equation
+[\[fork_system\]](#fork_system)
+. The equation used here is on a different time
+scale: $$
+\dot{z}(t) & = -\frac{\partial}{\partial z}\left(z^4 + \left(3-\frac{t}{200}\right)z^2\right) + \eta_t
+
+$$ so that the bifurcation occurs at $t=600$. Figure
+[2](#pitchfork_plot)
+shows 100 instances of this model plotted together. The noise is
+sufficiently large that the two branches are not distinguishable until
+at least $t=650$.
+
+![[] 100 instances of the model
+in equation [\[pitchfork\]](#pitchfork)
+.](figures/one_and_many_timeseries.png){#pitchfork_plot
+
+
+In figure [3](#ACF_all) we
+plot the ACF$_1$ statistic (calculated using a 200-point sliding window)
+for the 100 instances. We can clearly see a increasing trend in the mean
+(dashed line), visible even at around $t=400$, but this is not so clear
+for any individual time series. For example, in model run number 80
+(picked out in black) there is an increasing trend very early ($t=250$
+to $400$) but this is followed by a decreasing trend, before the
+expected rise at $t=500$. Figure [4](#comparison)
+ shows the mean, for all 100 time series, of the
+ACF, DFA and PSE indicators. All show the expected rising trend before
+the bifurcation, but we must note that in measurements of geophysical
+systems it is not always possible to run 100 experiments in order to get
+a useful EWS.
+
+![[] The ACF lag-1 estimator is calculated for
+100 model runs upto the point of bifurcation ($t=600$).
+](figures/one_and_many_ACF.png)
+
+![[] A comparison of the three
+autocorrelation indicators discussed. In each case the indicators are
+calculated for all 100 series, using a widow of 200 points, and then the
+mean of all is taken as in Figure [3](#ACF_all)
+. The scaling exponent and DFA coefficient have been
+scaled linearly to fit on the same
+axis.](figures/method_comparison.png)
+
+### Application to real data
+
+In section [4](#sec_hurricanes)
+ we apply the one-dimensional EWS methods to
+sea-level pressure data time series, it would also be good to apply
+these methods to some other, similar data for comparison. (dakos2012)
+compare the results of applying an ACF method to various geophysical
+time series of where dramatic shifts can be seen. These methods are also
+used in biological and palaeoclimate data (scheffer2001; @livina2011).
+
+# Extension to multivariate and gridded data
+
+The methods described so far (degenerate fingerprinting, potential
+analysis) are applied only to a single one-dimensional time series.
+Since this project aims to study geophysical variables we must consider
+cases where we have more than one time series, either because:
+
+1.  There is more than one measured variable that may affect an EWS.
+
+2.  A variable is measured at several locations on a grid.
+
+3.  Both of the above simultaneously.
+
+In the first case it may suffice to attempt an EWS detection on each
+time series individually but one can envision a scenario where it is not
+possible to detect an EWS in $X(t)$ nor $Y(t)$ but, considered together
+in some way, an EWS is visible. It may therefore be worthwhile to
+investigate the possibility of a 2D (or multidimensional) analogue to
+the one-dimensional methods described in section
+[2](#sec_EWS_methods).
+In the case of gridded data it is common to use Empirical Orthogonal
+Functions (EOF)[^1] to reduce the dimensionality [@vonstorch
+Chapter 13], but it may be worth investigating other methods. It is also
+possible to use the EOF method for multivariate data.
+
+## A 2D analogue of the ACF fingerprinting method
+
+As in section [2.1](#sec_ACF),
+we may linearly approximate many dynamical systems using an
+autoregressive model: $$
+x_{t+1} = ax_t + c + \varepsilon_t,
+$$ and we can estimate the lag-1 autocorrelation coefficient
+$a$ using equation
+[\[eqn_ACF_formula\]](#eqn_ACF_formula)
+, or $$
+a = \frac{E(x_{t+1}x_t)-\bar{x}^2}{E(x_{t}^2)-\bar{x}^2}
+$$ It is proposed that the same method could be applied to a
+higher dimension system $$
+\mathbf{x}_{t+1} = A\mathbf{x}_t + \mathbf{c} + \mathbf{\varepsilon}_t
+$$ using a straight-forward translation of the
+one-dimensional formula: $$
+A= \frac{E({\mathbf x}_{t+1}{\mathbf x}_t^\top)-\bar{{\mathbf x}}\bar{{\mathbf x}}^\top}{E({\mathbf x}_t{\mathbf x}_t^\top)-\bar{{\mathbf x}}\bar{{\mathbf x}}^\top}
+$$ (williamson2015), where the fraction is an obvious abuse
+of notation. For a system of three variables, the matrix $A$ has nine
+elements, thus we have not done much to reduce the dimension of the
+problem. It is proposed in the same paper that the eigenvalues of the
+Jacobian of $A$ should be studied. This method is applied to the system
+in equation
+[\[eqn_homoclinic_system\]](#eqn_homoclinic_system)
+ $$
+
+\dot{x} &= y + \varepsilon^{(x)}\\
+\dot{y} &= \mu - x^2 + \varepsilon^{(y)}\\
+\mu &= 0.5-0.005t
+
+
+$$ with a homoclinic bifurcation at $\mu(t)=0$ ($t=100$). The
+system is integrated from $t=0$ to $t=100$ with $\varepsilon$ white
+noise with standard deviation $\sigma = 0.5$. The solution is given at
+intervals of $\Delta t=0.5$. The result is shown in figure
+[5](#ourownonorbit0p5)
+ and the eigenvalue analysis is shown in
+figure [6](#Jeigenvals0p5)
+.
+
+![Attempt to replicate the results in (williamson2015), with the noise
+std of 0.5.](../../notes/images/ourownorbit0p5.png){#ourownonorbit0p5
+width="5in"}
+
+![The Jacobian eigenvalue (both real and imaginary parts) plotted in a
+sliding window. These are derived from the time series shown in figure
+[5](#ourownonorbit0p5)
+](../../notes/images/Jeigenvals0p5.png){#Jeigenvals0p5
+width="5.5in"}
+
+The decreasing imaginary part of the principal eigenvalue predicates the
+bifurcation, as predicted by the analysis, but it is not clear that this
+could serve as an EWS without working out beforehand which changes to
+look for, already having perfect knowledge of the equations describing
+the system. Also, for an $n$-dimensional system we have $2n$ variables
+to analyse ($n$ eigenvalues, each with real and imaginary parts).
+However, studying the principal eigenvalue, rather than the $n$
+individual components of the system, does at least incorporate part of
+the information of each variable into a single statistic, even if much
+information is lost by ignoring the other eigenvalues. We must
+investigate in which cases the principal eigenvalue provides a useful
+EWS.
+
+## Investigation of the EOF method
+
+The use of EOF to reduce dimensionality is common in climate research
+(vonstorch Chapter 13). The method aims to "capture" most of the
+"interesting" behaviour of the system (held2004). We project the
+multi-dimensional system onto an orthogonal basis such that the first
+component of the system in the new basis has maximal variance, and the
+$n^{\text{th}}$ component has maximal variance given the first $n-1$
+basis vectors. One may then study only the first $k$ components of the
+system in the new basis, where $k$ is chosen so that, say, 95% of the
+total variance is captured. In many applications only the
+one-dimensional system of the first component is considered.\
+We wish to ask the question: how useful or relevant is the first EOF in
+the detection or prediction of tipping points? That is, are there cases
+where the information relevant to tipping, such increasing
+autocorrelation (scheffer2009), is not captured by the first EOF? We
+attempt to answer this question by studying the stochastic system
+eqn.[\[sytem_eqn_1\]](#sytem_eqn_1)
+, $$
+{\mathbf x}_{k+1} = B{\mathbf x}_k + S\eta_k,
+
+$$ where the ${\mathbf \eta}_k$ are column vectors with each
+element $\sim N(0,1)$, iid. Suppose that $B$ is diagonalisable with real
+eigenvalues $\mu_{i}$. In the case that all $|\mu_{i}|<1$,
+${\mathbf x}_n$ will tend to zero but it will tend to zero more slowly
+in the direction $\mathbf{v}_{\max}$, the eigenvector corresponding to
+$\mu_{\max} := \max_{i}|\mu_{i}|$. If we allow $\mu_{\max}$ to vary a
+critical transition occurs at $|\mu_{\max}|=1$ and $|\mu_{\max}|>1$ will
+cause the ${\mathbf x}_n$ to tend to infinity in the direction
+$\mathbf{v}_{\max}$. If we project the series ${\mathbf x}_n$ onto the
+vector $\mathbf{v}_{\max}$, we expect to see an increase in
+autocorrelation as $\mu_{\max} \rightarrow 1$. If the first EOF is to
+capture this autocorrelation and provide a good predictor of the tipping
+point, we would expect that the first EOF score, $\mathbf{w}_1$, is very
+close to $\mathbf{v}_{\max}$.\
+
+### An empirical calculation of EOF
+
+We attempt to calculate empirically the eigenvectors of the covariance
+matrix of the series $\{{\mathbf x}\}$ described by equation
+[\[sytem_eqn_1\]](#sytem_eqn_1)
+. In the first instance we assume that $B$ is
+constant with eigenvalues $\mu_i<1$ $\forall i$ so that there is no
+tipping point and the long-term mean of $\{{\mathbf x}\}$ is zero. We
+also assume that $B$ is diagonal, which is equivalent --via a change of
+basis-- to saying that $B$ is diagonalisable.\
+We first write out the terms of equation
+[\[sytem_eqn_1\]](#sytem_eqn_1)
+ extrinsically in terms of ${\mathbf x}_0$:
+$$
+{\mathbf x}_k &= B^k{\mathbf x}_0 + \sum_{i=1}^{k} B^{k-i}S{\mathbf \eta}_i \\
+&= \sum_{s=0}^{\infty} B^{s} S {\mathbf \eta}_{k-s} - B^k \left(\sum_{s=0}^{\infty} B^{s} S {\mathbf \eta}_{-s} - {\mathbf x}_0\right).
+$$ And we replace $k$ with $k+N_0$ where $N_0$ is large
+enough so that $B^{N_0} \approx 0$ and the mean of $\{x_i\}_{i=0}^{N_0}$
+is also approximately zero. It is then possible to calculate the
+expectation of the covariance of the time series: $$
+\mathbb{E}(C) &= \frac{1}{N}\sum_{k=0}^{N-1}\left[\sum_{s=0}^\infty \sum_{r=0}^\infty B^s S\mathbb{E}\left[(\eta_{k+N_0-s})(\eta_{k+N_0-r})^\top\right] S^\top (B^\top)^r\right]\\
+& = \sum_{s=0}^\infty B^s S S^\top (B^\top)^s \\
+D :=\mathbb{E}(C) &= SS^\top + B D B^\top
+$$ It is then possible to calculate the eigenvalues and
+eigenvectors of $D$. We here assume that $B$ is diagonal and that the
+system is two-dimensional, with $b_{11}$ very close to $1$ and greater
+than $b_{22}$. We note that $$
+D = \left[ 
+\begin{array}{cc}
+\frac{s_{12}^2+s_{11}^2}{1-b_{11}^2} & \frac{s_{12}s_{22}+s_{11}s_{21}}{1-b_{11}b_{22}}\\
+\frac{s_{12}s_{22}+s_{11}s_{21}}{1-b_{11}b_{22}} & \frac{s_{22}^2+s_{21}^2}{1-b_{22}^2}
+\end{array}
+\right].
+
+$$ In general, the eigenvalues of symmetric matrix $\left(
+\begin{array}{cc}
+a&b\\
+b&c
+\end{array}
+\right)$ are $$
+\frac{1}{2}\left(a+c\pm\sqrt{(a-c)^2+4b^2}\right)
+
+$$ and since everything is positive the positive square root
+will give the largest eigenvalue. Note that for $b=0$ the difference
+between the two eigenvalues is $|a-c|$ but for non zero $b$ this
+difference increases -- the eigenvalues become more distinct. For matrix
+$D$ this $b=0$ corresponds to the situation where $S$ is diagonal or
+reverse-diagonal, or one of the rows or columns is zero. The eigenvector
+corresponding to this largest eigenvalue (the principal eigenvector) is
+$$
+\left(
+\begin{array}{c}
+a-c + \sqrt{(a-c)^2+4b^2}\\
+2b
+\end{array}
+\right).
+
+$$
+
+We substitute the terms from equation
+[\[D_for_B_diag\]](#D_for_B_diag)
+ into equation
+[\[largest_eigenvector\]](#largest_eigenvector)
+ and expand out the roots and
+reciprocals upto terms $\mathcal{O}((1-b_{11})^2)$, since
+$(1-b_{11})\approx 0$. We find that the first component is
+$$
+ v_1 = \frac{2p}{(1-b_{11}^2)} + 
+\frac{-2q}{(1-b_{22}^2)}+
+(1-b_{11}^2) \left[ \frac{2r^2(1+ b_{22})^2 -  q^2 }{p(1-b_{22}^2)^2}\right]
+$$ and the second vector component is $$
+v_2 = 2r\left[\frac{1}{1-b_{22}} -
+\frac{b_{22}(1-b_{11})}{(1-b_{22})^2}
+\right]
+$$ where $p := s_{11}^2+s_{12}^2$, $q := s_{21}^2+s_{22}^2$
+and $r := s_{12}s_{22}+s_{11}s_{21}$. We expect this eigenvector,
+$\mathbf{v} = (v_1, v_2)^\top$, to be approximately $(1,0)^\top$, since
+the "interesting" behaviour is happening in this (the $x$) direction.
+The system tends to zero much more quickly in the $y$ direction. If $S$
+is diagonal ($r=0$) then this is always the case, otherwise it may be
+the case that this will be closer to the direction of $(0,1)^\top$, but
+this is only if $s_{11},s_{12}$ are very small and $s_{21},s_{22}$ are
+very large. In this case it is already very obvious that the largest
+variance will be in the $(0,1)^\top$ projection, it is simply a case of
+a very large noise obscuring the signal (in this case the 'signal' is
+the impending tipping point as $b_{11}$ 'approaches' 1).
+
+### Further comments
+
+So far in this section we have shown that the EOF assumption is valid in
+the case of the system of equation
+[\[sytem_eqn_1\]](#sytem_eqn_1)
+, subject to several assumptions. The next step
+is to consider the cases of a three (or higher) dimensional system, an
+$n$-dimensional system, where $B$ is non-diagonalisable, and where the
+system is non-stationary. That is, where $B$ is has a time dependence
+and one of its eigenvalues approaches 1 (from below).\
+It will probably not be possible to calculate the EOF explicitly where
+$B$ is non-diagonalisable, and when $B$ is time-dependent, therefore we
+may infer patterns from repeated simulations in Matlab.
+
+# Application to Tropical Cyclones
+
+Tropical cyclones are a good example of something happening. Looking at
+the sea-level pressure in one location, all is fairly constant, then
+suddenly there is a drop. One would expect that there might be a build
+up of correlations before the event. It is possibly not unreasonable to
+expect that an indication that the event is approaching is detectable
+before the event is detected. That is, that the outcome of an analysis
+of the data will reveal something such as "indicator $\beta$ becoming
+greater than $0.95$" before it is possible to say "the pressure has
+decreased more than would be expected by random chance, indicating that
+a storm system is close by."\
+The analogy to a double well potential two-state system is not at all
+obvious here, as it is in the hot-Earth/ice-age example in
+(livina2011). It fact this may not provide any analogy at all. However,
+the time series look superficially similar, and this is also true of
+many economic and physical systems where sudden catastrophe occurs.\
+
+## Choice of data
+
+First, we have the option of where to look (geographically). We also
+have the option, which variable to use: Sea-Level Pressure (slp), wind
+speed, etc., if we wish to use gridded data, or more than one variable,
+we will need to consider the methods of section
+[3](#sec_gridded). For
+this investigation, the HadISD dataset[^2] was used. Several tropical
+cyclones from the past 50 years were selected, using a list of strongest
+(category 4 or 5) storms, and the data was taken from the weather
+station closest to the point where the storm made landfall.\
+It was discovered that all slp data contains oscillations of roughly
+12-hour wavelength. We experimented removing these oscillations using a
+simple de-seasonalising method: $$
+x_i \longrightarrow x_i - \text{mean}\left( [x_{i+12k}]_{k = 0, \pm 1, ...} \right)
+$$ and also using a Fourier analysis approach to remove peaks
+from the power spectrum. These methods had almost identical results, but
+the Fourier analysis is obviously more robust to changes in the
+frequency of the oscillations. This method was used to remove these
+oscillations from all the HadISD data.\
+We are also faced with the problem that all cyclones are very different.
+Probably the most useful way to classify the cyclones is by whether they
+are building, or past their peak, at the moment they land on the coast.
+
+## Results of degenerate fingerprinting methods
+
+Some experiments were made using the eigenvector method
+(williamson2015), but these are not yet well-understood. A better
+understanding of the method, and the scenarios in which the method will
+work, is required before conclusions can be drawn. Some experiments were
+also made using gridded (reanalysis) data where the basic EOF method was
+applied to yield a one-dimensional time series. Here we show results
+from the use of the HadISD dataset, for consistency.\
+The ACF lag-1 of the sea-level pressure is calculated in a sliding
+window of 120-240 points. In some cases we see an expected rise in the
+ACF just before the cyclone event, however in other cases the value does
+not rise, see figure [7](#Charlie_and_Andrew)
+, DFA fingerprinting is similarly
+inconclusive. However, the autocorrelation does appear to be worthy of
+further study. The sliding ACF was calculated for many cyclones and for
+many windows of data where no cyclone occurred. In the cyclone time
+series, the ACF had much larger variances and lower means than in the
+control. Therefore, the ACF does in some way give an indication of
+whether a cyclone may be approaching, although these results may simply
+be correlated to other weather phenomena exclusive to the summer months
+(when cyclones occur).\
+The PSE (power spectrum exponent) method appears to give a somewhat
+better EWS. Figure [8](#fig_PSE_allstorms)
+ shows slp data from 20 cyclones and the
+PSE calculated in a 50 point (50 hour) sliding window. There is a clear
+rising trend in the mean PSE, and this trend can also be seen in the PSE
+for most (but not all) of the individual time series.
+
+![slp data for hurricanes Charlie and Andrew (left) and the ACF of this
+data measured in a 240-point sliding window. Contrast the rising ACF for
+Charlie with the steep decrease for
+Andrew.](../../notes/images/CharlieandAndrew.png){#Charlie_and_Andrew
+
+
+![[] PSE calculated in a
+50 point sliding window. The black (dashed) line shows the mean of all
+PSE values.](../../notes/images/SEX_all20storms.png){#fig_PSE_allstorms
+
+
+## A stochastic model
+
+There is a need to build a stochastic model of the approaching-cyclone
+time series. We suggest that the model be a double-well potential with
+added daily and seasonal oscillations and added noise, parametrised
+using the Unscented Kalman Filter as described by (kwasniok2009).
+
+## The Null Hypothesis
+
+Our work so far has been concerned mainly with identifying EWS
+retrospectively, but we have in mind that an EWS should be used
+predictively. We must decide which is the null hypothesis that our
+method attempts to answer:
+
+1.  Will there be a cyclone?
+
+2.  Will there be a cyclone in the next \[three days\]?
+
+3.  Given that we know there will be a cyclone in the next \[ten days\],
+    will there be a cyclone in the next \[three days\]?
+
+4.  Given that we know there will be a cyclone in the next \[ten days\],
+    when will the event happen?
+
+5.  In which direction the cyclone is likely to propagate, given a
+    number of observational nodes?
+
+It will be very difficult to answer most of these questions.
+
+# Future work
+
+At the end of section [1](#sec_tippingpoints)
+ we note that there are many possible time
+series on which the EWS may be tested. Classifying the cases in which
+the various EWS may be used is a possible future aim of this project,
+although it seems unlikely that much will be achieved in this direction.
+We note that it is an even more difficult proposition when we also
+consider time series from real-life measurements of geophysical
+variables.\
+In section [2](#sec_EWS_methods)
+ we note that (vannes2007) test the
+hypothesis that critical slowing down is a good EWS in a variety of
+ecological models. It may be necessary to test this further ourselves.\
+We note that the estimator for the auto correlation coefficient in
+equation [\[eqn_ACF_formula\]](#eqn_ACF_formula)
+ may not be the best estimator to use. An
+approach using a maximum likelihood estimator has been discussed and is
+a possible future project.\
+In section [3](#sec_gridded)
+ we motivate the development of a multi-variate
+EWS method with the hypothesis that there exist systems where it is not
+possible to detect an EWS in $X(t)$ not $Y(t)$ but, considered together
+in some way, an EWS is visible. We should construct such a system as a
+test.\
+We also plan to continue the study of tropical cyclones, as noted in the
+text of section [4](#sec_hurricanes)
+, and to further pursue the study of the EOF
+method.
+
+[^1]: also know as Principal Component Analysis (PCA)
+
+[^2]: Raw weather station data. Available online from the Met Office.

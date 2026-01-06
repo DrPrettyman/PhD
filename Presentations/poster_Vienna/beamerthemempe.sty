@@ -1,0 +1,130 @@
+\ProvidesPackage{beamerthemempe}  % this style was created by Thomas Deselaers an Philippe Dreuw and then modified by Tristan
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{tangocolors}
+\RequirePackage{NPLcolors}
+\selectcolormodel{cmyk}
+\mode<presentation>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamercolor{headline}{fg=white,bg=blue1}
+\setbeamercolor{footline}{fg=white, bg=blue1}
+\setbeamerfont{footline}{size=\large,series=\tt}
+\setbeamercolor{separation line}{bg=blue}
+\setbeamercolor{title in headline}{fg=blue3}
+\setbeamercolor{author in headline}{fg=blue1}
+\setbeamercolor{institute in headline}{fg=blue2}
+
+\setbeamercolor{framesubtitle}{fg=white, bg=blue3}
+\setbeamercolor{author in head/foot}{fg=white, bg=blue3}
+\setbeamercolor{title in head/foot}{fg=white, bg=blue3}
+
+\setbeamercolor*{normal text}{fg=tachameleon, bg=ta3skyblue}
+\setbeamercolor*{block body}{bg=white,fg=black}
+\setbeamercolor*{block title}{fg=white,bg=blue2}
+\setbeamerfont{block title}{size=\normalsize}
+\setbeamercolor{upper separation line head}{fg=blue}
+
+\setbeamercolor*{example body}{fg=ta3aluminium,bg=black}
+\setbeamercolor*{example text}{fg=ta3aluminium,bg=black}
+\setbeamercolor*{example title}{bg=taorange,fg=ta2gray}
+
+\setbeamercolor{alerted text}{fg=blue1}
+\setbeamercolor{structure}{fg=ta3skyblue}
+
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{navigation symbols}{}  % no navigation on a poster
+
+
+\usebackgroundtemplate{
+  \includegraphics[width=\paperwidth]{./figures/back_wave2.png}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{block begin}{
+  \vskip.75ex
+  \begin{beamercolorbox}[ht=3ex,dp=1ex,center,rounded=true,shadow=true,leftskip=1cm,colsep*=.75ex]{block title}%
+    \usebeamerfont*{block title}
+    \vspace{-4mm}
+    %\centering
+    \insertblocktitle
+  \end{beamercolorbox}%
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[rounded=true,shadow=true,leftskip=1cm,colsep*=.75ex,sep=2ex,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  }
+  \setbeamertemplate{block end}{
+  \end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}{  
+  \leavevmode
+  
+
+
+    \begin{columns}[T]
+    
+
+	\begin{column}{.32\paperwidth}
+	\end{column}
+	
+	\begin{column}{.45\paperwidth}
+        \vskip1cm
+        %\raggedleft
+       \raggedleft{\usebeamercolor{title in headline}{\color{fg}{\bf\Huge{\inserttitle}}\\[1ex]}}
+  
+		\vskip.2cm  		
+  		
+         \raggedleft{\usebeamercolor{author in headline}{\color{fg}\bf\Large{\insertauthor\textsuperscript{\tiny [1,2]}, Dr. Tobias Kuna\textsuperscript{\tiny [1]}, Dr. Valerie Livina\textsuperscript{\tiny [2]} }  }}
+        \vskip.4cm
+        \raggedleft{ \usebeamercolor{author in headline}{\color{fg}\bf\footnotesize{[1] University of Reading; [2] National Physical Laboratory}  }}
+        \vskip.2cm
+        %\hspace{30cm} \usebeamercolor{author in headline}{\color{fg}\bf\Large{Valerie Livina}  }
+        \vskip.2cm
+        %\hspace{30cm} \usebeamercolor{author in headline}{\color{fg}\bf\Large{Tobias Kuna}  }
+        
+        %\usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}  
+        
+           
+      \end{column}
+      
+      \begin{column}{.34\paperwidth}
+      \end{column}
+    \end{columns}
+    
+    \vskip2cm
+
+
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
+    \rule{0pt}{2pt}
+  \end{beamercolorbox}
+  
+  \leavevmode%
+  \begin{beamercolorbox}[ht=4ex,leftskip=1cm,rightskip=1cm]{author in head/foot}%
+    \hfill
+    \texttt{j.prettyman14@imperial.ac.uk}
+    \vskip1ex
+  \end{beamercolorbox}
+  \vskip0pt%
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
+    \rule{0pt}{2pt}
+  \end{beamercolorbox}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Display a grid to help align images ... and it looks nice with this color scheme
+%\beamertemplategridbackground[1cm]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<all>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-master: "poster"
+%%% End: 

@@ -1,0 +1,150 @@
+% ******************************* PhD Thesis Template **************************
+% Please have a look at the README.md file for info on how to use the template
+
+\documentclass[a4paper,10pt,times,custombib, print]{PhDThesisPSnPDF}
+
+% ********** Class Options *************
+% ********** See README for more details *************
+% `oneside' or `twoside'(default): Printing double side (twoside) or single side.
+%
+% `print': Use `print' for print version with appropriate margins and page
+% layout. Leaving the options field blank will activate Online version.
+%
+% `index': For index at the end of the thesis
+%
+% `draftclassic': For draft mode without loading any images (same as draft in book)
+%
+% `draft': Special draft mode with line numbers, images, and water mark with timestamp and custom text. Position of the text can also be modified.
+%
+% `abstract': To generate only the title page and abstract page with
+% dissertation title and name, to submit to the Student Registry
+%
+% `chapter`: This option enables only the specified chapter and it's references
+%  Useful for review and corrections.
+%
+% ******** Custom Page Margins ********************
+%
+% `custommargin`: Use `custommargin' in options to activate custom page margins, which can be defined in the preamble.tex. Custom margin will override print/online margin setup.
+%
+% ***** Choosing the Fonts in Class Options *************
+%
+% `times' : Times font with math support. (The Cambridge University guidelines recommend using times)
+%
+% `fourier': Utopia Font with Fourier Math font (Font has to be installed) It's a free font.
+%
+% `customfont': Use `customfont' option in the document class and load the package in the preamble.tex
+%
+% default or leave empty: `Latin Modern' font will be loaded.
+%
+% *** Choosing the Bibliography style ********
+%
+% `authoryear': For author-year citation eg., Krishna (2013)
+%
+% `numbered': (Default Option) For numbered and sorted citation e.g., [1,5,2]
+%
+% `custombib': Define your own bibliography style in the `preamble.tex' file.
+%              `\RequirePackage[square, sort, numbers, authoryear]{natbib}'.
+%              This can be also used to load biblatex instead of natbib (See Preamble)
+%
+% ********** Choosing the Page Style ****************
+%
+% `default (leave empty)': For Page Numbers in Header (Left Even, Right Odd) and Chapter Name in Header (Right Even) and Section Name (Left Odd). Blank Footer.
+%
+% `PageStyleI': Chapter Name next & Page Number on Even Side (Left Even).
+% Section Name & Page Number in Header on Odd Side (Right Odd). Footer is empty.
+%
+% `PageStyleII': Chapter Name on Even Side (Left Even) in Header. Section Number
+% and Section Name in Header on Odd Side (Right Odd). Page numbering in footer
+
+% Uncomment to change page style
+%\pagestyle{PageStyleII}
+
+% ****** Preamble **********
+% Preamble: Contains packages and user-defined commands and settings
+\input{Preamble/preamble_nored}
+
+% ****** Thesis Information & Meta-data ***********
+% Thesis title and author information, refernce file for biblatex
+\input{thesis-info}
+
+% *************** Chapter Mode *************************
+% The chapter mode allows user to only print particular chapters with references. Title, Contents, Frontmatter are disabled by default. Useful option to review a particular chapter or to send it to supervisior. To use choose `chapter' option in the document class
+%\ifdefineChapter
+% \includeonly{Chapter3/chapter3}
+%\fi
+
+% ********* Front Matter ******************
+\begin{document}
+
+\frontmatter
+
+\maketitle
+
+\include{Abstract/abstract}
+
+\tableofcontents
+
+\chapter{Glossary of tipping point nomenclature}
+{\small
+\noindent {\bf Critical slowing down} — The phenomenon whereby recovery rates increase prior to a tipping point, or critical transition.\\
+\vspace{-0.3cm}\\
+\noindent {\bf Critical transition } — Synonymous with \emph{tipping point} in the context of this thesis. The word \emph{critical} here emphasises that the transition occurs at some {\bf critical time}, or when a system parameter reaches some {\bf critical value}: terms which are also used throughout this thesis.\\
+\vspace{-0.3cm}\\
+\noindent {\bf Early warning signal (EWS)} — Any signal which is interpreted as providing a warning or prediction of a future tipping point.\\
+\vspace{-0.3cm}\\
+\noindent {\bf EWS indicator} — Some measured quantity of a system the change in whose value over time is itself an early warning signal. In many systems variance may be an EWS indicator since plotting variance against time may be interpreted as an early warning signal where the variance is expected to increase with the approach of the tipping point. \\
+\vspace{-0.3cm}\\
+\noindent {\bf Recovery rate } — The rate at which a system returns to its equilibrium state after some perturbation due to some forcing. \\
+\vspace{-0.3cm}\\
+\noindent {\bf Resilience } — The ability of a dynamical system to resist outside forcing. A weakly resilient system may shift to a different stable state due to some forcing, whilst a strongly resilient system will `recover', i.e. return to its original stable state, with some recovery rate. \\
+\vspace{-0.3cm}\\
+\noindent {\bf Tipping point} — The term \emph{tipping point} is used in a wide range of contexts in the literature. Generally, it can be taken to mean simply ``any abrupt change in a dynamical system''. Some authors may restrict the meaning to only a change due to a \emph{bifurcation}, or only a noise-driven transition between two stable states in a bistable system. In this thesis we use the term in its general sense and specify when we refer to these sub-categories.\\
+
+}
+
+
+% ********** Main Matter *****************
+\mainmatter
+
+
+\include{Chap_Introduction/ChapIntroduction}
+\include{Chap_1D_methods/Chap1Dmethods}
+\include{Chap_Multivariable/ChapMultivariable}
+\include{Chap_Cyclones/ChapCyclones}
+\include{Chap_Conclusion/ChapConclusion}
+%\include{Chap_Cyclone_Model/ChapCycloneModel}
+%\include{Chapter6/chapter6}
+%\include{Chapter7/chapter7}
+
+
+
+% *************** Back Matter *******************
+% Backmatter should be commented out, if you are using appendices after References
+%\backmatter
+
+% *************** Bibliography ***************
+\begin{spacing}{0.9}
+% To use the conventional natbib style referencing
+
+\bibliographystyle{apalike}
+%\bibliographystyle{unsrt} % Use for unsorted references  
+%\bibliographystyle{plainnat} % use this to have URLs listed in References
+\cleardoublepage
+\bibliography{References/bibliography} % Path to your References.bib file
+
+% If you would like to use BibLaTeX for your references, pass `custombib' as an option in the document class. The location of 'reference.bib' should be specified in the preamble.tex file in the custombib section. Comment out the lines related to natbib above and uncomment the following line.
+%\printbibliography[heading=bibintoc, title={References}]
+\end{spacing}
+
+% *************** Appendices ***********
+
+\begin{appendices} % Using appendices environment for more functunality
+\include{Appendix1/appendix1}
+\include{Appendix2/appendix2}
+%\include{Appendix3/appendix3}
+\end{appendices}
+
+% ********** Index ********************
+%\printthesisindex % If index is present
+
+\end{document}

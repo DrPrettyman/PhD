@@ -1,0 +1,83 @@
+
+	
+
+\PassOptionsToPackage{svgnames}{xcolor}
+\documentclass[11pt,a4paper,reqno]{article}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig,subfig}
+\usepackage[margin=1.4in]{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+\tcbuselibrary{skins,breakable}
+
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+\usepackage{dsfont}
+\numberwithin{equation}{section}
+\usetikzlibrary{intersections}
+\usetikzlibrary{calc}
+
+\newtheorem{thm}{Theorem} 
+\newcommand{\Cr}{\textcolor{red}}
+
+\newenvironment{myblock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=LightBlue,colframe=DarkBlue,%
+    colbacklower=DarkBlue!75!LightBlue,%
+    title=#1]}%
+    {\endtcolorbox}
+
+\newcommand{\x}{{\mathbf x}}
+\newcommand{\y}{{\mathbf y}}
+\newcommand{\etab}{{\mathbf \eta}}
+
+\usepackage{listings}
+
+\begin{document}
+
+\bibliographystyle{apalike}
+
+\lstset{language=Python}
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\section*{Joshua Prettyman - self review September 2016}
+
+One year of the PhD. So far I do not feel like much progress has been made, however I am told that this is normal and my supervisors have expressed no concerns. I have read the background on my area and implemented a few known algorithms to achieve expected results. \\
+
+\subsection*{Supervisors:}
+
+My supervisors are Tobias Kuna (Reading) and Valerie Livina (NPL). Tobias is the ``main supervisor''.\\
+
+I live in Sheffield and work ``from home'', so to speak. Actually I find a desk at Sheffield University library. I travel to London to meet Valerie usually twice per month. I generally feel more confident about the project after I have met Valerie. I travel to Reading very rarely and so do not meet with Tobias often. Since Tobias is in the USA for the next few months, this will be unavoidable anyway. We have planned to meet via skype once per week. It would be a good idea to continue this habit (if it becomes a habit) after he returns. Until recently I had spoken very little to Tobias about the PhD, but a recent meeting proved very interesting. Valerie and Tobias tend to view the project quite differently.\\
+
+\subsection*{Extra-curriculars:}
+
+I have this year attended the Modelling with Industrial Applications graduate camp at the University of Oxford, and maybe 8 to 10 of the weekly MPE seminars. Also the MPE Jamboree with many seminars. In November 2016 I am attending a conference on Time-Series Analysis with Applications to Climate Change (Troms{\o}). This sounds very relevant, but it is pitched to scientists rather than mathematicians so we shall see. Also I have taken on an informal, work-from-home internship with Anglian Water, no progress yet but the problem set seems interesting. \\
+
+\subsection*{Writing papers:}
+
+So far no papers have resulted. Valerie is keen to apply the ACF and DFA methods to pressure data for approaching tropical cyclones and thinks that a paper can result from this discussion. Also, further developing the method of Valerie's collaborator Tim Lenton, which expands the method to look at multiple variables, could result in another paper. In particular, Tobias and I have discussed ways in which the method could be improved and developed. A key idea is also to apply the method ``blind'' to data supplied by scientists for independent verification. Valerie has done this before and has written some papers as a result.
+
+
+
+
+\end{document}

@@ -1,0 +1,70 @@
+%!TEX root = ../thesis.tex
+% ******************************* Thesis Appendix B ********************************
+
+\chapter{Extracts of Matlab codes}
+\label{appendix:code}
+
+Here we present some of the Matlab code used in the experiments presented in this thesis. In all cases we give only a minimum working example: all error messages, experimental features and help comments have been stripped back to make the extracts easier to follow.
+
+
+\section{Power spectrum exponent estimation}
+\label{appendix:PSexponent}
+%\lstset{language=Matlab, numbers=left, numberstyle=\tiny, framexleftmargin=7mm, frame=shadowbox, rulesepcolor=\color{blue}}
+\lstset{language=Matlab, numbers=left, numberstyle=\tiny, framexleftmargin=7mm, frame=single, basicstyle=\ttfamily}
+%\renewcommand{\ttdefault}{pcr}
+\begin{lstlisting}
+function [pse_value] = PSE(X)
+N = length(X);
+xdft = fft(X);
+xdft = xdft(1:floor(N/2)+1);
+psdx = (1/N)*abs(xdft).^2;
+psdx(2:end-1) = 2*psdx(2:end-1);
+freq = linspace(0,1/2,length(psdx))';
+logf = log10(freq); logp = log10(psdx);
+pfit = polyfit(logf, logp, 1);
+pse_value = -pfit(1);
+\end{lstlisting}
+The function \texttt{PSE} takes a one-dimensional array \texttt{X}, presumed to be a time series, and returns a single value which is an estimate on the power spectrum scaling exponent $\beta$. The majority of the computation is the calculation of the fast Fourier transform on line \texttt{3} which refers to Matlab's inbuilt algorithm. The one-sided FFT is then obtained by truncation (line \texttt{4}) and an estimate of the power spectral density (\texttt{psdx}) is found (lines \texttt{5}-\texttt{7}). We then take the logarithm of the PSD and fit a linear function to the result, the coefficient of which provides the output \texttt{pse\_value}.
+
+In most of our experiments, particularly whenever this function is being used as part of the calculation of the PS indicator, to be used as an EWS, an additional line is added between lines \texttt{8} and \texttt{9} in this extract: \texttt{[logf, logp]=logbin(logf,logp,[-2,-1]);}, which simply bins the logarithmic PSD (\texttt{logp}) in the interval $\m2\leq\texttt{logf}\leq\m1$so that it does not have a higher density of points at the higher frequencies.
+
+\section{PS exponent in a sliding window}
+\label{appendix:PSsliding}
+\begin{lstlisting}
+function slidingPSE = PSE_sliding(X, windowSize)
+slidingPSE = zeros(size(X));
+for i = (1+windowSize):size(X,1)
+	window = X((i - windowSize):i);
+	slidingPSE(i) = PSE(window);
+end
+\end{lstlisting}
+With the function \texttt{PSE\_sliding} we calculate the PS exponent of successive overlapping windows of a time series \texttt{X}, each of length \texttt{windowSize}. The resulting series, which is the output of this function, is what we call the early warning signal of the PS indicator (see section~\ref{subsec:1D:Exponents_as_EWS:indicators}). The function \texttt{PSE} on line \texttt{5} is the calculation of the PS exponent, as shown in the previous section. 
+
+A function very similar to this is used to return the ACF1 and DFA indicators, but instead of the function \texttt{PSE} on line \texttt{5} we use functions which return the lag-1 autocorrelation or the DFA exponent. 
+
+\section{The Milstein method}
+\label{appendix:milstein}
+\begin{lstlisting}
+function [t,Y] = milstein(f, sigma, x0, tBounds, delta_t)
+
+N =floor((tBounds(2) - tBounds(1))/delta_t);
+dt=(tBounds(2)-tBounds(1))/N;
+t=linspace(tBounds(1), tBounds(2), N)'; 
+m=size(x0,1); Y=zeros(m, N);  
+Y(:,1)=x0;       % set inital condition
+if all(size(sigma(t(1)))==[m,m]); S=sigma; 
+else; S=@(t)(diag(sigma(t))); end
+
+for i = 2:N
+	dW=randn(m,1); s0 = S(t(i-1));
+	A1=dt*f(Y(:,i-1), t(i-1))+sqrt(dt)*s0*dW;
+	Sdash=diag(1./A1)*(S(t(i))-s0);
+	Y(:,i)=Y(:,i-1)+A1+...
+		0.5*dt*s0*Sdash*((s0*dW).^2-ones(m,1));
+end
+\end{lstlisting}
+All the dynamical systems integrated numerically throughout the thesis have been integrated using the Milstein method (see section~\ref{sec:1D:numerical_integration}, page~\pageref{sec:1D:numerical_integration}) as written in this Matlab function script. The function is designed to return a time series \texttt{Y} corresponding to the integration of a system
+\begin{equation}
+\frac{dX}{dt} = f(X,t) + \sigma\eta_t\,,
+\end{equation}
+where each element of $\eta_t$ is an independent Gaussian white noise process and, if the system is higher than one-dimensional, $\sigma$ may be a matrix. The Matlab function takes as inputs the function handle \texttt{f = @(X,t)(...)}, which corresponds to the function $f$; the matrix or vector \texttt{sigma} corresponding to $\sigma$; and the initial condition \texttt{x0}. The input \texttt{tBounds} is a 2-element array giving the lower and upper limits of integration, and \texttt{delta\_t} gives the time step.

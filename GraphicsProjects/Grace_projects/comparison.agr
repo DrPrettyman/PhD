@@ -1,0 +1,3326 @@
+# Grace project file
+#
+@version 50123
+@page size 792, 612
+@page scroll 5%
+@page inout 5%
+@link page off
+@map font 8 to "Courier", "Courier"
+@map font 10 to "Courier-Bold", "Courier-Bold"
+@map font 11 to "Courier-BoldOblique", "Courier-BoldOblique"
+@map font 9 to "Courier-Oblique", "Courier-Oblique"
+@map font 4 to "Helvetica", "Helvetica"
+@map font 6 to "Helvetica-Bold", "Helvetica-Bold"
+@map font 7 to "Helvetica-BoldOblique", "Helvetica-BoldOblique"
+@map font 5 to "Helvetica-Oblique", "Helvetica-Oblique"
+@map font 14 to "NimbusMonoL-BoldOblique", "NimbusMonoL-BoldOblique"
+@map font 15 to "NimbusMonoL-Regular", "NimbusMonoL-Regular"
+@map font 16 to "NimbusMonoL-RegularOblique", "NimbusMonoL-RegularOblique"
+@map font 17 to "NimbusRomanNo9L-Medium", "NimbusRomanNo9L-Medium"
+@map font 18 to "NimbusRomanNo9L-MediumItalic", "NimbusRomanNo9L-MediumItalic"
+@map font 19 to "NimbusRomanNo9L-Regular", "NimbusRomanNo9L-Regular"
+@map font 20 to "NimbusRomanNo9L-RegularItalic", "NimbusRomanNo9L-RegularItalic"
+@map font 21 to "NimbusSansL-Bold", "NimbusSansL-Bold"
+@map font 22 to "NimbusSansL-BoldCondensed", "NimbusSansL-BoldCondensed"
+@map font 23 to "NimbusSansL-BoldCondensedItalic", "NimbusSansL-BoldCondensedItalic"
+@map font 24 to "NimbusSansL-BoldItalic", "NimbusSansL-BoldItalic"
+@map font 25 to "NimbusSansL-Regular", "NimbusSansL-Regular"
+@map font 26 to "NimbusSansL-RegularCondensed", "NimbusSansL-RegularCondensed"
+@map font 27 to "NimbusSansL-RegularCondensedItalic", "NimbusSansL-RegularCondensedItalic"
+@map font 28 to "NimbusSansL-RegularItalic", "NimbusSansL-RegularItalic"
+@map font 29 to "StandardSymbolsL-Regular", "StandardSymbolsL-Regular"
+@map font 12 to "Symbol", "Symbol"
+@map font 31 to "Symbol-Regular", "Symbol-Regular"
+@map font 2 to "Times-Bold", "Times-Bold"
+@map font 3 to "Times-BoldItalic", "Times-BoldItalic"
+@map font 1 to "Times-Italic", "Times-Italic"
+@map font 0 to "Times-Roman", "Times-Roman"
+@map font 36 to "URWBookmanL-DemiBold", "URWBookmanL-DemiBold"
+@map font 37 to "URWBookmanL-DemiBoldItalic", "URWBookmanL-DemiBoldItalic"
+@map font 38 to "URWBookmanL-Light", "URWBookmanL-Light"
+@map font 39 to "URWBookmanL-LightItalic", "URWBookmanL-LightItalic"
+@map font 40 to "URWChanceryL-MediumItalic", "URWChanceryL-MediumItalic"
+@map font 41 to "URWGothicL-Book", "URWGothicL-Book"
+@map font 42 to "URWGothicL-BookOblique", "URWGothicL-BookOblique"
+@map font 43 to "URWGothicL-Demi", "URWGothicL-Demi"
+@map font 44 to "URWGothicL-DemiOblique", "URWGothicL-DemiOblique"
+@map font 45 to "URWPalladioL-Bold", "URWPalladioL-Bold"
+@map font 46 to "URWPalladioL-BoldItalic", "URWPalladioL-BoldItalic"
+@map font 47 to "URWPalladioL-Italic", "URWPalladioL-Italic"
+@map font 48 to "URWPalladioL-Roman", "URWPalladioL-Roman"
+@map font 13 to "ZapfDingbats", "ZapfDingbats"
+@map color 0 to (255, 255, 255), "white"
+@map color 1 to (0, 0, 0), "black"
+@map color 2 to (255, 0, 0), "red"
+@map color 3 to (0, 255, 0), "green"
+@map color 4 to (0, 0, 255), "blue"
+@map color 5 to (255, 255, 0), "yellow"
+@map color 6 to (188, 143, 143), "brown"
+@map color 7 to (220, 220, 220), "grey"
+@map color 8 to (148, 0, 211), "violet"
+@map color 9 to (0, 255, 255), "cyan"
+@map color 10 to (255, 0, 255), "magenta"
+@map color 11 to (255, 165, 0), "orange"
+@map color 12 to (114, 33, 188), "indigo"
+@map color 13 to (103, 7, 72), "maroon"
+@map color 14 to (64, 224, 208), "turquoise"
+@map color 15 to (0, 139, 0), "green4"
+@reference date 1721058.5
+@date wrap off
+@date wrap year 1950
+@default linewidth 1.0
+@default linestyle 1
+@default color 1
+@default pattern 1
+@default font 0
+@default char size 1.000000
+@default symbol size 1.000000
+@default sformat "%.8g"
+@background color 0
+@page background fill on
+@timestamp off
+@timestamp 0.03, 0.03
+@timestamp color 1
+@timestamp rot 0
+@timestamp font 0
+@timestamp char size 1.000000
+@timestamp def "Tue Mar  8 13:18:47 2016"
+@r0 off
+@link r0 to g0
+@r0 type above
+@r0 linestyle 1
+@r0 linewidth 1.0
+@r0 color 1
+@r0 line 0, 0, 0, 0
+@r1 off
+@link r1 to g0
+@r1 type above
+@r1 linestyle 1
+@r1 linewidth 1.0
+@r1 color 1
+@r1 line 0, 0, 0, 0
+@r2 off
+@link r2 to g0
+@r2 type above
+@r2 linestyle 1
+@r2 linewidth 1.0
+@r2 color 1
+@r2 line 0, 0, 0, 0
+@r3 off
+@link r3 to g0
+@r3 type above
+@r3 linestyle 1
+@r3 linewidth 1.0
+@r3 color 1
+@r3 line 0, 0, 0, 0
+@r4 off
+@link r4 to g0
+@r4 type above
+@r4 linestyle 1
+@r4 linewidth 1.0
+@r4 color 1
+@r4 line 0, 0, 0, 0
+@g0 on
+@g0 hidden false
+@g0 type XY
+@g0 stacked false
+@g0 bar hgap 0.000000
+@g0 fixedpoint off
+@g0 fixedpoint type 0
+@g0 fixedpoint xy 0.000000, 0.000000
+@g0 fixedpoint format general general
+@g0 fixedpoint prec 6, 6
+@with g0
+@    world 732500, 0.5, 732570, 1
+@    stack world 0, 0, 0, 0
+@    znorm 1
+@    view 0.150000, 0.450000, 1.150000, 0.850000
+@    title ""
+@    title font 0
+@    title size 1.500000
+@    title color 1
+@    subtitle ""
+@    subtitle font 0
+@    subtitle size 1.000000
+@    subtitle color 1
+@    xaxes scale Normal
+@    yaxes scale Normal
+@    xaxes invert off
+@    yaxes invert off
+@    xaxis  on
+@    xaxis  type zero false
+@    xaxis  offset 0.000000 , 0.000000
+@    xaxis  bar on
+@    xaxis  bar color 1
+@    xaxis  bar linestyle 1
+@    xaxis  bar linewidth 1.0
+@    xaxis  label ""
+@    xaxis  label layout para
+@    xaxis  label place auto
+@    xaxis  label char size 1.000000
+@    xaxis  label font 0
+@    xaxis  label color 1
+@    xaxis  label place normal
+@    xaxis  tick on
+@    xaxis  tick major 5
+@    xaxis  tick minor ticks 4
+@    xaxis  tick default 6
+@    xaxis  tick place rounded true
+@    xaxis  tick in
+@    xaxis  tick major size 1.430000
+@    xaxis  tick major color 1
+@    xaxis  tick major linewidth 2.0
+@    xaxis  tick major linestyle 1
+@    xaxis  tick major grid off
+@    xaxis  tick minor color 1
+@    xaxis  tick minor linewidth 1.0
+@    xaxis  tick minor linestyle 1
+@    xaxis  tick minor grid off
+@    xaxis  tick minor size 0.500000
+@    xaxis  ticklabel off
+@    xaxis  ticklabel format daymonth
+@    xaxis  ticklabel prec 5
+@    xaxis  ticklabel formula ""
+@    xaxis  ticklabel append ""
+@    xaxis  ticklabel prepend ""
+@    xaxis  ticklabel angle 319
+@    xaxis  ticklabel skip 0
+@    xaxis  ticklabel stagger 0
+@    xaxis  ticklabel place normal
+@    xaxis  ticklabel offset auto
+@    xaxis  ticklabel offset 0.000000 , 0.010000
+@    xaxis  ticklabel start type auto
+@    xaxis  ticklabel start 0.000000
+@    xaxis  ticklabel stop type auto
+@    xaxis  ticklabel stop 0.000000
+@    xaxis  ticklabel char size 1.000000
+@    xaxis  ticklabel font 0
+@    xaxis  ticklabel color 1
+@    xaxis  tick place both
+@    xaxis  tick spec type none
+@    yaxis  on
+@    yaxis  type zero false
+@    yaxis  offset 0.000000 , 0.000000
+@    yaxis  bar on
+@    yaxis  bar color 1
+@    yaxis  bar linestyle 1
+@    yaxis  bar linewidth 1.0
+@    yaxis  label ""
+@    yaxis  label layout para
+@    yaxis  label place auto
+@    yaxis  label char size 1.000000
+@    yaxis  label font 0
+@    yaxis  label color 1
+@    yaxis  label place normal
+@    yaxis  tick on
+@    yaxis  tick major 0.2
+@    yaxis  tick minor ticks 1
+@    yaxis  tick default 6
+@    yaxis  tick place rounded true
+@    yaxis  tick in
+@    yaxis  tick major size 1.000000
+@    yaxis  tick major color 1
+@    yaxis  tick major linewidth 1.0
+@    yaxis  tick major linestyle 1
+@    yaxis  tick major grid off
+@    yaxis  tick minor color 1
+@    yaxis  tick minor linewidth 1.0
+@    yaxis  tick minor linestyle 1
+@    yaxis  tick minor grid off
+@    yaxis  tick minor size 0.500000
+@    yaxis  ticklabel off
+@    yaxis  ticklabel format general
+@    yaxis  ticklabel prec 5
+@    yaxis  ticklabel formula ""
+@    yaxis  ticklabel append ""
+@    yaxis  ticklabel prepend ""
+@    yaxis  ticklabel angle 0
+@    yaxis  ticklabel skip 0
+@    yaxis  ticklabel stagger 0
+@    yaxis  ticklabel place normal
+@    yaxis  ticklabel offset auto
+@    yaxis  ticklabel offset 0.000000 , 0.010000
+@    yaxis  ticklabel start type auto
+@    yaxis  ticklabel start 0.000000
+@    yaxis  ticklabel stop type auto
+@    yaxis  ticklabel stop 0.000000
+@    yaxis  ticklabel char size 1.000000
+@    yaxis  ticklabel font 0
+@    yaxis  ticklabel color 1
+@    yaxis  tick place both
+@    yaxis  tick spec type none
+@    altxaxis  off
+@    altyaxis  off
+@    legend on
+@    legend loctype view
+@    legend 0.174754901961, 0.608823529412
+@    legend box color 1
+@    legend box pattern 1
+@    legend box linewidth 1.0
+@    legend box linestyle 1
+@    legend box fill color 0
+@    legend box fill pattern 1
+@    legend font 0
+@    legend char size 1.000000
+@    legend color 1
+@    legend length 4
+@    legend vgap 1
+@    legend hgap 1
+@    legend invert false
+@    frame type 0
+@    frame linestyle 1
+@    frame linewidth 1.0
+@    frame color 1
+@    frame pattern 1
+@    frame background color 0
+@    frame background pattern 0
+@    s0 hidden false
+@    s0 type xy
+@    s0 symbol 0
+@    s0 symbol size 1.000000
+@    s0 symbol color 1
+@    s0 symbol pattern 1
+@    s0 symbol fill color 1
+@    s0 symbol fill pattern 0
+@    s0 symbol linewidth 1.0
+@    s0 symbol linestyle 1
+@    s0 symbol char 65
+@    s0 symbol char font 0
+@    s0 symbol skip 0
+@    s0 line type 1
+@    s0 line linestyle 1
+@    s0 line linewidth 1.5
+@    s0 line color 1
+@    s0 line pattern 1
+@    s0 baseline type 0
+@    s0 baseline off
+@    s0 dropline off
+@    s0 fill type 0
+@    s0 fill rule 0
+@    s0 fill color 1
+@    s0 fill pattern 1
+@    s0 avalue off
+@    s0 avalue type 2
+@    s0 avalue char size 1.000000
+@    s0 avalue font 0
+@    s0 avalue color 1
+@    s0 avalue rot 0
+@    s0 avalue format general
+@    s0 avalue prec 3
+@    s0 avalue prepend ""
+@    s0 avalue append ""
+@    s0 avalue offset 0.000000 , 0.000000
+@    s0 errorbar on
+@    s0 errorbar place both
+@    s0 errorbar color 1
+@    s0 errorbar pattern 1
+@    s0 errorbar size 1.000000
+@    s0 errorbar linewidth 1.0
+@    s0 errorbar linestyle 1
+@    s0 errorbar riser linewidth 1.0
+@    s0 errorbar riser linestyle 1
+@    s0 errorbar riser clip off
+@    s0 errorbar riser clip length 0.100000
+@    s0 comment "Cols 1:2"
+@    s0 legend  "Eigenvalue (real)"
+@    s2 hidden false
+@    s2 type xy
+@    s2 symbol 0
+@    s2 symbol size 1.000000
+@    s2 symbol color 12
+@    s2 symbol pattern 1
+@    s2 symbol fill color 12
+@    s2 symbol fill pattern 0
+@    s2 symbol linewidth 1.0
+@    s2 symbol linestyle 1
+@    s2 symbol char 65
+@    s2 symbol char font 0
+@    s2 symbol skip 0
+@    s2 line type 1
+@    s2 line linestyle 1
+@    s2 line linewidth 1.5
+@    s2 line color 12
+@    s2 line pattern 1
+@    s2 baseline type 0
+@    s2 baseline off
+@    s2 dropline off
+@    s2 fill type 0
+@    s2 fill rule 0
+@    s2 fill color 1
+@    s2 fill pattern 1
+@    s2 avalue off
+@    s2 avalue type 2
+@    s2 avalue char size 1.000000
+@    s2 avalue font 0
+@    s2 avalue color 1
+@    s2 avalue rot 0
+@    s2 avalue format general
+@    s2 avalue prec 3
+@    s2 avalue prepend ""
+@    s2 avalue append ""
+@    s2 avalue offset 0.000000 , 0.000000
+@    s2 errorbar on
+@    s2 errorbar place both
+@    s2 errorbar color 12
+@    s2 errorbar pattern 1
+@    s2 errorbar size 1.000000
+@    s2 errorbar linewidth 1.0
+@    s2 errorbar linestyle 1
+@    s2 errorbar riser linewidth 1.0
+@    s2 errorbar riser linestyle 1
+@    s2 errorbar riser clip off
+@    s2 errorbar riser clip length 0.100000
+@    s2 comment "/home/prettyman/Dropbox/PhD_Prettyman/Grace_projects/mslpACF.dat"
+@    s2 legend  "ACF lag-1"
+@g1 on
+@g1 hidden false
+@g1 type XY
+@g1 stacked false
+@g1 bar hgap 0.000000
+@g1 fixedpoint off
+@g1 fixedpoint type 0
+@g1 fixedpoint xy 0.000000, 0.000000
+@g1 fixedpoint format general general
+@g1 fixedpoint prec 6, 6
+@with g1
+@    world 732500, 1, 732570, 3
+@    stack world 0, 0, 0, 0
+@    znorm 1
+@    view 0.150000, 0.450000, 1.150000, 0.850000
+@    title "Comparison of different methods"
+@    title font 0
+@    title size 1.500000
+@    title color 1
+@    subtitle "Using data from the Mexican gulf around the time of hurricane Katrina"
+@    subtitle font 0
+@    subtitle size 1.000000
+@    subtitle color 1
+@    xaxes scale Normal
+@    yaxes scale Normal
+@    xaxes invert off
+@    yaxes invert off
+@    xaxis  off
+@    yaxis  off
+@    altxaxis  off
+@    altyaxis  off
+@    legend on
+@    legend loctype view
+@    legend 0.174754902, 0.655392157
+@    legend box color 1
+@    legend box pattern 1
+@    legend box linewidth 1.0
+@    legend box linestyle 1
+@    legend box fill color 0
+@    legend box fill pattern 1
+@    legend font 0
+@    legend char size 1.000000
+@    legend color 1
+@    legend length 4
+@    legend vgap 1
+@    legend hgap 1
+@    legend invert false
+@    frame type 0
+@    frame linestyle 1
+@    frame linewidth 1.0
+@    frame color 1
+@    frame pattern 1
+@    frame background color 0
+@    frame background pattern 0
+@    s0 hidden false
+@    s0 type xy
+@    s0 symbol 10
+@    s0 symbol size 1.000000
+@    s0 symbol color 2
+@    s0 symbol pattern 1
+@    s0 symbol fill color 2
+@    s0 symbol fill pattern 0
+@    s0 symbol linewidth 1.0
+@    s0 symbol linestyle 1
+@    s0 symbol char 65
+@    s0 symbol char font 0
+@    s0 symbol skip 0
+@    s0 line type 1
+@    s0 line linestyle 3
+@    s0 line linewidth 1.5
+@    s0 line color 2
+@    s0 line pattern 1
+@    s0 baseline type 0
+@    s0 baseline off
+@    s0 dropline off
+@    s0 fill type 0
+@    s0 fill rule 0
+@    s0 fill color 1
+@    s0 fill pattern 1
+@    s0 avalue off
+@    s0 avalue type 2
+@    s0 avalue char size 1.000000
+@    s0 avalue font 0
+@    s0 avalue color 1
+@    s0 avalue rot 0
+@    s0 avalue format general
+@    s0 avalue prec 3
+@    s0 avalue prepend ""
+@    s0 avalue append ""
+@    s0 avalue offset 0.000000 , 0.000000
+@    s0 errorbar on
+@    s0 errorbar place both
+@    s0 errorbar color 2
+@    s0 errorbar pattern 1
+@    s0 errorbar size 1.000000
+@    s0 errorbar linewidth 1.0
+@    s0 errorbar linestyle 1
+@    s0 errorbar riser linewidth 1.0
+@    s0 errorbar riser linestyle 1
+@    s0 errorbar riser clip off
+@    s0 errorbar riser clip length 0.100000
+@    s0 comment "/home/prettyman/Dropbox/PhD_Prettyman/Grace_projects/mslpDFA.dat"
+@    s0 legend  "DFA exponent"
+@g2 on
+@g2 hidden false
+@g2 type XY
+@g2 stacked false
+@g2 bar hgap 0.000000
+@g2 fixedpoint off
+@g2 fixedpoint type 0
+@g2 fixedpoint xy 0.000000, 0.000000
+@g2 fixedpoint format general general
+@g2 fixedpoint prec 6, 6
+@with g2
+@    world 732500, -100000, 732570, 90000
+@    stack world 0, 0, 0, 0
+@    znorm 1
+@    view 0.150000, 0.100000, 1.150000, 0.350000
+@    title ""
+@    title font 0
+@    title size 1.500000
+@    title color 1
+@    subtitle ""
+@    subtitle font 0
+@    subtitle size 1.000000
+@    subtitle color 1
+@    xaxes scale Normal
+@    yaxes scale Normal
+@    xaxes invert off
+@    yaxes invert off
+@    xaxis  on
+@    xaxis  type zero false
+@    xaxis  offset 0.000000 , 0.000000
+@    xaxis  bar on
+@    xaxis  bar color 1
+@    xaxis  bar linestyle 1
+@    xaxis  bar linewidth 1.0
+@    xaxis  label ""
+@    xaxis  label layout para
+@    xaxis  label place auto
+@    xaxis  label char size 1.000000
+@    xaxis  label font 0
+@    xaxis  label color 1
+@    xaxis  label place normal
+@    xaxis  tick on
+@    xaxis  tick major 5
+@    xaxis  tick minor ticks 4
+@    xaxis  tick default 6
+@    xaxis  tick place rounded true
+@    xaxis  tick in
+@    xaxis  tick major size 1.430000
+@    xaxis  tick major color 1
+@    xaxis  tick major linewidth 2.0
+@    xaxis  tick major linestyle 1
+@    xaxis  tick major grid off
+@    xaxis  tick minor color 1
+@    xaxis  tick minor linewidth 1.0
+@    xaxis  tick minor linestyle 1
+@    xaxis  tick minor grid off
+@    xaxis  tick minor size 0.500000
+@    xaxis  ticklabel on
+@    xaxis  ticklabel format daymonth
+@    xaxis  ticklabel prec 5
+@    xaxis  ticklabel formula ""
+@    xaxis  ticklabel append ""
+@    xaxis  ticklabel prepend ""
+@    xaxis  ticklabel angle 299
+@    xaxis  ticklabel skip 0
+@    xaxis  ticklabel stagger 0
+@    xaxis  ticklabel place opposite
+@    xaxis  ticklabel offset auto
+@    xaxis  ticklabel offset 0.000000 , 0.010000
+@    xaxis  ticklabel start type auto
+@    xaxis  ticklabel start 0.000000
+@    xaxis  ticklabel stop type auto
+@    xaxis  ticklabel stop 0.000000
+@    xaxis  ticklabel char size 1.000000
+@    xaxis  ticklabel font 0
+@    xaxis  ticklabel color 1
+@    xaxis  tick place both
+@    xaxis  tick spec type none
+@    yaxis  on
+@    yaxis  type zero false
+@    yaxis  offset 0.000000 , 0.000000
+@    yaxis  bar on
+@    yaxis  bar color 1
+@    yaxis  bar linestyle 1
+@    yaxis  bar linewidth 1.0
+@    yaxis  label ""
+@    yaxis  label layout para
+@    yaxis  label place auto
+@    yaxis  label char size 1.000000
+@    yaxis  label font 0
+@    yaxis  label color 1
+@    yaxis  label place normal
+@    yaxis  tick on
+@    yaxis  tick major 50000
+@    yaxis  tick minor ticks 1
+@    yaxis  tick default 6
+@    yaxis  tick place rounded true
+@    yaxis  tick in
+@    yaxis  tick major size 1.000000
+@    yaxis  tick major color 1
+@    yaxis  tick major linewidth 1.0
+@    yaxis  tick major linestyle 1
+@    yaxis  tick major grid off
+@    yaxis  tick minor color 1
+@    yaxis  tick minor linewidth 1.0
+@    yaxis  tick minor linestyle 1
+@    yaxis  tick minor grid off
+@    yaxis  tick minor size 0.500000
+@    yaxis  ticklabel off
+@    yaxis  ticklabel format general
+@    yaxis  ticklabel prec 5
+@    yaxis  ticklabel formula ""
+@    yaxis  ticklabel append ""
+@    yaxis  ticklabel prepend ""
+@    yaxis  ticklabel angle 0
+@    yaxis  ticklabel skip 0
+@    yaxis  ticklabel stagger 0
+@    yaxis  ticklabel place normal
+@    yaxis  ticklabel offset auto
+@    yaxis  ticklabel offset 0.000000 , 0.010000
+@    yaxis  ticklabel start type auto
+@    yaxis  ticklabel start 0.000000
+@    yaxis  ticklabel stop type auto
+@    yaxis  ticklabel stop 0.000000
+@    yaxis  ticklabel char size 1.000000
+@    yaxis  ticklabel font 0
+@    yaxis  ticklabel color 1
+@    yaxis  tick place both
+@    yaxis  tick spec type none
+@    altxaxis  off
+@    altyaxis  off
+@    legend on
+@    legend loctype view
+@    legend 0.171078431373, 0.219117647059
+@    legend box color 1
+@    legend box pattern 1
+@    legend box linewidth 1.0
+@    legend box linestyle 1
+@    legend box fill color 0
+@    legend box fill pattern 1
+@    legend font 0
+@    legend char size 1.000000
+@    legend color 1
+@    legend length 4
+@    legend vgap 1
+@    legend hgap 1
+@    legend invert false
+@    frame type 0
+@    frame linestyle 1
+@    frame linewidth 1.0
+@    frame color 1
+@    frame pattern 1
+@    frame background color 0
+@    frame background pattern 0
+@    s0 hidden false
+@    s0 type xy
+@    s0 symbol 0
+@    s0 symbol size 1.000000
+@    s0 symbol color 1
+@    s0 symbol pattern 1
+@    s0 symbol fill color 1
+@    s0 symbol fill pattern 0
+@    s0 symbol linewidth 1.0
+@    s0 symbol linestyle 1
+@    s0 symbol char 65
+@    s0 symbol char font 0
+@    s0 symbol skip 0
+@    s0 line type 1
+@    s0 line linestyle 1
+@    s0 line linewidth 1.0
+@    s0 line color 1
+@    s0 line pattern 1
+@    s0 baseline type 0
+@    s0 baseline off
+@    s0 dropline off
+@    s0 fill type 0
+@    s0 fill rule 0
+@    s0 fill color 1
+@    s0 fill pattern 1
+@    s0 avalue off
+@    s0 avalue type 2
+@    s0 avalue char size 1.000000
+@    s0 avalue font 0
+@    s0 avalue color 1
+@    s0 avalue rot 0
+@    s0 avalue format general
+@    s0 avalue prec 3
+@    s0 avalue prepend ""
+@    s0 avalue append ""
+@    s0 avalue offset 0.000000 , 0.000000
+@    s0 errorbar on
+@    s0 errorbar place both
+@    s0 errorbar color 1
+@    s0 errorbar pattern 1
+@    s0 errorbar size 1.000000
+@    s0 errorbar linewidth 1.0
+@    s0 errorbar linestyle 1
+@    s0 errorbar riser linewidth 1.0
+@    s0 errorbar riser linestyle 1
+@    s0 errorbar riser clip off
+@    s0 errorbar riser clip length 0.100000
+@    s0 comment "Cols 1:2"
+@    s0 legend  "msl pressure EOF"
+@    s1 hidden false
+@    s1 type xy
+@    s1 symbol 0
+@    s1 symbol size 1.000000
+@    s1 symbol color 2
+@    s1 symbol pattern 1
+@    s1 symbol fill color 2
+@    s1 symbol fill pattern 0
+@    s1 symbol linewidth 1.0
+@    s1 symbol linestyle 1
+@    s1 symbol char 65
+@    s1 symbol char font 0
+@    s1 symbol skip 0
+@    s1 line type 1
+@    s1 line linestyle 1
+@    s1 line linewidth 1.0
+@    s1 line color 2
+@    s1 line pattern 1
+@    s1 baseline type 0
+@    s1 baseline off
+@    s1 dropline off
+@    s1 fill type 0
+@    s1 fill rule 0
+@    s1 fill color 1
+@    s1 fill pattern 1
+@    s1 avalue off
+@    s1 avalue type 2
+@    s1 avalue char size 1.000000
+@    s1 avalue font 0
+@    s1 avalue color 1
+@    s1 avalue rot 0
+@    s1 avalue format general
+@    s1 avalue prec 3
+@    s1 avalue prepend ""
+@    s1 avalue append ""
+@    s1 avalue offset 0.000000 , 0.000000
+@    s1 errorbar on
+@    s1 errorbar place both
+@    s1 errorbar color 2
+@    s1 errorbar pattern 1
+@    s1 errorbar size 1.000000
+@    s1 errorbar linewidth 1.0
+@    s1 errorbar linestyle 1
+@    s1 errorbar riser linewidth 1.0
+@    s1 errorbar riser linestyle 1
+@    s1 errorbar riser clip off
+@    s1 errorbar riser clip length 0.100000
+@    s1 comment "Cols 1:3"
+@    s1 legend  "Wind speed EOF"
+@g3 on
+@g3 hidden false
+@g3 type XY
+@g3 stacked false
+@g3 bar hgap 0.000000
+@g3 fixedpoint off
+@g3 fixedpoint type 0
+@g3 fixedpoint xy 0.000000, 0.000000
+@g3 fixedpoint format general general
+@g3 fixedpoint prec 6, 6
+@with g3
+@    world 732500, 0, 732570, 0.1
+@    stack world 0, 0, 0, 0
+@    znorm 1
+@    view 0.150000, 0.450000, 1.150000, 0.850000
+@    title ""
+@    title font 0
+@    title size 1.500000
+@    title color 1
+@    subtitle ""
+@    subtitle font 0
+@    subtitle size 1.000000
+@    subtitle color 1
+@    xaxes scale Normal
+@    yaxes scale Normal
+@    xaxes invert off
+@    yaxes invert off
+@    xaxis  off
+@    yaxis  off
+@    altxaxis  off
+@    altyaxis  off
+@    legend on
+@    legend loctype view
+@    legend 0.174754901961, 0.526715686275
+@    legend box color 1
+@    legend box pattern 1
+@    legend box linewidth 1.0
+@    legend box linestyle 1
+@    legend box fill color 0
+@    legend box fill pattern 1
+@    legend font 0
+@    legend char size 1.000000
+@    legend color 1
+@    legend length 4
+@    legend vgap 1
+@    legend hgap 1
+@    legend invert false
+@    frame type 0
+@    frame linestyle 1
+@    frame linewidth 1.0
+@    frame color 1
+@    frame pattern 1
+@    frame background color 0
+@    frame background pattern 0
+@    s0 hidden false
+@    s0 type xy
+@    s0 symbol 0
+@    s0 symbol size 1.000000
+@    s0 symbol color 4
+@    s0 symbol pattern 1
+@    s0 symbol fill color 4
+@    s0 symbol fill pattern 0
+@    s0 symbol linewidth 1.0
+@    s0 symbol linestyle 1
+@    s0 symbol char 65
+@    s0 symbol char font 0
+@    s0 symbol skip 0
+@    s0 line type 1
+@    s0 line linestyle 1
+@    s0 line linewidth 1.5
+@    s0 line color 4
+@    s0 line pattern 1
+@    s0 baseline type 0
+@    s0 baseline off
+@    s0 dropline off
+@    s0 fill type 0
+@    s0 fill rule 0
+@    s0 fill color 1
+@    s0 fill pattern 1
+@    s0 avalue off
+@    s0 avalue type 2
+@    s0 avalue char size 1.000000
+@    s0 avalue font 0
+@    s0 avalue color 1
+@    s0 avalue rot 0
+@    s0 avalue format general
+@    s0 avalue prec 3
+@    s0 avalue prepend ""
+@    s0 avalue append ""
+@    s0 avalue offset 0.000000 , 0.000000
+@    s0 errorbar on
+@    s0 errorbar place both
+@    s0 errorbar color 4
+@    s0 errorbar pattern 1
+@    s0 errorbar size 1.000000
+@    s0 errorbar linewidth 1.0
+@    s0 errorbar linestyle 1
+@    s0 errorbar riser linewidth 1.0
+@    s0 errorbar riser linestyle 1
+@    s0 errorbar riser clip off
+@    s0 errorbar riser clip length 0.100000
+@    s0 comment "Cols 1:3"
+@    s0 legend  "Eigenvalue (imag.)"
+@target G0.S0
+@type xy
+732523.88 0.72315054
+732524 0.71876428
+732524.12 0.70109966
+732524.25 0.69916971
+732524.38 0.68906756
+732524.5 0.6761443
+732524.62 0.67738909
+732524.75 0.6823603
+732524.88 0.67491368
+732525 0.67642662
+732525.12 0.67098281
+732525.25 0.67315336
+732525.38 0.66998333
+732525.5 0.66228761
+732525.62 0.66727307
+732525.75 0.67673587
+732525.88 0.68115201
+732526 0.6871247
+732526.12 0.68344606
+732526.25 0.67904882
+732526.38 0.6801433
+732526.5 0.67682996
+732526.62 0.67230414
+732526.75 0.66374006
+732526.88 0.66159915
+732527 0.66567461
+732527.12 0.66046877
+732527.25 0.65910011
+732527.38 0.66218434
+732527.5 0.66678944
+732527.62 0.67627174
+732527.75 0.67321047
+732527.88 0.67305093
+732528 0.68073017
+732528.12 0.68081336
+732528.25 0.67480794
+732528.38 0.66174424
+732528.5 0.64872859
+732528.62 0.65912268
+732528.75 0.66322656
+732528.88 0.66301995
+732529 0.65905649
+732529.12 0.63776111
+732529.25 0.62819706
+732529.38 0.61515739
+732529.5 0.61278493
+732529.62 0.6261751
+732529.75 0.64469577
+732529.88 0.65461238
+732530 0.65225858
+732530.12 0.6601851
+732530.25 0.65770653
+732530.38 0.66019652
+732530.5 0.66080856
+732530.62 0.67783417
+732530.75 0.68317656
+732530.88 0.68855369
+732531 0.69560033
+732531.12 0.68901463
+732531.25 0.67955753
+732531.38 0.67607467
+732531.5 0.66483635
+732531.62 0.67990804
+732531.75 0.6873739
+732531.88 0.70040917
+732532 0.71225405
+732532.12 0.69880749
+732532.25 0.69502718
+732532.38 0.69321311
+732532.5 0.6869271
+732532.62 0.69933939
+732532.75 0.69991067
+732532.88 0.70533831
+732533 0.70857505
+732533.12 0.69157921
+732533.25 0.69171166
+732533.38 0.68992535
+732533.5 0.66081567
+732533.62 0.65879129
+732533.75 0.67261193
+732533.88 0.68086018
+732534 0.68858629
+732534.12 0.67440043
+732534.25 0.66958036
+732534.38 0.66056048
+732534.5 0.63322465
+732534.62 0.62992468
+732534.75 0.64383147
+732534.88 0.64173143
+732535 0.63526962
+732535.12 0.61702034
+732535.25 0.60063542
+732535.38 0.57541528
+732535.5 0.55172561
+732535.62 0.5562162
+732535.75 0.56514392
+732535.88 0.56412007
+732536 0.56229037
+732536.12 0.55180566
+732536.25 0.54320509
+732536.38 0.53349022
+732536.5 0.51500897
+732536.62 0.50986528
+732536.75 0.52882645
+732536.88 0.53883617
+732537 0.54457605
+732537.12 0.55295231
+732537.25 0.5498101
+732537.38 0.55052494
+732537.5 0.5378216
+732537.62 0.54411726
+732537.75 0.54699733
+732537.88 0.54965251
+732538 0.56125811
+732538.12 0.56010384
+732538.25 0.55675781
+732538.38 0.54885211
+732538.5 0.54105625
+732538.62 0.54843163
+732538.75 0.55705859
+732538.88 0.56411529
+732539 0.56419878
+732539.12 0.53866987
+732539.25 0.53082594
+732539.38 0.53549226
+732539.5 0.5488065
+732539.62 0.5523942
+732539.75 0.57176865
+732539.88 0.59885086
+732540 0.60300917
+732540.12 0.57992214
+732540.25 0.59772908
+732540.38 0.60643713
+732540.5 0.60764113
+732540.62 0.6033054
+732540.75 0.61531604
+732540.88 0.63157148
+732541 0.6373049
+732541.12 0.6250748
+732541.25 0.63011029
+732541.38 0.62686585
+732541.5 0.62206557
+732541.62 0.63748404
+732541.75 0.63931534
+732541.88 0.63970847
+732542 0.65664328
+732542.12 0.67488289
+732542.25 0.66781297
+732542.38 0.66191137
+732542.5 0.661373
+732542.62 0.66489308
+732542.75 0.66786339
+732542.88 0.67290274
+732543 0.6813953
+732543.12 0.68913933
+732543.25 0.67601566
+732543.38 0.66855402
+732543.5 0.66694309
+732543.62 0.66307881
+732543.75 0.67331117
+732543.88 0.68874619
+732544 0.69003073
+732544.12 0.6667722
+732544.25 0.66003844
+732544.38 0.65753509
+732544.5 0.65896092
+732544.62 0.6528824
+732544.75 0.67189272
+732544.88 0.69061852
+732545 0.69159604
+732545.12 0.69248801
+732545.25 0.69452407
+732545.38 0.69416972
+732545.5 0.68989456
+732545.62 0.68558291
+732545.75 0.68665662
+732545.88 0.69234044
+732546 0.70157807
+732546.12 0.69799817
+732546.25 0.69754699
+732546.38 0.70123934
+732546.5 0.71825205
+732546.62 0.72343274
+732546.75 0.72232203
+732546.88 0.72815852
+732547 0.75869894
+732547.12 0.7877461
+732547.25 0.8066193
+732547.38 0.79295325
+732547.5 0.81327908
+732547.62 0.8321704
+732547.75 0.84479099
+732547.88 0.85125438
+732548 0.85882483
+732548.12 0.8669751
+732548.25 0.86691803
+732548.38 0.85939814
+732548.5 0.86053574
+732548.62 0.86922469
+732548.75 0.87364649
+732548.88 0.86996865
+732549 0.87599499
+732549.12 0.88135706
+732549.25 0.88070426
+732549.38 0.87481636
+732549.5 0.87080406
+732549.62 0.8668597
+732549.75 0.87029694
+732549.88 0.87298152
+732550 0.87771204
+732550.12 0.88041143
+732550.25 0.87918277
+732550.38 0.87201066
+732550.5 0.86573997
+732550.62 0.87040503
+732550.75 0.87308749
+732550.88 0.87250168
+732551 0.88150396
+732551.12 0.89152876
+732551.25 0.88521407
+732551.38 0.85906266
+732551.5 0.86974779
+732551.62 0.88251796
+732551.75 0.89214846
+732551.88 0.89849007
+732552 0.90471487
+732552.12 0.90378765
+732552.25 0.90431428
+732552.38 0.87828131
+732552.5 0.88876909
+732552.62 0.90025249
+732552.75 0.91006054
+732552.88 0.91797767
+732553 0.9233745
+732553.12 0.9255689
+732553.25 0.92665398
+732553.38 0.92343502
+732553.5 0.93389556
+732553.62 0.93749425
+732553.75 0.94325057
+732553.88 0.94489908
+732554 0.94551068
+732554.12 0.94456858
+732554.25 0.94505359
+732554.38 0.94517972
+732554.5 0.94602497
+732554.62 0.94669386
+732554.75 0.94700241
+732554.88 0.94640748
+732555 0.94634138
+732555.12 0.94654616
+732555.25 0.94624868
+732555.38 0.94573051
+732555.5 0.94593772
+732555.62 0.94668534
+732555.75 0.94634617
+732555.88 0.94358651
+732556 0.94368269
+732556.12 0.94611556
+732556.25 0.94562636
+732556.38 0.94516719
+732556.5 0.94511704
+732556.62 0.94560827
+732556.75 0.94370826
+732556.88 0.94114316
+732557 0.94255645
+732557.12 0.94315859
+732557.25 0.94294482
+732557.38 0.94164586
+732557.5 0.94148423
+732557.62 0.94150512
+732557.75 0.94102722
+732557.88 0.93946373
+732558 0.93903965
+732558.12 0.93973364
+732558.25 0.93909026
+732558.38 0.9367773
+732558.5 0.93633477
+732558.62 0.93727625
+732558.75 0.93660805
+732558.88 0.9344396
+732559 0.93512886
+732559.12 0.93588274
+732559.25 0.93498694
+732559.38 0.93272824
+732559.5 0.93248968
+732559.62 0.9341485
+732559.75 0.93412261
+732559.88 0.93305521
+732560 0.93313923
+732560.12 0.93251132
+732560.25 0.93280027
+732560.38 0.93167271
+732560.5 0.93167056
+732560.62 0.93153835
+732560.75 0.93196895
+732560.88 0.93251448
+732561 0.93182421
+732561.12 0.9307121
+732561.25 0.93098177
+732561.38 0.9313717
+732561.5 0.93111357
+732561.62 0.93178092
+732561.75 0.93234948
+732561.88 0.93165187
+732562 0.92994679
+732562.12 0.92959208
+732562.25 0.92953227
+732562.38 0.92797888
+732562.5 0.92655188
+732562.62 0.9265647
+732562.75 0.92576516
+732562.88 0.92348883
+732563 0.92090521
+732563.12 0.92335959
+732563.25 0.92382102
+732563.38 0.91646862
+732563.5 0.91633014
+732563.62 0.91719596
+732563.75 0.9153955
+732563.88 0.91110734
+732564 0.91112309
+732564.12 0.91331635
+732564.25 0.91291176
+732564.38 0.91888252
+732564.5 0.92122988
+732564.62 0.93177006
+732564.75 0.93367461
+732564.88 0.93371212
+732565 0.93159769
+732565.12 0.93400235
+732565.25 0.93362416
+732565.38 0.93291591
+732565.5 0.93579354
+732565.62 0.94485102
+732565.75 0.94528488
+732565.88 0.94276041
+732566 0.94280301
+732566.12 0.94683573
+732566.25 0.94434197
+732566.38 0.94038618
+732566.5 0.94093486
+732566.62 0.9505568
+732566.75 0.94974694
+732566.88 0.9439387
+732567 0.94643675
+732567.12 0.95085291
+732567.25 0.94804591
+732567.38 0.93404871
+732567.5 0.92715938
+732567.62 0.94235814
+732567.75 0.93406717
+732567.88 0.92034687
+732568 0.92132352
+732568.12 0.91979645
+732568.25 0.92089019
+732568.38 0.91738817
+732568.5 0.91660996
+732568.62 0.93900764
+732568.75 0.93976736
+732568.88 0.9355088
+732569 0.94271078
+732569.12 0.9502769
+732569.25 0.95343232
+732569.38 0.95179684
+732569.5 0.95656034
+732569.62 0.96141013
+732569.75 0.96308363
+732569.88 0.96286826
+732570 0.96415429
+732570.12 0.96472085
+732570.25 0.96564754
+732570.38 0.96483664
+732570.5 0.9617991
+732570.62 0.95723254
+732570.75 0.95643917
+732570.88 0.95553819
+&
+@target G0.S2
+@type xy
+732506.5 0.94855958
+732506.62 0.94626271
+732506.75 0.94794927
+732506.88 0.95246744
+732507 0.95337198
+732507.12 0.95178544
+732507.25 0.95301511
+732507.38 0.95533389
+732507.5 0.95494967
+732507.62 0.95466572
+732507.75 0.95533701
+732507.88 0.9548396
+732508 0.95528007
+732508.12 0.95510189
+732508.25 0.95533583
+732508.38 0.95656
+732508.5 0.95573433
+732508.62 0.95615995
+732508.75 0.95613989
+732508.88 0.95728272
+732509 0.9578305
+732509.12 0.9560166
+732509.25 0.95536257
+732509.38 0.95678845
+732509.5 0.9554451
+732509.62 0.95201641
+732509.75 0.95216525
+732509.88 0.95621812
+732510 0.95631636
+732510.12 0.95250703
+732510.25 0.95286921
+732510.38 0.95506732
+732510.5 0.95447105
+732510.62 0.95147279
+732510.75 0.95455847
+732510.88 0.95956075
+732511 0.9594711
+732511.12 0.95708719
+732511.25 0.95592986
+732511.38 0.95824793
+732511.5 0.95899153
+732511.62 0.95783531
+732511.75 0.95818111
+732511.88 0.95727126
+732512 0.95708593
+732512.12 0.95479765
+732512.25 0.95466587
+732512.38 0.95604298
+732512.5 0.95616452
+732512.62 0.95377176
+732512.75 0.95367693
+732512.88 0.95512437
+732513 0.95497367
+732513.12 0.95297065
+732513.25 0.95335316
+732513.38 0.95485663
+732513.5 0.95511255
+732513.62 0.95288362
+732513.75 0.9533988
+732513.88 0.95466545
+732514 0.95485851
+732514.12 0.95207917
+732514.25 0.95216437
+732514.38 0.95251177
+732514.5 0.95112913
+732514.62 0.94950888
+732514.75 0.94575794
+732514.88 0.93677481
+732515 0.94020309
+732515.12 0.93464232
+732515.25 0.92749428
+732515.38 0.90883639
+732515.5 0.89351238
+732515.62 0.88127809
+732515.75 0.86248127
+732515.88 0.80074134
+732516 0.80509042
+732516.12 0.81892209
+732516.25 0.81839145
+732516.38 0.79180693
+732516.5 0.76908001
+732516.62 0.77148277
+732516.75 0.7737817
+732516.88 0.77811965
+732517 0.78291416
+732517.12 0.7971747
+732517.25 0.80299875
+732517.38 0.80500513
+732517.5 0.79963159
+732517.62 0.80553302
+732517.75 0.81463
+732517.88 0.81786952
+732518 0.81681361
+732518.12 0.80846745
+732518.25 0.80392476
+732518.38 0.79995286
+732518.5 0.80224452
+732518.62 0.7921247
+732518.75 0.79193533
+732518.88 0.79082123
+732519 0.78929346
+732519.12 0.7848917
+732519.25 0.782787
+732519.38 0.7829473
+732519.5 0.78525582
+732519.62 0.77875974
+732519.75 0.7806906
+732519.88 0.77213518
+732520 0.77162001
+732520.12 0.77562366
+732520.25 0.77372633
+732520.38 0.76418109
+732520.5 0.74522256
+732520.62 0.74662291
+732520.75 0.74245155
+732520.88 0.72811602
+732521 0.73131364
+732521.12 0.73573441
+732521.25 0.7350772
+732521.38 0.72737404
+732521.5 0.7153309
+732521.62 0.72349298
+732521.75 0.72703824
+732521.88 0.72372209
+732522 0.72670026
+732522.12 0.72049541
+732522.25 0.71808417
+732522.38 0.73040057
+732522.5 0.72414563
+732522.62 0.71671968
+732522.75 0.72629864
+732522.88 0.73354644
+732523 0.73291544
+732523.12 0.72574134
+732523.25 0.73398095
+732523.38 0.73132875
+732523.5 0.71727113
+732523.62 0.71779671
+732523.75 0.72351371
+732523.88 0.71460884
+732524 0.71400937
+732524.12 0.71826279
+732524.25 0.71469027
+732524.38 0.68542777
+732524.5 0.66005443
+732524.62 0.67665767
+732524.75 0.67107584
+732524.88 0.64060875
+732525 0.62831092
+732525.12 0.64680787
+732525.25 0.64576697
+732525.38 0.63077851
+732525.5 0.6251137
+732525.62 0.62091544
+732525.75 0.61977432
+732525.88 0.59618702
+732526 0.59316335
+732526.12 0.60980262
+732526.25 0.61099679
+732526.38 0.59537158
+732526.5 0.60583115
+732526.62 0.61814193
+732526.75 0.61739869
+732526.88 0.60307337
+732527 0.61107983
+732527.12 0.6339091
+732527.25 0.63582254
+732527.38 0.64772834
+732527.5 0.66824929
+732527.62 0.67803707
+732527.75 0.68052566
+732527.88 0.67070984
+732528 0.68117421
+732528.12 0.69206588
+732528.25 0.6875032
+732528.38 0.69719346
+732528.5 0.70322243
+732528.62 0.69462373
+732528.75 0.69094987
+732528.88 0.68384115
+732529 0.67361638
+732529.12 0.64664671
+732529.25 0.63418114
+732529.38 0.65064757
+732529.5 0.64455613
+732529.62 0.63365403
+732529.75 0.64530064
+732529.88 0.64720368
+732530 0.63752174
+732530.12 0.61234434
+732530.25 0.60916802
+732530.38 0.61765342
+732530.5 0.61827208
+732530.62 0.61379477
+732530.75 0.62153229
+732530.88 0.62549398
+732531 0.6287435
+732531.12 0.62945983
+732531.25 0.62563319
+732531.38 0.63549226
+732531.5 0.63161719
+732531.62 0.63110064
+732531.75 0.63649439
+732531.88 0.62584123
+732532 0.63617611
+732532.12 0.6420699
+732532.25 0.64275677
+732532.38 0.63771866
+732532.5 0.63420098
+732532.62 0.63132402
+732532.75 0.62979142
+732532.88 0.62276159
+732533 0.62758636
+732533.12 0.62358671
+732533.25 0.62722845
+732533.38 0.62882066
+732533.5 0.62119132
+732533.62 0.61627775
+732533.75 0.62230885
+732533.88 0.61482799
+732534 0.61972
+732534.12 0.61430843
+732534.25 0.61178116
+732534.38 0.61775143
+732534.5 0.61479589
+732534.62 0.60958183
+732534.75 0.61616965
+732534.88 0.6126723
+732535 0.61249182
+732535.12 0.59713393
+732535.25 0.57766223
+732535.38 0.58785722
+732535.5 0.58427411
+732535.62 0.56809679
+732535.75 0.57338185
+732535.88 0.58315834
+732536 0.59018745
+732536.12 0.58024578
+732536.25 0.5681046
+732536.38 0.57909301
+732536.5 0.57684529
+732536.62 0.56712092
+732536.75 0.57771651
+732536.88 0.57016681
+732537 0.57264933
+732537.12 0.5813381
+732537.25 0.57950987
+732537.38 0.58823376
+732537.5 0.59045956
+732537.62 0.59300466
+732537.75 0.59379493
+732537.88 0.57352944
+732538 0.58833761
+732538.12 0.60079573
+732538.25 0.60069255
+732538.38 0.61928787
+732538.5 0.61354404
+732538.62 0.61474087
+732538.75 0.61889489
+732538.88 0.61064741
+732539 0.62102166
+732539.12 0.61995074
+732539.25 0.62093531
+732539.38 0.627279
+732539.5 0.6146932
+732539.62 0.61240849
+732539.75 0.62312661
+732539.88 0.61788462
+732540 0.61492707
+732540.12 0.60986099
+732540.25 0.61870235
+732540.38 0.60936673
+732540.5 0.5867751
+732540.62 0.58056278
+732540.75 0.58192343
+732540.88 0.5631875
+732541 0.56434783
+732541.12 0.56866511
+732541.25 0.56377719
+732541.38 0.55864603
+732541.5 0.56971622
+732541.62 0.58875727
+732541.75 0.59179988
+732541.88 0.57368376
+732542 0.60145756
+732542.12 0.60969667
+732542.25 0.59861515
+732542.38 0.62155601
+732542.5 0.63752886
+732542.62 0.64343484
+732542.75 0.64212935
+732542.88 0.63114568
+732543 0.63886293
+732543.12 0.63959073
+732543.25 0.63434051
+732543.38 0.64582602
+732543.5 0.64686302
+732543.62 0.63712232
+732543.75 0.64207467
+732543.88 0.63916909
+732544 0.63878997
+732544.12 0.62363211
+732544.25 0.62060603
+732544.38 0.6317842
+732544.5 0.63056272
+732544.62 0.61555341
+732544.75 0.63381684
+732544.88 0.6363529
+732545 0.64332076
+732545.12 0.64048614
+732545.25 0.63922231
+732545.38 0.64002472
+732545.5 0.63828914
+732545.62 0.63863809
+732545.75 0.64144656
+732545.88 0.6191464
+732546 0.62642006
+732546.12 0.63718545
+732546.25 0.63648359
+732546.38 0.64274469
+732546.5 0.66474125
+732546.62 0.68834659
+732546.75 0.69263692
+732546.88 0.67822841
+732547 0.70557331
+732547.12 0.73236559
+732547.25 0.74400134
+732547.38 0.75241415
+732547.5 0.78342462
+732547.62 0.80027018
+732547.75 0.80433645
+732547.88 0.79645521
+732548 0.80546159
+732548.12 0.81673266
+732548.25 0.82162818
+732548.38 0.82186448
+732548.5 0.8415523
+732548.62 0.84864869
+732548.75 0.849234
+732548.88 0.84173771
+732549 0.84836151
+732549.12 0.84841487
+732549.25 0.84808585
+732549.38 0.85965308
+732549.5 0.86181683
+732549.62 0.86311058
+732549.75 0.8632614
+732549.88 0.852996
+732550 0.85620328
+732550.12 0.85889995
+732550.25 0.85074677
+732550.38 0.8475742
+732550.5 0.85328454
+732550.62 0.86628197
+732550.75 0.85648341
+732550.88 0.84127041
+732551 0.84916377
+732551.12 0.86903783
+732551.25 0.86688386
+732551.38 0.82674987
+732551.5 0.86810709
+732551.62 0.88645077
+732551.75 0.89100588
+732551.88 0.8887341
+732552 0.89992156
+732552.12 0.91222719
+732552.25 0.91329556
+732552.38 0.85714525
+732552.5 0.90529709
+732552.62 0.91799588
+732552.75 0.92893634
+732552.88 0.93202441
+732553 0.93928342
+732553.12 0.94639184
+732553.25 0.949231
+732553.38 0.95499516
+732553.5 0.95846721
+732553.62 0.95876953
+732553.75 0.9616553
+732553.88 0.96313764
+732554 0.96355962
+732554.12 0.96336707
+732554.25 0.96329592
+732554.38 0.96518569
+732554.5 0.96528084
+732554.62 0.96384073
+732554.75 0.96356609
+732554.88 0.96418439
+732555 0.96371975
+732555.12 0.96143349
+732555.25 0.96113102
+732555.38 0.96317742
+732555.5 0.96258895
+732555.62 0.96010849
+732555.75 0.95976998
+732555.88 0.96024957
+732556 0.9595309
+732556.12 0.95510959
+732556.25 0.95454977
+732556.38 0.95793713
+732556.5 0.9557563
+732556.62 0.95122289
+732556.75 0.95167532
+732556.88 0.95407317
+732557 0.952399
+732557.12 0.94593885
+732557.25 0.94670594
+732557.38 0.9521447
+732557.5 0.94952103
+732557.62 0.94566901
+732557.75 0.94761748
+732557.88 0.95161516
+732558 0.94945063
+732558.12 0.94471024
+732558.25 0.94648852
+732558.38 0.95317161
+732558.5 0.95104611
+732558.62 0.94850638
+732558.75 0.9505942
+732558.88 0.95445102
+732559 0.95438055
+732559.12 0.9525258
+732559.25 0.95371955
+732559.38 0.95691976
+732559.5 0.95601491
+732559.62 0.95397049
+732559.75 0.95506769
+732559.88 0.95758198
+732560 0.9573366
+732560.12 0.95521324
+732560.25 0.95569292
+732560.38 0.95811119
+732560.5 0.95681184
+732560.62 0.95475348
+732560.75 0.95533546
+732560.88 0.95742757
+732561 0.95713233
+732561.12 0.95448763
+732561.25 0.95550821
+732561.38 0.9582919
+732561.5 0.95625934
+732561.62 0.954203
+732561.75 0.95462034
+732561.88 0.95595217
+732562 0.95522838
+732562.12 0.95246082
+732562.25 0.95326489
+732562.38 0.95705775
+732562.5 0.95645378
+732562.62 0.95468949
+732562.75 0.9565311
+732562.88 0.95873329
+732563 0.95855905
+732563.12 0.95775338
+732563.25 0.95842457
+732563.38 0.95869902
+732563.5 0.95583008
+732563.62 0.9553327
+732563.75 0.95407176
+732563.88 0.94676354
+732564 0.94909056
+732564.12 0.94765614
+732564.25 0.94361966
+732564.38 0.93599228
+732564.5 0.92967914
+732564.62 0.92750512
+732564.75 0.91955095
+732564.88 0.86743606
+732565 0.89551192
+732565.12 0.88977902
+732565.25 0.88308673
+732565.38 0.85867693
+732565.5 0.84054056
+732565.62 0.83770818
+732565.75 0.81986007
+732565.88 0.80161998
+732566 0.78922288
+732566.12 0.76594832
+732566.25 0.76781736
+732566.38 0.73739008
+732566.5 0.70408219
+732566.62 0.68396886
+732566.75 0.68163
+732566.88 0.65899982
+732567 0.6639874
+732567.12 0.65860761
+732567.25 0.67027058
+732567.38 0.65594948
+732567.5 0.65741769
+732567.62 0.66287377
+732567.75 0.67762933
+732567.88 0.67783618
+732568 0.68326715
+732568.12 0.68369833
+732568.25 0.69079323
+732568.38 0.68291146
+732568.5 0.6730858
+732568.62 0.67636817
+732568.75 0.6858771
+732568.88 0.67712617
+732569 0.6928837
+732569.12 0.69129711
+732569.25 0.69692242
+732569.38 0.6993535
+732569.5 0.69681729
+732569.62 0.69338627
+732569.75 0.70576793
+732569.88 0.70697105
+732570 0.71289613
+732570.12 0.70707596
+732570.25 0.7137578
+732570.38 0.72229883
+732570.5 0.71870318
+732570.62 0.71859207
+732570.75 0.73326238
+732570.88 0.74288091
+732571 0.75396697
+732571.12 0.74248801
+732571.25 0.75573799
+732571.38 0.76699066
+732571.5 0.76446147
+732571.62 0.7588399
+732571.75 0.77226465
+732571.88 0.77331718
+732572 0.77784782
+732572.12 0.77830897
+732572.25 0.78345025
+732572.38 0.77508169
+732572.5 0.76764156
+732572.62 0.76889484
+732572.75 0.76940662
+732572.88 0.74800731
+732573 0.7563622
+732573.12 0.76323188
+732573.25 0.76148096
+732573.38 0.75141739
+732573.5 0.74942466
+732573.62 0.75284827
+732573.75 0.75032541
+732573.88 0.72619002
+732574 0.74091828
+732574.12 0.7423161
+732574.25 0.74172228
+732574.38 0.73520228
+732574.5 0.72809461
+732574.62 0.72479348
+732574.75 0.72796434
+732574.88 0.71669277
+732575 0.71629683
+732575.12 0.71978106
+732575.25 0.71786028
+732575.38 0.70447613
+732575.5 0.70118307
+732575.62 0.70346105
+732575.75 0.69300986
+732575.88 0.65757328
+732576 0.68487906
+732576.12 0.71388898
+732576.25 0.70859458
+732576.38 0.67429773
+732576.5 0.74993561
+732576.62 0.79006269
+732576.75 0.80107249
+732576.88 0.80109831
+732577 0.83949559
+732577.12 0.86972061
+732577.25 0.87740937
+732577.38 0.81035976
+732577.5 0.87331703
+732577.62 0.89053399
+732577.75 0.90060004
+732577.88 0.90683174
+732578 0.92090303
+732578.12 0.93183766
+732578.25 0.93665598
+732578.38 0.93464058
+732578.5 0.94400825
+732578.62 0.95104154
+732578.75 0.95266732
+732578.88 0.95264874
+732579 0.95509218
+732579.12 0.95564945
+732579.25 0.95639897
+732579.38 0.95903271
+732579.5 0.95819329
+732579.62 0.95662522
+732579.75 0.95663103
+732579.88 0.95417579
+732580 0.95518335
+732580.12 0.95222163
+732580.25 0.95227584
+732580.38 0.95565532
+732580.5 0.95495486
+732580.62 0.95215853
+732580.75 0.9532665
+732580.88 0.95437006
+732581 0.95397282
+732581.12 0.95120696
+732581.25 0.95202704
+732581.38 0.95484919
+732581.5 0.95397638
+732581.62 0.95159936
+732581.75 0.95330963
+732581.88 0.95423
+732582 0.95344015
+732582.12 0.95067239
+732582.25 0.95172368
+732582.38 0.95414126
+732582.5 0.95301649
+732582.62 0.95030679
+732582.75 0.9512421
+732582.88 0.95124769
+732583 0.94958997
+732583.12 0.94698791
+732583.25 0.94716197
+732583.38 0.94886609
+732583.5 0.94794641
+732583.62 0.94303675
+732583.75 0.94317923
+732583.88 0.94471478
+732584 0.94266847
+732584.12 0.93725647
+732584.25 0.93853267
+732584.38 0.94269825
+732584.5 0.94128436
+732584.62 0.93737147
+732584.75 0.93967776
+732584.88 0.94260789
+732585 0.94076154
+732585.12 0.93719315
+732585.25 0.93814093
+732585.38 0.94208538
+732585.5 0.94147245
+732585.62 0.93826709
+732585.75 0.93946604
+732585.88 0.94034214
+&
+@target G1.S0
+@type xy
+732506.38 2.3705849
+732508.88 2.1611282
+732511.38 2.2217519
+732513.88 2.194242
+732516.38 2.3061556
+732518.88 2.1962705
+732521.38 2.4705533
+732523.88 2.3744516
+732526.38 2.4875276
+732528.88 2.364814
+732531.38 2.5746377
+732533.88 2.3603624
+732536.38 2.4310573
+732538.88 2.1739975
+732541.38 2.326245
+732543.88 2.1448385
+732546.38 2.4462482
+732548.88 2.2394102
+732551.38 2.4481672
+732553.88 1.6638323
+732556.38 1.7694762
+732558.88 1.6821904
+732561.38 1.5676852
+732563.88 1.7144268
+732566.38 2.3828492
+732568.88 2.1158113
+732571.38 2.2704849
+732573.88 2.2220827
+732576.38 2.331533
+732578.88 1.7946947
+732581.38 1.8276524
+732583.88 1.7770169
+&
+@target G2.S0
+@type xy
+732505.12 8495.9641
+732505.25 10230.962
+732505.38 12361.832
+732505.5 13123.285
+732505.62 18533.568
+732505.75 18561.993
+732505.88 14013.882
+732506 12432.416
+732506.12 15835.097
+732506.25 14388.004
+732506.38 12321.459
+732506.5 11838.406
+732506.62 15362.127
+732506.75 14099.434
+732506.88 6383.3858
+732507 3674.8944
+732507.12 6733.9989
+732507.25 5218.0904
+732507.38 1277.6015
+732507.5 3026.1643
+732507.62 5570.6018
+732507.75 3019.5832
+732507.88 -3510.3241
+732508 -5469.7824
+732508.12 -665.76665
+732508.25 -816.12917
+732508.38 -1495.1398
+732508.5 2273.6726
+732508.62 5032.4205
+732508.75 5082.6292
+732508.88 -1095.6809
+732509 -639.72475
+732509.12 5475.4875
+732509.25 6316.3317
+732509.38 6187.2863
+732509.5 9977.8339
+732509.62 15318.667
+732509.75 15552.188
+732509.88 8019.2986
+732510 6387.5504
+732510.12 10490.489
+732510.25 11876.374
+732510.38 11785.389
+732510.5 12912.79
+732510.62 15986.601
+732510.75 12083.334
+732510.88 4880.1802
+732511 1659.9765
+732511.12 5734.5178
+732511.25 6993.3036
+732511.38 -2817.9717
+732511.5 793.43531
+732511.62 5524.0378
+732511.75 4154.2678
+732511.88 -4339.157
+732512 -5432.4666
+732512.12 3503.6826
+732512.25 3181.3956
+732512.38 -1189.3343
+732512.5 -91.582834
+732512.62 6843.1131
+732512.75 7343.079
+732512.88 457.20618
+732513 1823.2121
+732513.12 6613.9382
+732513.25 5459.6196
+732513.38 3973.678
+732513.5 4673.7047
+732513.62 10184.701
+732513.75 9909.8011
+732513.88 4259.0842
+732514 3886.9539
+732514.12 10866.421
+732514.25 11549.7
+732514.38 9055.916
+732514.5 9168.8576
+732514.62 13205.794
+732514.75 15744.26
+732514.88 10614.002
+732515 9000.8132
+732515.12 12418.141
+732515.25 10899.024
+732515.38 9275.0822
+732515.5 11249.057
+732515.62 16958.873
+732515.75 18204.093
+732515.88 13058.113
+732516 10648.345
+732516.12 14878.22
+732516.25 15378.179
+732516.38 15395.88
+732516.5 17521.569
+732516.62 22063.58
+732516.75 19992.076
+732516.88 12246.507
+732517 12133.145
+732517.12 14793.581
+732517.25 14356.522
+732517.38 13698.432
+732517.5 16634.58
+732517.62 19562.76
+732517.75 16884.792
+732517.88 11462.365
+732518 9178.9846
+732518.12 11462.755
+732518.25 10269.108
+732518.38 2396.3801
+732518.5 7007.5291
+732518.62 12671.685
+732518.75 13715.132
+732518.88 6917.656
+732519 4999.1525
+732519.12 8123.2865
+732519.25 5587.544
+732519.38 -820.56609
+732519.5 6041.3158
+732519.62 13315.135
+732519.75 11364.514
+732519.88 4671.0516
+732520 2868.8541
+732520.12 5426.547
+732520.25 4848.2671
+732520.38 5723.5981
+732520.5 10712.634
+732520.62 14206.582
+732520.75 10504.87
+732520.88 4793.0966
+732521 3497.9665
+732521.12 6424.4077
+732521.25 6380.6013
+732521.38 6218.3487
+732521.5 11687.225
+732521.62 14650.313
+732521.75 13544.489
+732521.88 7623.0599
+732522 8612.8753
+732522.12 13085.427
+732522.25 12157.792
+732522.38 8747.5848
+732522.5 13605.272
+732522.62 19613.319
+732522.75 19449.328
+732522.88 12320.255
+732523 12295.876
+732523.12 15286.634
+732523.25 13675.522
+732523.38 5476.9302
+732523.5 13045.229
+732523.62 16895.883
+732523.75 16366.108
+732523.88 9288.2286
+732524 7939.7897
+732524.12 11647.682
+732524.25 10123.684
+732524.38 3592.69
+732524.5 7451.4715
+732524.62 12907.004
+732524.75 12226.355
+732524.88 5048.0966
+732525 3472.8827
+732525.12 8273.7398
+732525.25 7253.1833
+732525.38 3069.3228
+732525.5 8536.7915
+732525.62 15032.295
+732525.75 13555.024
+732525.88 5221.7281
+732526 2971.8128
+732526.12 7483.3035
+732526.25 6588.7022
+732526.38 -784.67857
+732526.5 5329.0551
+732526.62 10652.748
+732526.75 9128.5248
+732526.88 1662.9229
+732527 -1363.9201
+732527.12 2774.8662
+732527.25 1238.9428
+732527.38 -2051.3902
+732527.5 1105.0538
+732527.62 5741.9968
+732527.75 5608.0717
+732527.88 -676.02407
+732528 -1753.1251
+732528.12 3010.3856
+732528.25 3490.5705
+732528.38 2715.3443
+732528.5 6005.1214
+732528.62 12508.101
+732528.75 13230.055
+732528.88 7525.8137
+732529 5653.8619
+732529.12 11499.934
+732529.25 11411.345
+732529.38 9977.2899
+732529.5 14047.104
+732529.62 19441.853
+732529.75 19308.159
+732529.88 10117.983
+732530 7572.1072
+732530.12 13555.312
+732530.25 12553.99
+732530.38 9677.2068
+732530.5 11431.032
+732530.62 15568.53
+732530.75 15093.804
+732530.88 8324.5001
+732531 5344.1312
+732531.12 10149.914
+732531.25 10476.123
+732531.38 8571.5461
+732531.5 11502.552
+732531.62 15131.752
+732531.75 14855.47
+732531.88 8344.8981
+732532 5556.8607
+732532.12 9721.6768
+732532.25 9278.139
+732532.38 2625.7335
+732532.5 7875.6238
+732532.62 11912.976
+732532.75 12261.286
+732532.88 6144.3009
+732533 4255.3614
+732533.12 9485.021
+732533.25 8873.425
+732533.38 6203.5591
+732533.5 10626.48
+732533.62 15640.032
+732533.75 14078.7
+732533.88 6789.7332
+732534 5053.8624
+732534.12 9783.2208
+732534.25 9114.5424
+732534.38 6376.2715
+732534.5 10990.334
+732534.62 15822.664
+732534.75 14637.194
+732534.88 6858.232
+732535 4799.2732
+732535.12 9297.1581
+732535.25 9742.8345
+732535.38 6724.1242
+732535.5 9736.0276
+732535.62 15619.183
+732535.75 13561.682
+732535.88 7213.7388
+732536 4444.821
+732536.12 7706.5266
+732536.25 6708.3856
+732536.38 3380.4538
+732536.5 9374.4042
+732536.62 15610.245
+732536.75 14151.207
+732536.88 5027.0502
+732537 1623.7388
+732537.12 5609.0202
+732537.25 4361.7266
+732537.38 859.31455
+732537.5 5820.327
+732537.62 10344.547
+732537.75 9644.0173
+732537.88 934.34027
+732538 -1257.7928
+732538.12 3261.5707
+732538.25 3119.023
+732538.38 5241.5332
+732538.5 9146.693
+732538.62 13115.341
+732538.75 11684.295
+732538.88 6526.2762
+732539 5687.4044
+732539.12 11419.252
+732539.25 13166.316
+732539.38 13670.799
+732539.5 14729.052
+732539.62 19872.984
+732539.75 19991.772
+732539.88 12882.304
+732540 11449.511
+732540.12 17520.019
+732540.25 13864.273
+732540.38 11960.071
+732540.5 11557.812
+732540.62 16286.556
+732540.75 15721.186
+732540.88 7519.7793
+732541 6432.3365
+732541.12 12031.715
+732541.25 8324.7665
+732541.38 1657.4631
+732541.5 1813.766
+732541.62 5394.4576
+732541.75 5368.5035
+732541.88 -3272.7031
+732542 -3258.0444
+732542.12 3170.3165
+732542.25 3075.6116
+732542.38 -551.02554
+732542.5 911.63952
+732542.62 7767.5451
+732542.75 7824.4484
+732542.88 814.44325
+732543 371.09859
+732543.12 5903.0965
+732543.25 7052.2578
+732543.38 5764.1339
+732543.5 6697.2638
+732543.62 14582.517
+732543.75 14644.416
+732543.88 7069.23
+732544 6054.387
+732544.12 12883.698
+732544.25 11868.672
+732544.38 8718.1075
+732544.5 10870.531
+732544.62 19307.791
+732544.75 17559.701
+732544.88 8750.8148
+732545 8557.1103
+732545.12 12581.9
+732545.25 9144.9681
+732545.38 4044.8258
+732545.5 8018.5058
+732545.62 13005.717
+732545.75 11231.371
+732545.88 706.74887
+732546 -2435.6024
+732546.12 2391.2177
+732546.25 151.17541
+732546.38 -5910.1104
+732546.5 -5452.3507
+732546.62 -484.6464
+732546.75 -2333.0007
+732546.88 -11302.08
+732547 -12520.966
+732547.12 -8698.1825
+732547.25 -9380.9603
+732547.38 -15429.963
+732547.5 -9739.0585
+732547.62 -4991.5904
+732547.75 -5158.9094
+732547.88 -11826.97
+732548 -12654.623
+732548.12 -8925.5554
+732548.25 -9932.0646
+732548.38 -15702.261
+732548.5 -8201.0792
+732548.62 -993.61707
+732548.75 -1636.9754
+732548.88 -8333.0671
+732549 -6330.4296
+732549.12 -1730.4277
+732549.25 -2622.3525
+732549.38 -2508.5798
+732549.5 800.77735
+732549.62 3878.4044
+732549.75 3178.3187
+732549.88 -5953.7774
+732550 -6612.3945
+732550.12 -3938.6472
+732550.25 -10318.899
+732550.38 -17174.806
+732550.5 -18090.314
+732550.62 -15844.436
+732550.75 -23120.592
+732550.88 -33082.18
+732551 -36759.265
+732551.12 -33871.295
+732551.25 -40416.683
+732551.38 -62000.135
+732551.5 -56015.798
+732551.62 -54344.669
+732551.75 -58389.27
+732551.88 -66582.397
+732552 -67423.619
+732552.12 -63886.327
+732552.25 -68443.39
+732552.38 -107990.14
+732552.5 -82933.713
+732552.62 -76462.423
+732552.75 -71477.11
+732552.88 -73343.063
+732553 -68468.16
+732553.12 -57567.888
+732553.25 -54625.94
+732553.38 -50433.245
+732553.5 -43603.194
+732553.62 -38915.505
+732553.75 -30610.65
+732553.88 -32278.542
+732554 -30015.824
+732554.12 -24609.244
+732554.25 -23378.114
+732554.38 -25685.154
+732554.5 -17157.454
+732554.62 -11790.521
+732554.75 -10482.917
+732554.88 -16968.08
+732555 -17087.835
+732555.12 -10568.24
+732555.25 -12285.104
+732555.38 -15012.438
+732555.5 -9670.5284
+732555.62 -3833.1768
+732555.75 -5824.6197
+732555.88 -12246.945
+732556 -11530.551
+732556.12 -4167.4979
+732556.25 -5101.866
+732556.38 -10338.922
+732556.5 -1122.6201
+732556.62 4926.4392
+732556.75 3664.7757
+732556.88 -3403.2468
+732557 -1798.9401
+732557.12 4992.5661
+732557.25 2849.0822
+732557.38 -3211.1914
+732557.5 3746.9592
+732557.62 8614.9907
+732557.75 7313.7548
+732557.88 493.73558
+732558 2335.1246
+732558.12 8288.8814
+732558.25 4783.8912
+732558.38 -4210.1884
+732558.5 4363.4384
+732558.62 8180.3109
+732558.75 5128.9144
+732558.88 -2744.2116
+732559 -2504.9403
+732559.12 517.27515
+732559.25 -2025.4604
+732559.38 -6433.0447
+732559.5 -1882.3619
+732559.62 3822.5454
+732559.75 1626.6616
+732559.88 -6511.1509
+732560 -6096.3894
+732560.12 -258.28086
+732560.25 -1601.0987
+732560.38 -10469.15
+732560.5 -3846.2889
+732560.62 2485.3502
+732560.75 1966.6704
+732560.88 -3469.4831
+732561 -2550.1493
+732561.12 3183.7518
+732561.25 233.99331
+732561.38 -8576.0092
+732561.5 -1203.3986
+732561.62 3466.1596
+732561.75 3335.8009
+732561.88 -2551.2606
+732562 -2758.216
+732562.12 3445.6006
+732562.25 1087.9865
+732562.38 -4213.7236
+732562.5 -947.17815
+732562.62 3920.7412
+732562.75 2829.3438
+732562.88 -3532.9608
+732563 -1987.4323
+732563.12 1902.5568
+732563.25 769.43226
+732563.38 -7955.4073
+732563.5 -45.593812
+732563.62 4433.5102
+732563.75 2725.7451
+732563.88 -3719.1923
+732564 -3654.7651
+732564.12 846.26439
+732564.25 698.48698
+732564.38 -9092.3378
+732564.5 -240.00467
+732564.62 5109.6641
+732564.75 2579.5849
+732564.88 -4384.4836
+732565 -3345.8099
+732565.12 2224.5833
+732565.25 1223.8468
+732565.38 -3450.5654
+732565.5 1753.7415
+732565.62 9016.3519
+732565.75 6773.6781
+732565.88 375.52767
+732566 1061.5928
+732566.12 6804.8528
+732566.25 6649.0854
+732566.38 4960.9971
+732566.5 10371.319
+732566.62 17613.632
+732566.75 15746.205
+732566.88 7676.7797
+732567 8216.7244
+732567.12 14652.331
+732567.25 13660.984
+732567.38 17316.325
+732567.5 14183.66
+732567.62 20037.522
+732567.75 18249.167
+732567.88 9542.6743
+732568 8009.3668
+732568.12 13839.646
+732568.25 11484.138
+732568.38 8943.1363
+732568.5 9397.4213
+732568.62 15611.462
+732568.75 13178.298
+732568.88 5245.8923
+732569 5334.9034
+732569.12 11134.283
+732569.25 7622.4951
+732569.38 5030.551
+732569.5 8169.7747
+732569.62 15377.491
+732569.75 12339.841
+732569.88 4548.7089
+732570 7517.3631
+732570.12 13024.929
+732570.25 10824.303
+732570.38 8209.1947
+732570.5 12964.812
+732570.62 17633.31
+732570.75 15674.302
+732570.88 9332.2843
+&
+@target G2.S1
+@type xy
+732505.12 28215.042
+732505.25 32862.156
+732505.38 16082.077
+732505.5 9512.0962
+732505.62 3007.8392
+732505.75 4238.4
+732505.88 1924.7826
+732506 4284.6784
+732506.12 14937.019
+732506.25 20718.173
+732506.38 6438.6838
+732506.5 -896.44283
+732506.62 -9822.6184
+732506.75 -14706.228
+732506.88 -14596.448
+732507 -8813.8576
+732507.12 2126.5869
+732507.25 6835.3835
+732507.38 -853.6526
+732507.5 481.29362
+732507.62 163.87356
+732507.75 3697.5708
+732507.88 1918.1077
+732508 1087.9877
+732508.12 13537.465
+732508.25 22264.102
+732508.38 24310.749
+732508.5 19152.443
+732508.62 19039.263
+732508.75 20595.871
+732508.88 14163.094
+732509 15324.686
+732509.12 27769.288
+732509.25 32852.556
+732509.38 24200.738
+732509.5 19763.478
+732509.62 20871.544
+732509.75 22328.385
+732509.88 19210.775
+732510 21255.601
+732510.12 28080.494
+732510.25 30140.041
+732510.38 24901.581
+732510.5 25991.356
+732510.62 26844.102
+732510.75 31030.507
+732510.88 37527.847
+732511 39820.826
+732511.12 43574.299
+732511.25 42595.071
+732511.38 27175.232
+732511.5 41793.213
+732511.62 47590.133
+732511.75 48591.916
+732511.88 47034.778
+732512 47556.257
+732512.12 41643.732
+732512.25 38321.817
+732512.38 28163.637
+732512.5 28565.197
+732512.62 30402.529
+732512.75 29958.017
+732512.88 25558.726
+732513 21019.314
+732513.12 24798.511
+732513.25 25957.038
+732513.38 23334.322
+732513.5 29030.72
+732513.62 28116.694
+732513.75 22146.95
+732513.88 12313.667
+732514 12311.99
+732514.12 22455.55
+732514.25 25536.731
+732514.38 13239.003
+732514.5 10824.584
+732514.62 8587.9411
+732514.75 7153.6954
+732514.88 5929.614
+732515 8103.226
+732515.12 6782.2211
+732515.25 712.55951
+732515.38 307.56291
+732515.5 -580.22152
+732515.62 1580.964
+732515.75 4319.2884
+732515.88 8147.6687
+732516 7540.3573
+732516.12 6911.3594
+732516.25 -246.83054
+732516.38 -12036.981
+732516.5 -10059.42
+732516.62 -7373.4165
+732516.75 -5772.5048
+732516.88 -5601.0015
+732517 -4886.9567
+732517.12 -5213.9045
+732517.25 -10007.46
+732517.38 -31448.237
+732517.5 -36746.407
+732517.62 -37252.708
+732517.75 -36424.934
+732517.88 -33464.999
+732518 -31336.083
+732518.12 -24259.131
+732518.25 -21606.022
+732518.38 -30455.528
+732518.5 -33706.072
+732518.62 -29858.946
+732518.75 -22851.316
+732518.88 -21807.123
+732519 -21285.933
+732519.12 -14107.013
+732519.25 -14336.943
+732519.38 -22737.416
+732519.5 -25718.299
+732519.62 -24475.562
+732519.75 -20123.613
+732519.88 -21176.075
+732520 -25949.715
+732520.12 -22951.392
+732520.25 -20282.84
+732520.38 -32863.389
+732520.5 -39338.359
+732520.62 -40238.479
+732520.75 -38986.762
+732520.88 -39171.546
+732521 -36441.585
+732521.12 -32762.82
+732521.25 -37563.462
+732521.38 -49152.842
+732521.5 -53426.729
+732521.62 -51360.193
+732521.75 -47302.185
+732521.88 -39969.149
+732522 -39816.058
+732522.12 -39417.77
+732522.25 -35565.111
+732522.38 -41214.867
+732522.5 -44828.099
+732522.62 -40724.769
+732522.75 -41677.556
+732522.88 -38408.937
+732523 -34898.379
+732523.12 -25215.172
+732523.25 -15486.638
+732523.38 -15047.809
+732523.5 -27385.823
+732523.62 -32973.683
+732523.75 -35082.678
+732523.88 -34834.599
+732524 -29214.002
+732524.12 -10072.272
+732524.25 3307.7758
+732524.38 3461.0772
+732524.5 -6119.6008
+732524.62 -15466.745
+732524.75 -19291.495
+732524.88 -25156.586
+732525 -20946.268
+732525.12 -1500.1519
+732525.25 6900.447
+732525.38 4800.7324
+732525.5 215.74618
+732525.62 -6643.3444
+732525.75 -12175.018
+732525.88 -16108.811
+732526 -15132.649
+732526.12 -3024.1619
+732526.25 6254.0016
+732526.38 4005.1495
+732526.5 -3148.2212
+732526.62 -17937.211
+732526.75 -26687.654
+732526.88 -26035.248
+732527 -14001.212
+732527.12 -1053.613
+732527.25 3113.6935
+732527.38 -4223.1502
+732527.5 -8922.0591
+732527.62 -20480.421
+732527.75 -25736.479
+732527.88 -26941.646
+732528 -16158.844
+732528.12 -4015.985
+732528.25 310.69802
+732528.38 -3174.1344
+732528.5 -1149.2936
+732528.62 -9842.5107
+732528.75 -15635.048
+732528.88 -20080.014
+732529 -21555.045
+732529.12 -5994.442
+732529.25 5444.2648
+732529.38 3306.3507
+732529.5 -6613.0999
+732529.62 -22263.043
+732529.75 -29981.259
+732529.88 -28733.034
+732530 -16949.188
+732530.12 2476.3467
+732530.25 9709.3473
+732530.38 -3699.8085
+732530.5 -7679.9358
+732530.62 -18295.82
+732530.75 -30336.692
+732530.88 -36987.418
+732531 -32199.982
+732531.12 -16723.304
+732531.25 -5393.2726
+732531.38 -12068.946
+732531.5 -7339.933
+732531.62 -17232.344
+732531.75 -33835.01
+732531.88 -43104.388
+732532 -38199.042
+732532.12 -28282.976
+732532.25 -19212.61
+732532.38 -24575.384
+732532.5 -38306.119
+732532.62 -52969.708
+732532.75 -58592.983
+732532.88 -52146.144
+732533 -43050.982
+732533.12 -32702.035
+732533.25 -28537.137
+732533.38 -36070.381
+732533.5 -37212.086
+732533.62 -38927.232
+732533.75 -38410.226
+732533.88 -35214.903
+732534 -30004.699
+732534.12 -21157.853
+732534.25 -17381.791
+732534.38 -26348.783
+732534.5 -30168.663
+732534.62 -28476.284
+732534.75 -27445.78
+732534.88 -20175.085
+732535 -13830.248
+732535.12 -13262.496
+732535.25 -10784.03
+732535.38 -15319.937
+732535.5 -15020.23
+732535.62 -16395.365
+732535.75 -16164.913
+732535.88 -12854.89
+732536 -9437.4701
+732536.12 -334.83476
+732536.25 4016.5969
+732536.38 -3425.7589
+732536.5 -4033.1027
+732536.62 -6423.5009
+732536.75 -6283.8401
+732536.88 -2620.0607
+732537 6438.8827
+732537.12 13685.56
+732537.25 14027.969
+732537.38 298.19921
+732537.5 -5670.9
+732537.62 -6027.0481
+732537.75 -380.60667
+732537.88 -1070.1836
+732538 3286.8937
+732538.12 11315.614
+732538.25 9924.6806
+732538.38 2725.6711
+732538.5 1405.3681
+732538.62 1339.3666
+732538.75 1299.853
+732538.88 -2947.094
+732539 -3636.4755
+732539.12 4206.7373
+732539.25 10865.827
+732539.38 4923.0694
+732539.5 5981.7919
+732539.62 3980.9769
+732539.75 243.76618
+732539.88 -1627.6067
+732540 654.81334
+732540.12 3544.7118
+732540.25 3234.4991
+732540.38 -2039.9083
+732540.5 6064.8691
+732540.62 9744.7057
+732540.75 4785.3457
+732540.88 -413.69842
+732541 -4546.0218
+732541.12 -3949.6986
+732541.25 -2204.3251
+732541.38 -376.85991
+732541.5 3121.3407
+732541.62 3059.4434
+732541.75 1015.4588
+732541.88 -1612.8678
+732542 -1693.6246
+732542.12 3592.1709
+732542.25 9361.7694
+732542.38 6062.4468
+732542.5 9183.9452
+732542.62 2870.7911
+732542.75 -6.2818369
+732542.88 -1313.7791
+732543 3048.7831
+732543.12 10905.111
+732543.25 16992.874
+732543.38 12473.755
+732543.5 9907.1608
+732543.62 314.52461
+732543.75 -7085.7562
+732543.88 -5225.1277
+732544 3578.2743
+732544.12 18091.431
+732544.25 25674.109
+732544.38 12984.293
+732544.5 1522.5214
+732544.62 -1957.3852
+732544.75 -2281.8809
+732544.88 -614.80174
+732545 3927.4818
+732545.12 10123.263
+732545.25 11401.147
+732545.38 2531.9274
+732545.5 -5419.7645
+732545.62 -10220.661
+732545.75 -14903.786
+732545.88 -17134.983
+732546 -11918.833
+732546.12 -6205.0267
+732546.25 -4316.8809
+732546.38 -15009.133
+732546.5 -15615.039
+732546.62 -21236.978
+732546.75 -24065.356
+732546.88 -23604.537
+732547 -16382.331
+732547.12 -9958.8461
+732547.25 -4839.5338
+732547.38 -12619.226
+732547.5 -14756.665
+732547.62 -19569.728
+732547.75 -23323.847
+732547.88 -30413.138
+732548 -26807.461
+732548.12 -10708.945
+732548.25 1187.2818
+732548.38 -9324.1839
+732548.5 -12607.246
+732548.62 -17628.92
+732548.75 -24285.612
+732548.88 -36568.172
+732549 -25720.675
+732549.12 -9872.7994
+732549.25 -2410.6097
+732549.38 -14210.655
+732549.5 -13843.277
+732549.62 -27777.353
+732549.75 -28343.127
+732549.88 -30847.811
+732550 -28508.017
+732550.12 -24498.864
+732550.25 -22984.165
+732550.38 -29366.789
+732550.5 -39837.214
+732550.62 -37715.327
+732550.75 -33960.5
+732550.88 -28065.987
+732551 -17215.569
+732551.12 -1531.2169
+732551.25 5767.4672
+732551.38 4674.2452
+732551.5 15294.225
+732551.62 22590.191
+732551.75 22325.58
+732551.88 19334.106
+732552 26123.467
+732552.12 41465.358
+732552.25 47123.951
+732552.38 58458.085
+732552.5 77160.52
+732552.62 76775.343
+732552.75 74299.556
+732552.88 71620.505
+732553 70761.185
+732553.12 72351.449
+732553.25 75226.009
+732553.38 88938.176
+732553.5 67102.754
+732553.62 63812.373
+732553.75 46083.436
+732553.88 30960.018
+732554 29706.535
+732554.12 36383.965
+732554.25 35830.759
+732554.38 19195.088
+732554.5 13619.631
+732554.62 11696.681
+732554.75 7491.3683
+732554.88 2104.2459
+732555 3016.1654
+732555.12 13242.247
+732555.25 16388.863
+732555.38 10335.543
+732555.5 3318.088
+732555.62 152.45087
+732555.75 -3993.052
+732555.88 -11780.224
+732556 -11606.074
+732556.12 113.01435
+732556.25 9678.7732
+732556.38 5666.4777
+732556.5 3834.0276
+732556.62 -2323.6023
+732556.75 -17435.799
+732556.88 -24907.19
+732557 -16854.955
+732557.12 -7110.2608
+732557.25 -2590.2655
+732557.38 -7475.5256
+732557.5 -10441.786
+732557.62 -17518.64
+732557.75 -21062.517
+732557.88 -24838.017
+732558 -22307.463
+732558.12 -12434.534
+732558.25 -9212.8797
+732558.38 -11104.006
+732558.5 -16232.96
+732558.62 -16738.586
+732558.75 -18632.07
+732558.88 -18604.576
+732559 -13440.909
+732559.12 -7031.6125
+732559.25 -6972.2464
+732559.38 -6404.5731
+732559.5 -10766.462
+732559.62 -7715.0373
+732559.75 -7159.8125
+732559.88 -5463.3029
+732560 3511.9936
+732560.12 11446.701
+732560.25 11412.211
+732560.38 5598.9131
+732560.5 3698.2975
+732560.62 8515.1124
+732560.75 8311.6839
+732560.88 3909.5538
+732561 9233.6708
+732561.12 17185.642
+732561.25 20465.407
+732561.38 15407.828
+732561.5 14999.958
+732561.62 13307.732
+732561.75 1630.1647
+732561.88 -514.9088
+732562 5821.4301
+732562.12 8093.7507
+732562.25 8221.16
+732562.38 -3071.5852
+732562.5 -15624.833
+732562.62 -21350.705
+732562.75 -24594.075
+732562.88 -20485.56
+732563 -12020.481
+732563.12 -4137.3922
+732563.25 -1273.9691
+732563.38 -17810.792
+732563.5 -20225.718
+732563.62 -20184.57
+732563.75 -23452.086
+732563.88 -25982.189
+732564 -19611.047
+732564.12 -11974.386
+732564.25 -11000.432
+732564.38 -24183.501
+732564.5 -27947.579
+732564.62 -11922.346
+732564.75 -15015.181
+732564.88 -21265.085
+732565 -13240.378
+732565.12 -5469.829
+732565.25 -5123.8765
+732565.38 -11566.961
+732565.5 -17773.318
+732565.62 -12748.044
+732565.75 -12580.14
+732565.88 -12953.383
+732566 -3444.1854
+732566.12 7093.1639
+732566.25 8384.6545
+732566.38 -3078.4513
+732566.5 -4404.0358
+732566.62 4327.0854
+732566.75 1362.931
+732566.88 -2362.9643
+732567 8363.4353
+732567.12 18218.336
+732567.25 18693.375
+732567.38 4150.5665
+732567.5 -5265.5278
+732567.62 -3446.8831
+732567.75 -5311.1541
+732567.88 -8326.9593
+732568 -5201.0708
+732568.12 1923.1573
+732568.25 6550.511
+732568.38 -15889.466
+732568.5 -17953.932
+732568.62 -15501.912
+732568.75 -16313.533
+732568.88 -14453.517
+732569 -12951.717
+732569.12 -9541.8538
+732569.25 -4066.0609
+732569.38 -9954.6375
+732569.5 -17757.367
+732569.62 -21317.503
+732569.75 -23778.083
+732569.88 -26765.495
+732570 -16769.147
+732570.12 -925.2794
+732570.25 5801.1485
+732570.38 -280.60765
+732570.5 -9015.2521
+732570.62 -18201.665
+732570.75 -17742.824
+732570.88 -17244.197
+&
+@target G3.S0
+@type xy
+732523.88 0
+732524 0
+732524.12 0
+732524.25 0
+732524.38 0
+732524.5 0
+732524.62 0
+732524.75 0
+732524.88 0
+732525 0
+732525.12 0
+732525.25 0
+732525.38 0
+732525.5 0
+732525.62 0
+732525.75 0
+732525.88 0
+732526 0
+732526.12 0
+732526.25 0
+732526.38 0
+732526.5 0
+732526.62 0
+732526.75 0
+732526.88 0
+732527 0
+732527.12 0
+732527.25 0
+732527.38 0
+732527.5 0
+732527.62 0
+732527.75 0
+732527.88 0
+732528 0
+732528.12 0
+732528.25 0
+732528.38 0
+732528.5 0
+732528.62 0
+732528.75 0
+732528.88 0
+732529 0
+732529.12 0
+732529.25 0
+732529.38 0
+732529.5 0
+732529.62 0
+732529.75 0
+732529.88 0
+732530 0
+732530.12 0
+732530.25 0
+732530.38 0
+732530.5 0
+732530.62 0
+732530.75 0
+732530.88 0
+732531 0
+732531.12 0
+732531.25 0
+732531.38 0
+732531.5 0
+732531.62 0
+732531.75 0
+732531.88 0
+732532 0
+732532.12 0
+732532.25 0
+732532.38 0
+732532.5 0
+732532.62 0
+732532.75 0
+732532.88 0
+732533 0
+732533.12 0
+732533.25 0
+732533.38 0
+732533.5 0
+732533.62 0
+732533.75 0
+732533.88 0
+732534 0
+732534.12 0
+732534.25 0
+732534.38 0
+732534.5 0
+732534.62 0
+732534.75 0
+732534.88 0
+732535 0
+732535.12 0
+732535.25 0
+732535.38 0
+732535.5 0
+732535.62 0
+732535.75 0
+732535.88 0
+732536 0
+732536.12 0
+732536.25 0
+732536.38 0
+732536.5 0
+732536.62 0
+732536.75 0
+732536.88 0
+732537 0
+732537.12 0
+732537.25 0
+732537.38 0
+732537.5 0
+732537.62 0
+732537.75 0
+732537.88 0
+732538 0
+732538.12 0
+732538.25 0
+732538.38 0
+732538.5 0
+732538.62 0
+732538.75 0
+732538.88 0
+732539 0
+732539.12 0
+732539.25 0
+732539.38 0
+732539.5 0
+732539.62 0
+732539.75 0
+732539.88 0
+732540 0
+732540.12 0
+732540.25 0
+732540.38 0
+732540.5 0
+732540.62 0
+732540.75 0
+732540.88 0
+732541 0
+732541.12 0
+732541.25 0
+732541.38 0
+732541.5 0
+732541.62 0
+732541.75 0
+732541.88 0
+732542 0
+732542.12 0
+732542.25 0
+732542.38 0
+732542.5 0
+732542.62 0
+732542.75 0
+732542.88 0
+732543 0
+732543.12 0
+732543.25 0
+732543.38 0
+732543.5 0
+732543.62 0
+732543.75 0
+732543.88 0
+732544 0
+732544.12 0
+732544.25 0
+732544.38 0
+732544.5 0
+732544.62 0
+732544.75 0
+732544.88 0
+732545 0
+732545.12 0
+732545.25 0
+732545.38 0
+732545.5 0
+732545.62 0
+732545.75 0
+732545.88 0
+732546 0
+732546.12 0
+732546.25 0
+732546.38 0
+732546.5 0
+732546.62 0
+732546.75 0
+732546.88 0
+732547 0
+732547.12 0
+732547.25 0
+732547.38 0
+732547.5 0
+732547.62 0
+732547.75 0
+732547.88 0.018011289
+732548 0.032942685
+732548.12 0.044030022
+732548.25 0.043364903
+732548.38 0.020405765
+732548.5 0.019332831
+732548.62 0.018355981
+732548.75 0.019719795
+732548.88 0.030079123
+732549 0.033810378
+732549.12 0.027967477
+732549.25 0.026489513
+732549.38 0.022037622
+732549.5 0.010318077
+732549.62 0.014263354
+732549.75 0.013588149
+732549.88 0.025675036
+732550 0.027710121
+732550.12 0.0225762
+732550.25 0.02650823
+732550.38 0.021489606
+732550.5 0.015704163
+732550.62 0.0095748811
+732550.75 0.015758298
+732550.88 0.022354067
+732551 0.03586917
+732551.12 0.049962198
+732551.25 0.052108284
+732551.38 0.030214194
+732551.5 0.050694196
+732551.62 0.055458724
+732551.75 0.053518155
+732551.88 0.050160571
+732552 0.053331299
+732552.12 0.058922462
+732552.25 0.058291632
+732552.38 0.037293952
+732552.5 0.069943684
+732552.62 0.068330253
+732552.75 0.066742278
+732552.88 0.064145146
+732553 0.063042753
+732553.12 0.063503974
+732553.25 0.063956728
+732553.38 0.067413087
+732553.5 0.063943839
+732553.62 0.062391133
+732553.75 0.060392223
+732553.88 0.056213181
+732554 0.056223389
+732554.12 0.057272481
+732554.25 0.057723135
+732554.38 0.05402277
+732554.5 0.053567656
+732554.62 0.053031242
+732554.75 0.052545677
+732554.88 0.051871879
+732555 0.052237878
+732555.12 0.053909389
+732555.25 0.054345596
+732555.38 0.053332929
+732555.5 0.052811287
+732555.62 0.05266138
+732555.75 0.052395347
+732555.88 0.049730579
+732556 0.050069062
+732556.12 0.052580582
+732556.25 0.052842155
+732556.38 0.052480897
+732556.5 0.052967553
+732556.62 0.053479677
+732556.75 0.052995819
+732556.88 0.051388704
+732557 0.052304119
+732557.12 0.051548287
+732557.25 0.051184818
+732557.38 0.05055965
+732557.5 0.050468798
+732557.62 0.050673755
+732557.75 0.050577227
+732557.88 0.050728311
+732558 0.05048601
+732558.12 0.04936212
+732558.25 0.049128287
+732558.38 0.047822454
+732558.5 0.047287
+732558.62 0.047740173
+732558.75 0.047834652
+732558.88 0.047294368
+732559 0.048573435
+732559.12 0.049048105
+732559.25 0.049254536
+732559.38 0.048017045
+732559.5 0.047782133
+732559.62 0.049237621
+732559.75 0.049258883
+732559.88 0.049559134
+732560 0.050707062
+732560.12 0.050467307
+732560.25 0.050552766
+732560.38 0.048491941
+732560.5 0.04861118
+732560.62 0.048614512
+732560.75 0.04874225
+732560.88 0.048865015
+732561 0.048757774
+732561.12 0.048299052
+732561.25 0.047687622
+732561.38 0.045599113
+732561.5 0.045858695
+732561.62 0.046659012
+732561.75 0.047701438
+732561.88 0.046888682
+732562 0.046073851
+732562.12 0.04646423
+732562.25 0.046256948
+732562.38 0.042692441
+732562.5 0.040661117
+732562.62 0.039693289
+732562.75 0.039233786
+732562.88 0.037818321
+732563 0.036985678
+732563.12 0.041654985
+732563.25 0.041488535
+732563.38 0.029179709
+732563.5 0.028535411
+732563.62 0.029476995
+732563.75 0.027225132
+732563.88 0.018477944
+732564 0.022862521
+732564.12 0.02928786
+732564.25 0.028145234
+732564.38 0
+732564.5 0
+732564.62 0
+732564.75 0
+732564.88 0
+732565 0
+732565.12 0
+732565.25 0
+732565.38 0
+732565.5 0
+732565.62 0
+732565.75 0
+732565.88 0
+732566 0
+732566.12 0
+732566.25 0
+732566.38 0
+732566.5 0
+732566.62 0
+732566.75 0
+732566.88 0
+732567 0
+732567.12 0
+732567.25 0
+732567.38 0
+732567.5 0
+732567.62 0
+732567.75 0
+732567.88 0.02104363
+732568 0.021470716
+732568.12 0.011398363
+732568.25 0.014092971
+732568.38 0.01631002
+732568.5 0.013933325
+732568.62 0
+732568.75 0
+732568.88 0
+732569 0
+732569.12 0
+732569.25 0
+732569.38 0
+732569.5 0
+732569.62 0
+732569.75 0
+732569.88 0
+732570 0
+732570.12 0
+732570.25 0
+732570.38 0
+732570.5 0
+732570.62 0
+732570.75 0
+732570.88 0
+&

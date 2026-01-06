@@ -1,0 +1,639 @@
+%!TEX root = ../thesis.tex
+%************* First Chapter ********************
+
+\chapter{Introduction}  %Title of the First Chapter
+\label{chap:intro}
+
+\graphicspath{{Chap_introduction/Figs/}}
+
+
+%{\noteRed Include potential analysis, modelling ARIMA processes. Include forecasting, detection (cf potential analysis) - EWS is not the only topic within the subject of tipping points. }
+
+%% From Valerie:
+%
+% 1. what a dynamical system is
+% 2. how we study its trajectory with time series analysis techniques
+% 3. what we call a transition, a bifurcation, a tipping point,
+% 4. how critical transitions are important and what they mean in different areas, 
+% 5. and then who studied them before you, 
+% 6. and why you study it 
+% 7. and what novelty you add to research.
+%
+
+%% References:
+%
+% bagowski2001bistability -- cell pathways
+% gammaitoni1998stochastic -- noise-induced
+% kuehn2011mathematical -- mathematical basis
+% lewontin1969meaning -- ecology: 	Modern interest in the concept of multiple stable states began with Lewontin's (1969) simple question: “Can there be more than one stable community in a given habitat?”
+% scheffer2009critical -- book
+% scheffer2009 -- review paper
+% zahler1977claims -- not so keen on cusp folds 
+% zeeman1977catastrophe -- random ranting about catastrophe theory 
+
+This work is concerned with tipping points, also referred to as critical transitions, which are characterised by \citet{kuehn2011mathematical} as follows:
+\begin{quote}
+	\emph{
+	A non-mathematical working definition of a critical transition is an abrupt change in a dynamical system. }
+\end{quote}
+\cite{scheffer2009critical} uses the example of a canoe capsizing as the canoeist leans further over the edge. This example is one in which the \emph{dynamical system} (the status of the roll of the canoe as it changes over time) has two stable states (upright and upside-down) and transitions \emph{abruptly} from one to the other as a critical threshold is reached, in this case the point at which the centre of mass is sufficiently offset from the canoe's axis of vertical symmetry that it becomes unstable. {\Red Many examples of tipping points in nature follow this model of switching between two stable states due to some outside forcing (in this case, the action of the canoeist). Other tipping points may occur in dynamical systems with only a single stable state, if the position of that stable state changes suddenly, or they may be due to \emph{bifurcations} in the system, where a stable state becomes unstable and the number of states changes. In this thesis we attempt to identify common features of different varieties of tipping points (forced, bifurcational and noise-induced) in order to present general methods for identifying, detecting and possibly predicting tipping points.}
+
+In order to take this thesis beyond a superficial study of the canoeist example, we introduce in sections~\ref{sec:intro:dynamicalsystems} and~\ref{sec:intro:tippingpoints} the concepts of dynamical systems, time series analysis and tipping points, including some common examples. In section~\ref{sec:intro:EWS} we introduce the foundational ideas of early warning signals, which may be used to predict tipping points. All of these ideas are introduced here quite generally but are properly defined in chapters~\ref{chap:1D} and~\ref{chap:2D}. In section~\ref{sec:intro:geophysical} we present a summary of the current research into geophysical tipping points, and then in section~\ref{sec:intro:outline} we outline the structure and key points of the remainder of this thesis.
+
+\section{Dynamical systems and time series analysis}
+\label{sec:intro:dynamicalsystems}
+
+%honerkamp1994stochastic - stochastic dynamical systems
+
+The term \emph{dynamical system} is used in pure mathematical analysis, medicine, climatology, and other disciplines. For the purposes of the physical sciences, a dynamical system is defined as ``a particle or ensemble of particles whose state varies over time'' \citep{natureDynamicalsystems}: that is, almost any measurable quantity or quality of almost anything that changes over time. The mathematical field of Dynamical Systems more specifically defines a dynamical system as a triple $(\mathcal{S},\mathcal{T},\Phi)$, where $\mathcal{S}$ is the state space, $\mathcal{T}$ is the parameter space and the map
+	\begin{equation}
+		\label{eqn:intro:dynamicalsystem_triplemap}
+		\Phi : (\mathcal{S}\times\mathcal{T}) \rightarrow \mathcal{S}
+	\end{equation}
+is the evolution determining the dependence of the state $s\in\mathcal{S}$ on the parameter $t\in\mathcal{T}$ \citep{brown2018introduction}. The state of the system as the parameter changes is called the \emph{trajectory} of the system and $(\mathcal{S}\times\mathcal{T})$ is known as the trajectory space. 
+
+The majority of the influence on this thesis is tipping point research relating to real physical systems changing over time, such as the change in atmospheric oxygen concentration over a period of years \citep{livina2015}. In chapter~\ref{chap:cyclones} the tipping point analysis techniques developed and studied throughout the previous chapters are applied to observed sea-level pressure measurements as they change over a period of days. Therefore, in the context of this thesis, $t\in\mathcal{T}$ is typically the "time" parameter and $\mathcal{T}$ is typically the set of real numbers $\mathbb{R}$, or a discrete subset (e.g. $\{0,0.1,0.2,...\}$). Hence, the trajectory is the state of the system as it changes with time. This brings the mathematical definition of a dynamical system closer to the physical sciences definition. In this thesis we generally distinguish an analytically defined \emph{dynamical system}, where the map $\Phi$ is often defined by a set of differential equations \citep{robinson2012introduction}, from a \emph{physical system}, such as the roll angle of a canoe or the sea-level pressure at a specific geographical location. However, the two concepts overlap where a physical system is presumed to be governed by (possibly unknown) analytical equations, or when an analytical dynamical system is used to model the behaviour of a physical variable.
+
+A simple example of a dynamical system is based on the quadratic map
+	\begin{equation}
+		f(x) = 4x(1-x).
+		\label{eqn:intro:DS:quadraticmap}
+	\end{equation}
+Here, the state is $x\in\mathbb{R} :=\mathcal{S}$, the `time' parameter is $n\in\mathbb{N}:=\mathcal{T}$ and the dynamics are governed by the map
+	\begin{equation}
+		\Phi : (x,n) \rightarrow f^n(x),
+		\label{eqn:intro:DS:quadraticiteration}
+	\end{equation}
+denoting the function $f$ iterated $n$ times. The trajectory of this dynamical system, with the initial condition $x_0 = 0.4$, is shown in figure~\ref{fig:intro:quadraticmap}.
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{quadmap}
+	\caption{The quadratic map (equation~\ref{eqn:intro:DS:quadraticmap}) iterated 200 times with initial value $x_0=0.4$.}
+	\label{fig:intro:quadraticmap}
+\end{figure}
+The series of values $X = \{x_0, x_1, ...\}$ is, if we continue to refer to the parameter $n$ as 'time', a \emph{time series}, a collection of observations made over time \citep{chatfield2016analysis}. These observation can be the hourly price of a commodity, the yearly global average temperature deviation or, in this case, the state $x$ of the dynamical system in equation~\ref{eqn:intro:DS:quadraticiteration}.
+
+In chapters~\ref{chap:1D} and~\ref{chap:2D} several dynamical systems defined by analytical equations are studied in order to detect or predict tipping points which occur in those systems. An instructive example, which is referred to throughout this thesis, is the \emph{double-well potential} system, described by the differential equation
+\begin{equation}
+	\dot{z}:=\frac{dz}{dt} = -\frac{\partial}{\partial z}\left(z^4-2z^2\right),
+	\label{eqn:intro:doublewell}
+\end{equation}
+where $z(t)$ is the system state variable and $t$ is the time parameter. The right-hand side could be written more concisely as $4z-4z^3$ but expressing it as a derivative allows us to see the shape of the \emph{generalised potential function} $U(z) = z^4-2z^2$, which is illustrated in figure~\ref{fig:intro:doublewell}a. {\Red{ \label{pageref:intro:generalisedpotential} The generalised potential function, in this case, describes two \emph{wells} into which the system state falls. The term ``potential function'' in physics has a specific meaning relating to the energy potential of a particle but in dynamical systems it is useful to refer to the ``generalised potential function'', as we have done here, in the sense that its minima correspond to the most probable states of the system \citep{nicolis2007}. In this sense the reciprocal of the generalised potential function is related to the probability distribution function of system states, but it is more convenient for our purposes to refer only to the generalised potential function.}}
+
+As $t$ changes, so too does the system state $z$ unless $\dot{z}=0$, which occurs at the \emph{equilibria}, the states $z=-1,0,1$, which are also the solutions to 
+	\begin{equation}
+		\frac{\partial}{\partial z}\left(z^4-2z^2\right)=0.
+	\label{eqn:intro:doublewell_equilibria}
+	\end{equation}
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{doublewell_trajectory}
+	\caption{(a) The shape of the double-well generalised potential function $U(z) = z^4-2z^2$, and (b) the trajectory of the dynamical system described by equation~\ref{eqn:intro:doublewell}. The dashed lines represent the equilibria $z = -1,0,1$.}
+	\label{fig:intro:doublewell}
+\end{figure}
+Thus, we are able to understand the dynamical system in terms of its equilibria. At $z=0$ there is an \emph{unstable} equilibrium where $U'' = 12z^2-4 = -4 <0$ and so if $z$ is close to, but not equal to zero, the evolution of the system (the change as $t$ increases) will move away from this state, along the arrows of the trajectory in figure~\ref{fig:intro:doublewell}b, towards the \emph{stable} equilibria $z=\pm 1$, where $U'' = 12z^2-4 = 8 > 0$. Because of the shape of the generalised potential function, these stable equilibria are known as wells or basins of attraction. Any state $z\neq 0$ will evolve towards either one of these wells and will become asymptotically close to $z=\pm 1$.  
+
+\subsection{Stochastic dynamical systems}
+\label{subsec:intro:dynamicalsystems:stochastic}
+
+When attempting to model a physical system, a purely deterministic equation may not be appropriate \citep{shumway2017time} and so it is useful to couple a dynamical system with a stochastic process to model uncertainty or unknown short-scale processes. The stochasticity can also induce tipping in the dynamical system — we note that in the double-well potential system introduced above, the system variable $z$ heads towards one of the potential wells (one of the stable states of the system) and remains there: this is not a suitable model for a physical system such as the canoe example, which tips from one state to another.
+
+The most basic example of a discrete-time stochastic process, for our purposes, is independent Gaussian white noise, that is, a time series where each element is sampled independently from a zero-mean Gaussian distribution. In several systems throughout this thesis we introduce additive noise \citep{honerkamp1994stochastic} so that a system
+\begin{equation}
+	\frac{dx}{dt} = f(x),
+\end{equation}
+becomes
+	\begin{equation}
+	\label{eqn:intro:adding_noise}
+		\frac{dx}{dt} = f(x) + \eta_t,
+	\end{equation}
+where $\eta$ is a Gaussian white noise process. Adding a white noise process to the double-well potential system in equation~\ref{eqn:intro:doublewell}, we get a stochastic dynamical system described by the stochastic differential equation
+	\begin{equation}
+		\dot{z} = -\frac{\partial}{\partial z}\left(z^4-2z^2\right) + \sigma\eta_t,
+	\label{eqn:intro:doublewell_noise}
+	\end{equation}
+where the constant $\sigma$ alters the variance of the noise term. 
+In this system the overall evolution is still towards the two wells of attraction, and we note that a particle starting exactly in the state $z=0$ will no longer remain on the unstable equilibrium as perturbations from the noise term will move the particle slightly away from zero, after which point it will be attracted into one of the two wells. In figure~\ref{fig:intro:doublewell_noise} the trajectory of the system is shown with initial condition $z=0$ for small noise ($\sigma=0.4$) and for large noise ($\sigma=0.7$). Note that when the noise is sufficiently large a particle is able to cross over the $z=0$ point, the peak between the two wells of attraction, and move into the other well. This abrupt, noise-induced transition from one stable state to another is one of the several types of tipping which will be described in section~\ref{sec:intro:tippingpoints}. Significantly, this noise-induced tipping point is not caused by a change in the shape of the generalised potential, as is the case for other examples of tipping points.
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{doublewell_noise}
+	\caption{Time series of the possible trajectory of the stochastic double-well potential system described by equation~\ref{eqn:intro:doublewell_noise} with small noise (blue line, $\sigma=0.4$) and large noise (red line, $\sigma=0.7$).}
+	\label{fig:intro:doublewell_noise}
+\end{figure}
+
+Besides Gaussian white noise, we may introduce many different types of stochastic processes: Brownian motion, fractional ARIMA processes, the Ornstein-Uhlenbeck process, etc. \citep{gardiner1994,BoxJenkinsBook,chatfield2016analysis, shumway2017time}. We make frequent use of the \emph{discrete random walk} process, which is simply the cumulative sum of a white noise series, thus:
+	\begin{equation}
+		x_t = \sum_{j=1}^t \eta_t\,,
+	\end{equation}
+where $\eta$ is Gaussian white noise. This could also be defined recursively by the equation
+	\begin{equation}
+		x_t = x_{t-1}+\eta_t\,,
+	\end{equation}
+with initial condition $x_0$. A more general stochastic process with a similar form is the order-$p$ autoregressive process, or AR($p$) process, described by the equation
+	\begin{equation}
+		x_t = \varphi_1 x_{t-1}+ \varphi_2 x_{t-2}+ \dots + \varphi_p x_{t-p}+\eta_t,
+		\label{eqn:intro:ARmodel}
+	\end{equation}
+where $\varphi_1, \varphi_2, ...$ are constant parameters. Figure~\ref{fig:intro:randomwalk} shows the time series of a random walk, and an AR(2) process with $\varphi_1=0.8,\,\varphi_2=-0.2$. 
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{randomwalk}
+	\caption{Time series of a random walk (blue line), and an AR(2) process with $\varphi_1=0.8,\,\varphi_2=-0.2$ (red line).}
+	\label{fig:intro:randomwalk}
+\end{figure}
+These two time series appear different, we note that the AR(2) process appears to be stationary (the mean does not change over time) whereas the random walk is apparently non-stationary.
+
+\subsection{Methods of analysis}
+\label{subsec:intro:dynamicalsystems:methods}
+There exist many methods for the analysis of the time series which arise both from measurements of physical systems and from analytically defined dynamical systems \citep{BoxJenkinsBook, chatfield2016analysis}. {\Red Besides the sample variance, we often refer to the sample autocorrelation function (ACF) of a time series $X$, a measure of the correlation between a time series and a delayed copy of itself, given by the equation
+\begin{equation}
+	\label{eqn:intro:ACF_formula}
+	\text{ACF}_{l}(X) = \frac{1}{(N-l)s^2}\sum_{j=1}^{N-l}(X_{j}-\bar{X})(X_{j+l} - \bar{X}),
+\end{equation} 
+where $\bar{X}$ and $s$ are the sample mean and sample standard deviation of $X$ and $l$ is the lag. The ACF of a Gaussian white noise process {\Red has expected value zero at all lags except $l=0$}, since each point is sampled independently and so there is no correlation between them. }
+Since, in tipping point research, we are concerned with abrupt changes in systems, autocorrelation is frequently used to analyse time series of systems in which tipping has occurred or may occur \citep{scheffer2009}. In chapter~\ref{chap:1D} the \emph{ACF1 indicator} is introduced as a means to quantify how lag-1 autocorrelation changes over time. This method has been widely used in tipping point research \citep{held2004,livina2007} as has the related \emph{DFA indicator} (see definition~\ref{def:1D:indicator:DFA}, chapter~\ref{chap:1D}) which was developed by \cite{livina2007} and quantifies how the Detrended Fluctuation Analysis exponent of a system \citep{makse1996,kantelhardt2001} changes over time. 
+
+As an illustration, we calculate the lag-1 ACF of the random walk and the AR(2) processes plotted in figure~\ref{fig:intro:randomwalk}. These are found numerically to be $1.00$ and $0.666$ respectively, giving just one quantitative measure of the difference in behaviour between the two processes. The DFA exponents of the two processes are found to be $1.50$ and $0.556$. In chapter~\ref{chap:1D} we compare the lag-1 ACF and the DFA exponent applied to a number of different dynamical systems in order to assess the advantages of each.
+
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{PowerSpectrum_wb}
+	\caption{ The periodogram of a Gaussian white noise series (panel \textbf{a}) and a random walk (panel \textbf{b}) both of length $10^6$ data points. The logarithm of the spectral power $S(f)$ is plotted over the logarithm of the frequency $f$ in both cases in the frequency range $10^{\m 2}<f<10^{\m 1}$. 
+		\label{fig:intro:PowerSpectrum_wb}}
+\end{figure}
+
+{\Red{ 	
+Many methods of time series analysis involve transforming the series from the \emph{time domain}, in which the system state is a function of time, into the \emph{frequency domain}, in which the amount of the series lying within a frequency band is a function of frequency \citep{chatfield2016analysis}. In this way we obtain the power spectrum $S_x(f)$ for the process $x$ as a function of frequency $f$, which is simply the modulus squared of the Fourier transform:
+	\begin{equation}
+		\label{eqn:intro:power_spectrum_def}
+		S_x(f) = \left|\hat{x}(f)\right|^2\,,
+	\end{equation}
+where in this case $\hat{x}(f)$ denotes the Fourier transform of a function $x(t)$ as a function of frequency. A more thorough definition of the power spectrum is given in chapter~\ref{chap:1D} (definition~\ref{def:1D:PowerSpectrum}). Likewise, we also define the \emph{periodogram} (definition~\ref{def:1D:periodogram}), which is the discrete approximation to the power spectrum \citep{welch1967, oppenheim1999} and allows us to estimate spectral properties of a dynamical system given a finite time series of discrete data. In particular we are interested in how the power spectrum scales with frequency which we quantify using the power spectrum scaling exponent $\beta$ (see definition~\ref{def:1D:PSexponent}). Briefly, the exponent $\beta$ is a measure of the negative gradient of the periodogram plotted on logarithmic axes. Figure~\ref{fig:intro:PowerSpectrum_wb} shows the periodogram of a Gaussian white noise series and a random walk (both of length $10^6$ data points). The periodogram is plotted on a log-log scale — throughout this thesis we use the notation `$\log$' when referring to the base-$10$ logarithm. Measuring the gradient in both cases we find that the Gaussian white noise has PS exponent $\beta=0$ and the random walk has PS exponent $\beta=2$. Similarly to how the ACF1 indicator and the DFA indicator track how the lag-1 ACF and the DFA exponent change over time, we introduce the \emph{PS indicator} \citep{prettyman2018} (see definition~\ref{def:1D:indicator:PS}) in chapter~\ref{chap:1D}, which tracks how the PS exponent changes over time. We also explore in chapter~\ref{chap:1D} (section~\ref{sec:1D:scaling_exponents}) the relationships between the PS exponent $\beta$, the DFA exponent, and the autocorrelation function.
+}}
+
+
+\subsection{Higher dimensions}
+\label{subsec:intro:dynamicalsystems:higherdimensions}
+
+The time series and dynamical systems described above have only a single-valued system variable $x$, which is required by techniques such as the ACF or the power spectrum. In chapter~\ref{chap:2D} we expand the scope of the thesis to include higher-dimensional systems such as
+	\begin{equation}
+		\begin{array}{rcl}
+		\dot{r} &=& \mu r - r^3,\\
+		\dot{\theta} &=& 1 + r^2,
+		\end{array}
+	\label{eqn:intro:HopfSystem}
+	\end{equation}
+which has two variables (in this case, $r$ and $\theta$). In a physical system, {\Red this higher dimensionality} could correspond to measuring several different physical variables, or measuring the same variable at several discrete locations in space. It may be possible only to consider a single critical variable such as temperature. Otherwise it is also possible to combine several time series into one, for example using Empirical Orthogonal Functions (EOFs), which we discuss in section~\ref{sec:2D:EOF}, or to use a technique similar to ACF but expanded to higher dimensions \citep{williamson2015}, which we discuss in section~\ref{sec:2D:Williamson}. As a further alternative we introduce, in section~\ref{sec:2D:ExtensionToGridded}, the possibility of analysing several time series simultaneously using 2D plots. All of these ideas are then applied to a practical geophysical problem in chapter~\ref{chap:cyclones}.
+
+
+%We are concerned with detecting and predicting tipping points in dynamical and physical systems not based on an analysis of the system's equations, if they exist, although the system equations are used to inform the methods we use, but based on a time series.
+
+
+
+
+\section{Bifurcations and tipping points in dynamical systems}
+\label{sec:intro:tippingpoints}
+{\Red{
+In this section we introduce the concept of a bifurcation, which will be closely related to the more general concept of a tipping point. Introduced by Poincar{\'e} and meaning a split or fork, the term bifurcation has to do with creation, decay or change in the stable states of a dynamical system (see definition~\ref{def:intro:bifurcation}) \citep{devaney2003introduction, blanchard2006differential}. As such, bifurcations, where they occur, will often be the causes of tipping points: sudden qualitative changes in the system's behaviour.
+
+The `double well' system in figure~\ref{fig:intro:doublewell_noise} (large noise) has two stable equilibria (at $z=\pm1$) and the noise in the system is large enough that the system switches between the two. Each switch from one stable equilibrium to the other could be viewed as a tipping point itself (an example of a noise-induced tipping point \citep{livina2011}) but is not due to a bifurcation since the change occurs due to perturbations from the noise term, not due to a change in the parameter $t$ (that is, it could potentially happen at \emph{any} time $t$). An example of \emph{bifurcation} might be if the system, evolving along one stable trajectory, suddenly switched to the second stable equilibrium due to the first equilibrium \emph{becoming unstable} because of a change in the system parameters. This is the key feature that distinguishes bifurcations from other types of tipping points. In this section the concepts of \emph{tipping points} and \emph{bifurcations} are defined more thoroughly, and in the following sections (sections~\ref{sec:intro:classification_of_TPs} and~\ref{sec:intro:bifurcation_varieties}) several examples of tipping points and bifurcations are presented. 
+}}
+
+We can introduce a bifurcation into the `double well' system by varying the coefficient of $z^2$ in equation~\ref{eqn:intro:doublewell_noise} so that the shape of the generalised potential function $U$ changes with time:
+	\begin{equation}
+		\label{eqn:intro:PitchforkPotential}
+		U = z^4 + \left(3-\frac{t}{200}\right)z^2.
+	\end{equation}
+When $t=1000$ we have the same double-well generalised potential system as in equation~\ref{eqn:intro:doublewell_noise} with $U = z^4 -2 z^2$. However, when $t<600$ the shape of the generalised potential function is qualitatively different: only a single stable state (`well') exists. {\Red Thus we have introduced a parametric forcing into the system. Such parametrically forced systems are common in the study of bifurcations \citep{strogatz2014} since it is useful to consider the nature of the equilibria of a system at various values of the forcing parameter, in particular those values when the bifurcation occurs. In this chapter and the next we study parametrically forced systems which exhibit \emph{genuine bifurcations} in which, by varying the system parameter, the shape of the generalised potential function is changed and the equilibria of the system either appear, disappear or change in nature. This, however, is not the only way in which a tipping point may occur in an analytically defined dynamical system: we follow authors such as \cite{scheffer2009} in defining a tipping point as any abrupt qualitative change in the dynamical system, which may include a shift in the system state caused purely by the inherent stochasticity of a system, referred to as \emph{noise-induced tipping} \citep{livina2011,ashwin2012}.}
+
+{\Red{
+The evolution of the generalised potential function $U$ in equation~\ref{eqn:intro:PitchforkPotential} is shown in figure~\ref{fig:intro:ChangingPotential}. The system in equation~\ref{eqn:intro:doublewell_noise} is adjusted to incorporate this evolving generalised potential function, giving a system defined by the ODE
+	\begin{equation}
+		\dot{z} = -\frac{\partial}{\partial z}\left(z^4 + \left(3-\frac{t}{200}\right)z^2\right) + \sigma\eta_t,
+	\label{eqn:intro:PitchforkWithNoise}
+	\end{equation}
+where $\eta_t$ is a Gaussian white noise process. This equation is then integrated numerically for $t\in[0,1000]$ to give the time series shown in figure~\ref{fig:intro:doublewell_change}. Two separate integrations show two possible trajectories of the system, typical of the system falling into the two separate stable equilibria which develop after the bifurcation.}} This `pitchfork' bifurcation at $t=600$ is another example of a tipping point, distinct from the noise-induced transition seen in figure~\ref{fig:intro:doublewell_noise}. In chapter~\ref{chap:1D} this same dynamical system is used to create multiple time series on which we test the tipping point techniques described in that chapter and successfully identify the tipping event at $t=600$. We note that the bifurcation in figure~\ref{fig:intro:doublewell_change} appears to happen gradually in reference to the $0\leq t \leq 1000$ scale presented in the plot: in each of the trajectories we are able to see the increasing variance at $t=400$, and it is not clear that a double-well potential has developed until $t>700$. The reference to an "abrupt change" in the definition of a tipping point \citep{kuehn2011mathematical} is in comparison to large, long-scale deterministic components in the system, which are not present in this simple system for $t<600$. Despite this, systems such as this are commonly used as examples in tipping point analysis \citep{scheffer2009,kuehn2011mathematical} because the principle concepts would remain the same if a long-scale deterministic component were introduced. For example, the stable equilibria might be described by a sine wave with period $2000$, rather than the line $z=0$; plotted on the time scale $\m 10^5<t<10^5$ the tipping at $t=600$ will be apparently "abrupt".
+
+
+ \begin{figure}
+	\centering
+	\includegraphics[width = 0.9\columnwidth]{fig_changingPotential}
+	\caption{Schematic of the changing shape of the generalised potential function $U$ in equation \ref{eqn:intro:PitchforkPotential}. $U$ is shown for $t<600$ where the shape is a "single-well" (panel \textbf{a}); for $t=600$ where the bifurcation occurs (panel \textbf{b}); and for $t>600$ when the "double-well" shape has developed (panel \textbf{c}). 
+	\label{fig:intro:ChangingPotential}}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{doublewell_change}
+	\caption{Time series of two possible trajectories of the stochastic double-well potential system with  changing generalised potential function described by equation~\ref{eqn:intro:PitchforkPotential}. The equation is the same in both cases, with noise level $\sigma=0.4$.
+	\label{fig:intro:doublewell_change}}
+\end{figure}
+
+\subsection{Defining a ``tipping point''}
+\label{subsec:intro:tippingpoints:defining_a_tipping_point}
+
+The casual definition of a tipping point offered by \citet{kuehn2011mathematical}, "an abrupt change in a dynamical system", suggests that tipping points are not restricted to a particular type of change in a dynamical system, either a bifurcation or a transition from one state to another, but any system in which a sudden change can be observed. 
+
+Because the definition is very broad, tipping points are studied in a variety of different contexts using a variety of different methods \citep{scheffer2009critical}. Some areas of research in which tipping points are studied include finance \citep{scheffer2009}, ecology \citep{scheffer2001}, biochemistry \citep{bagowski2001bistability} and climate \citep{lenton2008}. Despite the breadth of the subject, many systems exhibiting tipping points are mathematically related, that is, when these systems are close to the tipping point they share certain general properties in their dynamics which arise regardless of their individual natures \citep{scheffer2009}. These shared properties, enumerated by \citet{scheffer2009critical} are summarised by \citet{kuehn2011mathematical} in the following list:
+\begin{enumerate}
+	\label{list:intro:nine}
+\item An abrupt qualitative change in the dynamical system occurs. 
+\item The change occurs rapidly in comparison to the regular
+dynamics.
+\item The system crosses a special threshold near a transition.
+\item The new state of the system is far away from its previous state.
+\item There is small noise in the system i.e. the data has a major deterministic component with small ‘‘random fluctuations’’.
+\item The system recovers slowly from perturbations (‘‘slowing down’’).
+\item The variance of the system increases as the transition is approached.
+\item The noisy fluctuations become more asymmetric.
+\item The autocorrelation increases before a transition.
+\end{enumerate}
+The point of interest is the third point: ‘‘The system crosses a special threshold near a transition.’’ since the nature of the ‘‘special threshold’’ determines the nature of the tipping point and therefore which techniques are used to analyse it. 
+
+The idea of the critical threshold comes from catastrophe theory which has in the past been criticised for an unscientific application of the cusp catastrophe to a huge variety of social and biological systems \citep{zahler1977claims}, including the fight reflex of dogs and the psychological states of \textit{anorexia nervosa} sufferers \citep{zeeman1977catastrophe}, all of which represent tipping points in a broad sense. Despite this, the cusp catastrophe (or fold bifurcation) is widely used as an example in tipping point research \citep{scheffer2001, van2005, van2007, kuehn2011mathematical}. \citet{scheffer2009} note that the cusp catastrophe model is 
+	‘‘now considered to capture the essence of shifts at tipping points in a wide range of natural systems’’
+and also that critical thresholds for tipping points correspond to bifurcations. In figure~\ref{fig:intro:transitions} three tipping points are illustrated: a non-catastrophic transition in which the system state changes smoothly; a cusp catastrophe in which the system undergoes a bifurcation; and a transition from one stable state to the another.
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{intro_transitions}
+	\caption{Three distinct tipping points: a non-catastrophic transition (a), a cusp catastrophe bifurcation (b) and a transition between stable states (c). In each case the small black arrow represents a small forcing and the grey arrow represents the resulting change in the system state. The attractor is shown in the top panel and the system generalised potential function is shown beneath.}
+	\label{fig:intro:transitions}
+\end{figure}
+In the first two cases (panels \textbf{a} and \textbf{b}) the same forcing is used and the same final system state is reached. Given a sufficiently large forcing, therefore, it would not be possible to tell the difference between the two scenarios. We use this idea in chapter~\ref{chap:cyclones} to justify the use of the tipping point analysis in a novel system: the approach of a tropical cyclone. This system is possibly not an example of a two-state system with a genuine bifurcation or transition, but it is possible that the same analysis will work if the same sort of forcing is present as if it \emph{were} a bifurcation. Indeed, \citet{ashwin2012} note, in the context of tipping point analysis, that tipping points do not only include bifurcations. 
+
+\subsection{Defining a bifurcation}
+\label{subsec:intro:tippingpoints:definebifurcation}
+{\Red{
+	Although we have now defined the term \emph{tipping point} very generally as any abrupt change in a dynamical system \citep{kuehn2011mathematical}, and the early-warning techniques introduced in chapter~\ref{chap:1D} are applied to systems exhibiting such generally-defined tipping, we will focus, in chapter~\ref{chap:2D}, on examples of parametrically forced bifurcations in order to facilitate analysis.
+	
+	Unlike the term \emph{tipping point}, which is used very generally to refer to ``abrupt qualitative change'' \citep{scheffer2009critical}, the word \emph{bifurcation}, in the context of dynamical systems, has a specific definition. The word is literally a description of the pitchfork bifurcation depicted in figures~\ref{fig:intro:ChangingPotential} and~\ref{fig:intro:doublewell_change}: the single stable equilibrium splits into two (bifurcates) at the critical point. 
+	\begin{definition}[Bifurcation]
+		\label{def:intro:bifurcation}
+		for a system described by the equation
+		\begin{equation}
+		\dot{x}  = f(x,\mu), ~~~~ f:\mathbb{R}^n\times\mathbb{R}\rightarrow\mathbb{R}^n,
+		\end{equation}
+		where all eigenvalues of the Jacobian matrix $J_f$ of $f$ evaluated at $x = x_0$ have non-positive real part, a bifurcation is said to occur at $x_0$ when one or more of those eigenvalues passes into the positive-real half of the complex plane due to a change in the parameter $\mu$. That is, when the real part of at least one eigenvalue becomes positive as $\mu$ is varied. 
+	\end{definition}
+	As an example we take Van der Pol oscillator \citep{vanDerPol1926}, which will be studied further in chapter~\ref{chap:2D}, and can be represented as a two-dimensional system of first order ODEs thus:
+		\begin{equation}
+			\begin{array}{rcl}
+			\dot{x} &=& \mu\left(x - \frac{1}{3}x^3\right)+y,\\
+			\dot{y} &=& -x.
+			\end{array}
+		\label{eqn:intro:VDPSystem}
+		\end{equation}
+	The system has a stable equilibrium point ($\dot{x}= \dot{y}= 0$) at $(x,y)= (0,0)$ for $\mu<0$ which becomes the centre of a stable limit cycle for $\mu>0$. The Jacobian of this system is calculated:
+		\begin{equation}
+			J(x,y) = \left(
+			\begin{array}{cc}
+			\mu(1-x^2) & 1\\
+			-1 & 0
+			\end{array}
+			\right).
+		\label{eqn:intro:VDPJacobian}
+		\end{equation}
+	Evaluated at the stable point $(0,0)$, the two complex-conjugate eigenvalues of the Jacobian are $\lambda = \frac{1}{2}(\mu \pm \sqrt{\mu^2-4})$. We note that for $\mu<0$ both eigenvalues have negative real part so that, according to definition~\ref{def:intro:bifurcation}, a bifurcation will occur if either eigenvalue passes into the real-positive half of the plane as $\mu$ changes. We find that at $\mu=0$ both eigenvalues are purely imaginary and then have positive real part for $0<\mu$, thus $\mu=0$ is the critical value at which a bifurcation occurs. The transition of the eigenvalues into the real-positive half of the plane is represented visually in figure~\ref{fig:intro:VanDerPolEigenvalues}.
+}}
+
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{VanDerPolEigenvalues}
+	\caption{\Red{The eigenvalues of the Van der Pol oscillator (equation~\ref{eqn:intro:VDPSystem}) for $\m2<\mu<2$. At the critical value $\mu=0$ both eigenvalues transition into the real-positive half of the plane, satisfying the definition of a bifurcation (definition~\ref{def:intro:bifurcation}).
+	}}
+	\label{fig:intro:VanDerPolEigenvalues}
+\end{figure}
+
+{\Red{
+	Bifurcations are often understood in terms of specific, named examples of bifurcations, all of which generally involve the creation or decay of stable equilibria or, in two or more dimensions, stable limit cycles, or, in three or more dimensions, chaotic attractors. In section~\ref{sec:intro:bifurcation_varieties} we give brief descriptions of several different examples of bifurcations and in chapters~\ref{chap:1D} and~\ref{chap:2D} we analyse several of these examples in an early warning signal context, including the Van der Pol oscillator shown here.
+}}
+
+\section{Classification of tipping points}
+\label{sec:intro:classification_of_TPs}
+
+A comparison of the transitions in figure~\ref{fig:intro:transitions} panels \textbf{b} and \textbf{c} demonstrates the two possible ways to shift between alternate stable states \citep{scheffer2001}: either a slight change in the system conditions, possibly a parameter value, close to the bifurcation point; or a sufficiently large perturbation due to noise which is able the push the system over the boarder to the other attractor well. \citet{ashwin2012} describe three types of tipping with applications to climate: bifurcations, noise-induced tipping, and rate-induced tipping. Whilst differing classifications of tipping points have been made \citep{thompson2011predicting, ashwin2012} we here illustrate the three categories of system changes which may be the cause of a tipping event, as identified by \cite{livina2011}:
+\begin{enumerate}
+	\item A forced transition, where the generalised potential function stays the same shape but is moved, so that there is a trend (or possibly a sudden jump) in the time series.
+	\item A genuine bifurcation, where the shape of the generalised potential function is changed. 
+	\item A noise-induced transition, where the system shifts from one stable state to another due to a large initial perturbation.
+\end{enumerate}
+We note that these three scenarios are represented in figure~\ref{fig:intro:transitions} (a, b and c respectively) where the forcing of the system state in figure~\ref{fig:intro:transitions}c is noise-driven. Rate-induced tipping, which is not represented in figure~\ref{fig:intro:transitions}, occurs as a result of the rate of change of a system parameter (or system conditions). {\Red We note also that a ``qualitative changes'' in a dynamical system may refer not to the measured or calculated system variable but some other unmeasured (or unobservable) or derived variable. For example,} \cite{livina2011} study the system $z(t)$ given by the equation
+	\begin{equation}
+	\label{noise_wells}
+	\dot{z}(t)  = -\frac{\partial}{\partial z}\left(z^4 - 2z^2\right) + \sigma(t)\eta \,,
+	\end{equation}
+where $\eta$ is white noise and $\sigma(t)$ is a parameter which varies with time and governs the size of the standard deviation of the noise. In this example, where $\sigma(t)$ is made to decrease from $2$ to close to zero, a system with a double-well generalised potential function effectively becomes a single-well system as the noise term becomes so small that it is practically impossible for the system to change state, although the actual shape of the generalised potential function does not change. {\Red In this case, the qualitative change in the system is not a change in the system state $z$ but can be seen either as a change in the probability of the system state changing; or a change in the variance. It is then this decrease in probability, or decrease in variance, which serves as the `system state' variable in figure~\ref{fig:intro:transitions}, not $z$ itself. And if the change is considered ``abrupt'' in comparison to the long-term dynamics, this system could be said to exhibit a tipping point at around the time that $\sigma(t)$ starts decreasing. This type of tipping point involving a derived variable may only become apparent from the nature of the equations that govern the system. If presented with time series data alone, it may be difficult, or impossible, to judge whether a tipping has occurred.
+}
+
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{transitions30_basic}
+	\caption{\Red{Three distinct tipping points: a non-catastrophic `forced' transition (a), a super-critical pitchfork bifurcation (b) and a noise-induced transition between stable states (c). The dynamical systems are governed by equations~\ref{eqn:intro:transitions:forced}, \ref{eqn:intro:transitions:pitchfork} and \ref{eqn:intro:transitions:noise-induced} respectively. In each case the tipping point occurs at around $t=0.6$. The three transitions correspond more-or-less to the three depicted in figure~\ref{fig:intro:transitions} and represent the three varieties of tipping point identified in \cite{livina2011}.
+	}}
+	\label{fig:intro:transitions20_basic}
+\end{figure}
+
+{\Red{
+We now present an example of each of these three types of tipping point listed by \cite{livina2011}. The dynamical system equation in each case is presented in the form
+	\begin{equation}
+	\dot{z}(t) = -\frac{\partial}{\partial z}U(z,\mu) + \sigma\eta,
+	\end{equation}
+where $\eta$ is a Gaussian white noise term and both $\mu$ and $\sigma$ may be functions of $t$. This form allows us to easily visualise the nodes of the system: the stable equilibria are local minima (`troughs' or `wells') of the generalised potential function $U$; whilst the unstable equilibria are the local maxima (`peaks').  
+	
+A single realisation of each of these systems is shown in figure~\ref{fig:intro:transitions20_basic}. In each case the system equation has been integrated using the Milstein method (see section~\ref{sec:1D:numerical_integration}, chapter~\ref{chap:1D}) using a time-step $\Delta t = 10^{\m 5}$ and sampled at a rate of $10^3$ per unit time.
+}}
+
+\subsubsection{Type 1: Forced transition (or \emph{Transitional tipping point})}
+{\Red{
+As an example of a `forced transition' we use the system described by the equation 
+\begin{equation}
+	\dot{z}(t) = -\frac{\partial }{\partial z}\left(z-\tanh(10t-6)-1\right)^2 + \frac{1}{10}\eta \, ,
+	\label{eqn:intro:transitions:forced}
+\end{equation}
+where $\eta$ is a Gaussian white noise process. This system has a quadratic-shape generalised potential which shifts in position over time. For small $t$, that is $t<0.5$, the stable equilibrium, the base of the `well', is at the position $z\approx 0$. This shifts to the position $z\approx 2$ when $t>0.7$. Thus, a sudden shift occurs around $t=0.6$, as we can see in figure~\ref{fig:intro:transitions20_basic}a. 
+}}
+
+\subsubsection{Type 2: Genuine bifurcation (or \emph{Bifurcational tipping point})}
+{\Red{
+As an example of a genuine bifurcation we present the familiar pitchfork bifurcation, already used as an example in this chapter, given by the equation:
+\begin{equation}
+	\dot{z}(t) = -\frac{\partial }{\partial z}\left(z^4+(3-5t)z^2\right) + \frac{1}{10}\eta\,,
+	\label{eqn:intro:transitions:pitchfork}
+\end{equation}
+where $\eta$ is a Gaussian white noise process. In this case the bifurcation occurs at $t=0.6$. We see in figure~\ref{fig:intro:transitions20_basic}b the apparent increase in ``white'' noise just before $t=0.6$ as the base of the `well' flattens out and allows for longer and longer return times to the equilibrium point $z=0$.
+
+This is a genuine bifurcation in the sense that it satisfies the definition of a bifurcation (see section~\ref{sec:intro:bifurcation_varieties}). This system is not, however, representative of bifurcations in general and there exist several classifications within the term \emph{bifurcation}. An introduction to some different types of bifurcation is given in the following section (section~\ref{sec:intro:bifurcation_varieties}). Bifurcations in dynamical systems in two or more dimensions may, in particular, be poorly represented by studying only the `pitchfork' system, since in this case the stable equilibrium may be a limit cycle or a chaotic attractor, rather than a single point.
+}}
+
+\subsubsection{Type 3: Noise-induced transition (or \emph{Noise-induced tipping point})}
+{\Red{
+As an example of a noise-induced transition we take the system with decreasing noise studied by \cite{livina2011} and given by equation~\ref{noise_wells}, but run the system in reverse so that the noise level is increasing. In this way the system has, for small $t$, effectively a `single well' generalised potential, since the noise level is so small as for it to be practically impossible for the system to switch stable states. The time series in figure~\ref{fig:intro:transitions20_basic}c is described by the equation:
+\begin{equation}
+	\dot{z}(t) = -\frac{\partial }{\partial z}\left(z^4-3z^2\right) + \frac{3t}{2} \eta\,,
+	\label{eqn:intro:transitions:noise-induced}
+\end{equation}
+where $\eta$ is a Gaussian white noise process and the coefficient $\sigma(t) = 3t/2$ modifies the standard deviation of the noise as a function of $t$. At around $t=0.6$ the noise standard deviation is close to $1$ which is about large enough that state-switching becomes likely though not frequent\footnote{by performing multiple experiments with various fixed noise coefficients we find that for $\sigma = 1$ there are (in the mean) $\approx 12$ state-switches in a time series of length $10^3$. For $\sigma = 0.8$ there are only $\approx 2$ switches}. As $t$ increases further, the frequency of the state-switch increases. 
+}}
+
+
+
+\section{Varieties of bifurcations}
+\label{sec:intro:bifurcation_varieties}
+
+{\Red
+As stated in section~\ref{subsec:intro:tippingpoints:definebifurcation}, bifurcations are understood in terms of specific, named examples, all of which  involve the creation or decay of stable equilibria or limit cycles. In this section we give brief descriptions of the four characteristic bifurcations in one dimension: the fold bifurcation; the transcritical bifurcation and the supercritical and subcritical pitchfork bifurcations \citep{strogatz2014}. We also give descriptions of the specific examples of two-dimensional bifurcations which are used throughout this thesis, namely the Hopf and homoclinic bifurcations.
+}
+
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{bifurcations30_basic}
+	\caption{\Red{Three bifurcations in one-dimensional dynamical systems: a fold bifurcation (a), a transcritical bifurcation (b) and a sub-critical pitchfork bifurcation (c). The dynamical systems are governed by equations~\ref{eqn:intro:bifurcations:fold}, \ref{eqn:intro:bifurcations:transcritical} and \ref{eqn:intro:bifurcations:sub_pitchfork} respectively. In each case the bifurcation occurs at $t=0.9$ but in panels (b) and (c), however, we see a tipping point earlier than this when the small noise term becomes enough to push the system out of the generalised potential `well'. Unlike in the case of the super-critical pitchfork bifurcation (fig.~\ref{fig:intro:transitions20_basic}b), these systems do not fall into a new stable state after the bifurcation but diverge suddenly.}}
+	\label{fig:intro:bifurcations20_basic}
+\end{figure}
+
+\subsection{Bifurcations in one dimension}
+\label{subsec:intro:bifurcations_1D}
+{\Red{
+
+When studying one-dimensional dynamical systems in the context of looking at bifurcations, we present the system equation in the form
+\begin{equation}
+	\dot{z}(t) = -\frac{\partial}{\partial z}U(z,\mu) + \sigma\eta,
+\end{equation}
+where $\eta$ is a Gaussian white noise term and both $\mu$ and $\sigma$ may be functions of $t$, just as in section~\ref{sec:intro:classification_of_TPs}. This form allows us to easily visualise the nodes of the system: the stable equilibria are local minima (`troughs' or `wells') of the generalised potential function $U$; whilst the unstable equilibria are the local maxima (`peaks').  
+
+As in section~\ref{sec:intro:classification_of_TPs}, the system equation in each case has been integrated using the Milstein method (see section~\ref{sec:1D:numerical_integration}, chapter~\ref{chap:1D}) using a time-step $\Delta t = 10^{\m 5}$ and sampled at a rate of $10^3$ per unit time so that the resulting time series presented in figure~\ref{fig:intro:bifurcations20_basic} are of length $10^3$.
+}}
+
+
+
+
+
+\subsubsection{The fold bifurcation}	
+{\Red{	
+The fold bifurcation is a very simple example of a tipping point and has been used to model a wide variety of phenomena, notably in the field of \emph{catastrophe theory} \citep{zeeman1977catastrophe, arnold1999bifurcation}. The normal form for the fold bifurcation is 
+\begin{equation}
+	\label{eqn:intro:bifurcations:fold}
+	\dot{z}(t) = -\frac{\partial }{\partial z}\left(z^3+\mu z\right),
+\end{equation}
+which, for $\mu <0$, has a stable equilibrium at $z=\m\sqrt{\mu/3}$ and an unstable equilibrium at $z=+\sqrt{\mu/3}$. If $\mu$ is made to vary, these equilibria draw closer together as $\mu\rightarrow 0$ from below until they collide and both disappear (some might say \emph{catastrophically}) at $\mu=0$, after which point $z$ tends to infinity: this is the defining feature of the fold bifurcation \citep{strogatz2014}. The state space digram for this particular system is shown in figure~\ref{fig:intro:statespace_fold}.
+
+It is important to note that the above equation is only the simplest example of a fold bifurcation, other systems with possibly many other equilibrium points may undergo a fold bifurcation \emph{locally} whenever two equilibria (one stable, one unstable) are eliminated due to a change in parameters. An example might be 
+\begin{equation}
+	\dot{z}(t) = -\frac{\partial }{\partial z}\left(z^5 - \mu^2z^3+\mu z\right),
+\end{equation}
+which (by examining the equilibrium points of the generalised potential function) we find undergoes two fold bifurcations simultaneously (in the regions of $z=\pm 1$) at $\mu = \m\sqrt[3]{20/9}$,  and then another, \emph{reversed} fold bifurcation at $\mu=0$. We say `reversed' since, if we are increasing the value of $\mu$, the situation at $\mu=0$ is that two equilibria (one stable, one unstable) are created rather than destroyed.
+}}
+
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{statespace_fold}
+	\caption{\Red{
+			The state space diagram for the fold bifurcation as defined by the normal form, equation~\ref{eqn:intro:bifurcations:fold}. 
+	}}
+	\label{fig:intro:statespace_fold}
+\end{figure}
+
+\subsubsection{The transcritical bifurcation }	
+{\Red{
+The transcritical bifurcation is so named because the equilibria \emph{cross} the critical point: they are not created nor eliminated. Instead, the stable equilibrium becomes unstable and \emph{vice versa}. The normal form of the transcritical bifurcation is
+\begin{equation}
+	\dot{z}(t) = -\frac{\partial }{\partial z}\left(z^3-\mu z^2\right),
+	\label{eqn:intro:bifurcations:transcritical}
+\end{equation}
+which has the same (cubic) shaped generalised potential function as the fold bifurcation normal form. When $\mu=0$, this example has a stable equilibrium at $z = 2\mu/3$ and an unstable equilibrium at $z=0$. At the critical point $\mu=0$ the equilibria are lost momentarily but reappear for $\mu>0$ when the $z=0$ state has become unstable and the (positive) $z = 2\mu/3$ state is now stable. Because of the continuity of the equilibrium at $z=0$, this type of equation is used frequently in biology when zero is often a stable state \citep{nicolis2007,strogatz2014}, for example in population dynamics (of bacteria, humans, etc.) a population of zero is a stable population. Indeed, the above equation has the same form as the logistic equation \citep{brown2018introduction}. The state space diagram for this bifurcation is shown in figure~\ref{fig:intro:statespace_transcritical}: we note the equilibrium at $z=0$ which is a constant function of $\mu$ but changes from stable to unstable at $\mu=0$.
+
+}}
+
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{statespace_transcritical}
+	\caption{\Red{
+			The state space diagram for the transcritical bifurcation as defined by the normal form, equation~\ref{eqn:intro:bifurcations:transcritical}. 
+	}}
+	\label{fig:intro:statespace_transcritical}
+\end{figure}
+
+
+
+\subsubsection{The pitchfork bifurcation}
+{\Red{ 
+	We have seen already the pitchfork bifurcation (figures~\ref{fig:intro:ChangingPotential} and~\ref{fig:intro:doublewell_change}; pages~\pageref{fig:intro:ChangingPotential} and~\pageref{fig:intro:doublewell_change}) given by the equation
+	\begin{equation}
+		\label{eqn:intro:bifurcations:super_pitchfork}
+		\dot{z}(t)  = -\frac{\partial}{\partial z}\left(z^4 - \mu z^2\right).
+	\end{equation}
+	In equation~\ref{eqn:intro:PitchforkWithNoise} we added a Gaussian noise term to this equation so that the system fluctuated about the stable state at $z=0$ for $\mu<0$. The bifurcation occurs at the critical point $\mu=0$ when the single stable equilibrium becomes unstable and two stable equilibria develop at $z = \pm \sqrt{\mu/2}$. The `pitchfork' name comes from these three separate trajectories, one along the unstable equilibrium and two along the stable equilibria. This example is known as the \emph{super-critical} pitchfork bifurcation because the three `prongs' of the pitchfork are above the bifurcation point ($\mu>0$). The contrasting \emph{sub}-critical pitchfork bifurcation has the normal form
+	\begin{equation}
+		\label{eqn:intro:bifurcations:sub_pitchfork}
+		\dot{z}(t)  = -\frac{\partial}{\partial z}\left(\m z^4 - \mu z^2\right),
+	\end{equation}
+	and for $\mu<0$ has a single stable equilibrium at $z=0$ and two unstable equilibria at $z=\pm\sqrt{\m\mu/2}$. At the critical point $z=0$ the two unstable equilibria meet the stable point and develop into a single unstable equilibrium for $\mu>0$. The supercritical and subcritical pitchfork bifurcations are both represented in the state space diagrams in figure~\ref{fig:intro:subsuperpitchfork} where we see the different stable (solid line) and unstable (dashed line) states $z$ which exist for different values of the parameter $\mu$ in the normal-form equations (equations~\ref{eqn:intro:bifurcations:super_pitchfork} and~\ref{eqn:intro:bifurcations:sub_pitchfork}). Because of the abrupt loss of the stable equilibrium in the subcritical bifurcation, a system following the stable trajectory will abruptly become unstable at the critical point and quickly diverge to $\pm\infty$ given any small perturbation. Of course, in cases with higher order terms in the equation, the system may in fact converge again to a separate stable point away from $z=0$.
+	
+}} % end the redness
+
+\begin{figure}
+	\centering
+	\includegraphics[width = 0.9\textwidth]{subsuperpitchfork}
+	\caption{\Red{
+			The state space diagram for the supercritical (panel {\bf a}) and subcritical (panel {\bf b}) pitchfork bifurcations as defined by the normal form equations~\ref{eqn:intro:bifurcations:super_pitchfork} and~\ref{eqn:intro:bifurcations:sub_pitchfork}.
+	}}
+	\label{fig:intro:subsuperpitchfork}
+\end{figure}
+
+\subsection{Bifurcations in two dimensions}
+\label{subsec:intro:bifurcations_2D}
+{\Red{
+	In chapter~\ref{chap:1D} we turn to bifurcations and other tipping points in two-dimensional dynamical systems governed by a system of ODEs such as $\dot{x} = f(x,y)$, $\dot{y} = g(x,y)$ in Cartesian coordinates. The one-dimensional bifurcations mentioned above may still occur in two-dimensions, for example the system
+	\begin{equation}
+		\begin{array}{rcl}
+		\dot{x} &=& \mu - x^2\,,\\
+		\dot{y} &=& \m y\,,
+		\end{array}
+	\end{equation}
+	undergoes a \emph{saddle-node} bifurcation at $\mu=0$, and this is simply the two-dimensional analogue of the one-dimensional fold bifurcation described above. We note that looking only at the $x$ component, 	$\dot{x} = \mu - x^2$ we have the exact same normal form as the fold bifurcation given in equation~\ref{eqn:intro:bifurcations:fold}. The name \emph{saddle-node} bifurcation comes from the unstable equilibrium which, in two-dimensions, is a saddle node since it is convergent in the $y$ direction and divergent in the $x$ direction.
+	
+	Likewise, the super-critical pitchfork bifurcation may occur in two dimensions in a system such as 
+	\begin{equation}
+		\begin{array}{rcl}
+		\dot{x} &=& \mu x - x^3\,,\\
+		\dot{y} &=& \m y\,.
+		\end{array}
+	\end{equation}
+	The Hopf bifurcation and homoclinic bifurcation described below are specific to two-dimensions and involve stable limit cycles, not just the stable \emph{points} seen in one-dimensional systems. Other examples of two-dimensional bifurcations include the \emph{fold bifurcation of cycles} \cite{strogatz2014} which involves the elimination of a \emph{stable} limit cycle and an \emph{unstable} limit cycle when the two meet, similar to how a regular \emph{fold bifurcation} involves the elimination of a stable point and an unstable point. 
+}}
+
+\subsubsection{The Hopf bifurcation}
+{\Red{
+	We have already seen the Van der Pol oscillator presented as a system of two first order ODEs in our definition of a bifurcation (see section~\ref{subsec:intro:tippingpoints:definebifurcation}, definition~\ref{def:intro:bifurcation}). It is noted that the Van der Pol oscillator undergoes a bifurcation when a change in parameters causes the eigenvalues of its Jacobian to cross the imaginary axis (see figure~\ref{fig:intro:VanDerPolEigenvalues}). In fact, this particular situation is an example of a Hopf bifurcation. In chapter~\ref{chap:1D} we study the Van der Pol system along with another example of a dynamical system experiencing Hopf bifurcation, a so-called `standard example' \citep{strogatz2014}, given by the system of equations
+		\begin{equation}
+		\label{eqn:intro:bifurcations:Hopf}
+			\begin{array}{rcl}
+				\dot{r} &=& \mu r - r^3\\
+				\dot{\theta} &=& 1+r^2
+			\end{array}
+		\end{equation}
+	in polar coordinates. We note that the system has no fixed point since $\theta$ is always increasing ($\dot{\theta}=1+r^2>0$), thus the system is constantly circling around the origin, slowly for small $r$ and more quickly for large $r$. In $r$ the system is more interesting. We note there are two fixed values for $r$ by setting $\dot{r}=0$ we find $r = 0$ or $\sqrt{\mu}$. Inside the circle $r = \sqrt{\mu}$ we find that $\dot{r}>0$, that is, $r$ is increasing towards the circle. Outside of the circle ($r>\sqrt{\mu}$) the system is spiralling inwards towards the circle as $\dot{r}<0$. Of course, this is only true for $\mu>0$ since $r$ cannot take an imaginary value. For $\mu<0$ the situation is that a single stable point exists at $r=0$ and $\dot{r}<0$, thus the system is constantly spiralling inwards to the origin. If we allow $\mu$ to increase from below we note a bifurcation at $\mu=0$. The equation in $r$, that is,
+			\begin{equation}
+				\dot{r} = \mu r - r^3,
+			\end{equation}
+	has the same form as the supercritical pitchfork bifurcation (equation~\ref{eqn:intro:bifurcations:super_pitchfork}), but after the critical point only the unstable state $r=0$ and one single stable state develops ($r=+\sqrt{\mu}$) since the negative $r=\m\sqrt{\mu}$ does not make sense in these coordinates, this stable circle at $r=+\sqrt{\mu}$ is called a \emph{stable limit cycle}.
+		
+	It is possible to translate this system into Cartesian coordinates using $x=r\cos(\theta)$, $y=r\sin(\theta)$ which gives 
+		\begin{equation}
+			\begin{array}{rcl}
+				\dot{x} &=& \dot{r}\cos(\theta) - r\dot{\theta}\sin(\theta)\,,\\
+				\dot{y} &=&  \dot{r}\sin(\theta) + r\dot{\theta}\cos(\theta)\,.\\
+			\end{array}
+		\end{equation}
+		Substituting in equations~\ref{eqn:intro:bifurcations:Hopf} we obtain the system of first order ODEs:
+		\begin{equation}
+			\begin{array}{rcl}
+				\dot{x} &=& \mu x - y + \left[y^3 - x^3 + x^2 y - x y^2 \right]\,,\\
+				\dot{y} &=& \mu y + x + \left[x^3 - y^3 + x y^2 - x^2 y \right]\,, \\
+			\end{array}
+		\end{equation}
+		for which the Jacobian matrix at the origin ($x=0$, $y=0$) is 
+		\begin{equation}
+		J_{(0,0)} = \begin{pmatrix}
+			\mu & -1\\
+			1   & \mu
+		\end{pmatrix}
+		\end{equation}
+		with eigenvalues $\mu\pm i$. As per the definition of a bifurcation (definition~\ref{def:intro:bifurcation}) the eigenvalues cross over the imaginary axis into the positive-real half of the plane as $\mu$ increases from negative to positive, just as the eigenvalues of the Van der Pol system cross the imaginary axis in figure~\ref{fig:intro:VanDerPolEigenvalues}.
+}}
+
+
+
+
+\subsubsection{The homoclinic bifurcation}
+{\Red{	
+		In a system involving a saddle node there may exist a \emph{homoclinic orbit} whereby a particle leave the saddle from the outward direction eventually re-enters the same saddle from the inward direction, rather than diverging to infinity or entering another stable point or limit cycle \citep{strogatz2014} . In such systems the change of some parameter may cause the homoclinic orbit to break and, consequentially, the restoration of the original parameter value will cause the orbit to re-attach. These changes in a dynamical system due to the appearance or disappearance of a homoclinic orbit are known as \emph{homoclinic bifurcations}. 
+		
+		An example is provided by \cite{sandstede1997constructing} in the system given by the equations
+		\begin{equation}
+		\label{eqn:intro:trueHomoclinic}
+			\begin{array}{rcl}
+			\dot{x} &=& x(x-1) +2y\,,\\
+			\dot{y} &=& (2-\mu)x - y - 3x^2+\frac{3}{2}xy\,. \\
+			\end{array}
+		\end{equation}
+		Solving for $\dot{x}=\dot{y}=0$ we find the system has three stable points. One at the origin $(0,0)$ and two others given by
+		\begin{equation}
+			x = \frac{\m7\pm\sqrt{121-48\mu}}{6}~,~~~~y = \frac{12\mu-53\pm\sqrt{121-48\mu}}{18}\,.
+		\end{equation}
+		We are particularly concerned with the stable point at the origin which is a saddle node and, for $\mu=0$ has a homoclinic orbit which follows the curve
+		\begin{equation}
+			H(x,y) \equiv x^2(1-x)-y^2=0\,,
+		\end{equation}
+		(see \cite{strogatz2014}). For $\mu<0$ no such orbit exists and a particle leaving the saddle $(0,0)$ diverges to infinity. Similarly for $\mu>0$, although now the homoclinic orbit becomes a stable limit cycle inside the curve $H(x,y)=0$. If $\mu$ is made to approach zero from above then limit cycle stretches so that it passes closer and closer to the saddle until it joins the saddle and becomes the homoclinic orbit at $\mu=0$.
+		
+		In chapter~\ref{chap:2D} we study a related system given by the equations
+		\begin{equation}
+			\begin{array}{rcl}
+			\dot{x} &=& y\,,\\
+			\dot{y} &=& x(\mu -x)\,. \\
+			\end{array}
+		\end{equation}
+		This system is similar to the example above in that it has a saddle node at the $(0,0)$ and a limit cycle for $\mu>0$ which passes closer and closer to the saddle as $\mu\rightarrow0$ from above. However, this limit cycle encircles the other stable point of the system at $(x=\mu,~y=0)$ and shrinks around this point as $\mu\rightarrow0$. Thus, at the critical point $\mu=0$, when the limit cycle `should' join to the saddle and become a homoclinic orbit, it cannot do so since it no longer exists having shrunk, at the exact same moment, down to the point $(\mu,0)$ which itself, at the same moment, collides with the saddle. 
+		
+		This complex-natured bifurcation point is actually not what causes the tipping point in this system, as we shall see in chapter~\ref{chap:2D}, since the tipping point always occurs some time before this critical bifurcation when a particle orbiting close to the stable point crosses over the saddle and diverges to infinity. Depending on the rate of change of $\mu$ and the distance of the system state from the saddle, this may happen quite some time before the stable point and the saddle actually meet as $\mu=0$. It will simply happen when the stable point and the saddle are `close enough' to each other. As we have seen with the one-dimensional examples in figure~\ref{fig:intro:bifurcations20_basic}, this is often the case for these systems which `blow up': a system state at some small enough distance from stable equilibrium will cross the unstable equilibrium and enter the divergent part of the vector field before the stable equilibrium itself meets the unstable (or saddle) point, which is the actual moment of bifurcation. 
+		
+		
+%		We are particularly concerned with the stable point at the origin, at which the Jacobian of the system equations is given by
+%		\begin{equation}
+%			J_{(0,0)}=\begin{pmatrix}
+%			\m1&2\\
+%			2-\mu & \m1
+%			\end{pmatrix}
+%		\end{equation}
+%		with eigenvalues $\lambda = \m1\pm\sqrt{4-2\mu}$.
+}}
+
+
+
+
+
+
+\section{Early warning signals of tipping points}
+\label{sec:intro:EWS}
+
+Closely related to the idea of tipping points is the idea of early warning signals, since it is often useful to be forewarned of an impending catastrophe. The list on page~\pageref{list:intro:nine} of nine shared tipping-point attributes (see \cite{kuehn2011mathematical}) references an ‘‘increase in variance’’ and an ‘‘increase in autocorrelation’’ prior to the tipping point, both of which facts are commonly used to predict a tipping point before it happens, given that the existence of a critical threshold is known \citep{held2004,livina2007,scheffer2009, thompson2011predicting}. Thus, it is possible to use measurements of variance and autocorrelation as tipping point indicators which may provide early warning signals of a future event. This is the basis of all the techniques used throughout this thesis, although we also use measurements of the power spectrum properties which are closely related to autocorrelation, and detrended fluctuation analysis (DFA), both of which are described in section~\ref{sec:1D:scaling_exponents}. In order to see the change in these statistics over time we use a tipping point indicator \citep{held2004}: the ACF, variance, or other relevant statistic is calculated in overlapping segments of the time series. In chapter~\ref{chap:1D} three tipping point indicators (ACF, DFA, and the novel PS indicator) are applied to various time series. 
+
+A key concept involved in these methods is that of \emph{resilience} or \emph{recovery rates} \citep{scheffer2001, dakos2012}, that is, how quickly the system returns to the stable state after a small perturbation. The theory states that the recovery rate will slow down as the system approaches a tipping point \citep{scheffer2009}, known as \emph{critical slowing down}. This is equivalent to an increase in long-term correlations or \emph{memory}. {\Red{The prototypical example of a tipping point is the fold bifurcation or `cusp catastrophe' (see section~\ref{sec:intro:bifurcation_varieties}) which was used excessively as a model of various tipping events in early work on catastrophe theory \citep{zeeman1977catastrophe,zahler1977claims}. It is important to note, however, that the concept of critical slowing down is more general than a phenomenon in one particular dynamical system and is observed in many different contexts \citep{lenton2008,scheffer2009critical,livina2011}. The techniques studied, developed and used throughout this thesis to detect early warning signals are applicable to a wide range of dynamical systems exhibiting a variety of tipping points, not only the cusp catastrophe and not even only bifurcational tipping. In section~\ref{sec:1D:indicatorComparison} the EWS techniques presented earlier in chapter~\ref{chap:1D} are applied to several different dynamical systems exhibiting bifurcations, noise-induced transitions, and forced transitions: the three types of tipping identified by \cite{livina2011} (see section~\ref{sec:intro:classification_of_TPs} of this chapter). In Chapter~\ref{chap:cyclones} various EWS techniques presented throughout the previous chapters are applied to data from a geophysical system with a tipping point although the tipping point in question is not thought, nor assumed to be, bifurcational. }}
+
+As an example we consider the pitchfork bifurcation illustrated in figure~\ref{fig:intro:ChangingPotential}.
+This system is trapped within a single well of attraction (at $z=0$) for $t\leq 600$, at $t=600$ a bifurcation occurs creating a double-well potential system for $t>600$. For $t\ll 600$ the sides of the potential well are steep and the system quickly returns to the equilibrium $z=0$ following a small perturbation due to noise. For $t=600$ (panel~\textbf{b}), however, this process takes much longer because the base of the well is flat. During the transition from panel~\textbf{a} to panel~\textbf{b} the system will take longer and longer to return to the $z=0$ equilibrium following a small perturbation, as the sides of the potential well become less steep. This increasing \textit{return time} is known as critical slowing down.
+Because of the generalness of the pitchfork bifurcation and similar processes \citep{kuehn2011mathematical} in which return times increase close to a tipping point, the hypothesis is that critical slowing down will be observed in a wide variety of dynamical systems \citep{scheffer2009}. This is tested by \cite{van2007} who measure critical slowing down in a number of different ecological models and find the effect to occur universally. 
+
+The speed at which a system returns to equilibrium can be measured by the autocorrelation, since a non-retuning system will behave as a random walk, whereas a returning system is usually governed only by noise \citep{scheffer2009}. It is this observation which allows us to successfully apply autocorrelation-based tipping point indicators to several different dynamical systems in chapters~\ref{chap:1D} and~\ref{chap:2D}, and to use these indicators to detect tipping points in time series of geophysical variables in chapter~\ref{chap:cyclones}.
+
+
+
+
+
+\section{Tipping points in geophysical systems}
+\label{sec:intro:geophysical}
+{\Red{
+%******* TIPPING POINTS ARE EVERYWHERE ***** 
+As stated in this introduction, tipping points are found in dynamical systems in every area of the sciences, from chemical reactions and engineering \citep{taylor2008managing, cooper2009investigation, feudel2018multistability} to the study of stock markets and social networks \citep{carter2008paradigms,pelling2010disaster,gaspar2016tax,milkoreit2018defining}. Many of the ideas presented in this thesis have derived from tipping point research in the geophysical sciences, most notably climatic variation. Indeed, the study of the North Atlantic thermohaline circulation (THC) has yielded the result that as a tipping point of the THC approaches there is a notable change in the power spectral properties of the associated temperature and salinity time series \citep{held2004}, and this idea is the basis of the use of a power spectrum scaling exponent as an EWS indicator in chapter~\ref{chap:1D} of this thesis \citep{prettyman2018}. 
+
+%******* CLIMATE APPLICATIONS ***** 
+Most of the techniques we use in this thesis are of the `degenerate fingerprinting' variety: tracking the value of some indicator in a sliding window to produce an early warning signal. This technique we see used by \cite{kleinen2003}, again in the study of the North Atlantic THC, where lag-1 autocorrelation (ACF1) is used as the indicator. A modified version of this technique is presented by \cite{livina2007} where the DFA exponent is used as the indicator and the method is applied to paleotemperature data to detect the tipping from glacial to interglacial periods in the Earth's climate history. Both the ACF1 and DFA indicators are also applied to atmospheric oxygen levels by \cite{livina2015} which, that paper notes, are in danger of decreasing due to human activity such as deforestation and fossil fuel use. In fact, the number of Earth systems susceptible to these sorts of human activities is large, as noted by \cite{lenton2019climate} which also notes the interconnectedness of many of these systems (see also \cite{steffen2018trajectories}). The large-scale Erath climate system has been identified as a bi-stable system \citep{hoffman2002snowball, pierrehumbert2011climate}, the two stable states being a hot Earth and a `snowball' Earth. The snowball Earth might be highly resilient to outside forcing (meteor impact, volcanic activity, etc.) but a forcing which causes a large-enough melt of some sea-ice will decrease the albedo effect enough such that more and more ice melts — this is what we would recognise as a tipping point \citep{hoffman2002snowball,steffen2018trajectories}. Besides these sudden, striking events there are also periodic effects leading to somewhat predictable glacial-interglacial cycles \citep{kwasniok2009,past2016interglacials}, and stochastic variation in solar radiation could also result in a `jump' out of one of the two stable states \citep{lucarini2019transitions}. The current melting of Arctic sea ice \citep{stroeve2007arctic,lindsay2005thinning} could lead to a tipping point by the same albedo-feedback mechanism, but it may also be exacerbated by thawing permafrost releasing yet more greenhouse gasses into the atmosphere, which is itself hastened by the melting sea ice \citep{holland2006future}. In addition, the melting Arctic sea ice may slow the Atlantic circulation by decreasing salinity \citep{stocker1991rapid,rahmstorf2002ocean}, and this may, in turn, cause the loss of the \emph{Antarctic} ice sheet \citep{oppenheimer2004west} which will also affect the Earth albedo, and which may reach a tipping point itself when sufficient ice has melted so as to increase circulation and cause the loss of more ice \citep{mercer1978west,oppenheimer1998global}. Thus, the loss of stability in one aspect of the Earth system may cause a cascade of tipping-points affecting the global climate \citep{steffen2018trajectories,lenton2019climate}. Even considered individually, there are a number of Earth systems with their own tipping points: \cite{lenton2008} identifies a number of these areas considered ``policy-relevant''. Besides the already-mentioned THC, Arctic sea ice, Antarctic sea ice and permafrost thawing, other systems include the Greenland ice sheet, in which partial thawing causes the top-layer of ice to be lower in altitude, which increases temperature and leads to further melting \citep{saltzman2001dynamical, toniazzo2004climatic} — in this case there will be a critical value of summer melting above which the ice sheet will be unable to re-establish due to this positive feedback\footnote{The IPCC gives at least 1000 years before the ice sheet is lost \citep{solomon2007climate}, but 300 years is `conceivable' \citep{hansen2005slippery, lenton2008}}. Another example is the Amazon Rainforest which recycles a large amount of its precipitation through transpiration \citep{zeng1996climatic} and so, at some critical precipitation rate the forest may die back such that a negative feedback loop is set up \citep{cox2004amazonian,nobre2009tipping}. One factor affecting the decreasing Amazon precipitation is the El Ni\~{n}o, which itself faces a tipping point \citep{philander2003nino, guilyardi2006nino}. In all of these cases the systems are known to have experienced sudden transitions in the past but the conditions under which those transitions happened are very different to the rapid, anthropogenic warming happening in the present \citep{claussen2003climate,lenton2008} and so the task of predicting these tipping points is made more complex.
+
+%******* CRITICAL SLOWING DOWN ***** 
+The prospects for predicting tipping points in many of these systems are tied to the presence of critical slowing down, since the degenerate fingerprinting techniques we have mentioned are based on the detection of this phenomenon. \cite{dakos2008slowing} identifies critical slowing down, using the ACF1 indicator as a measure, in several proxies for abrupt climate change, including CaCO$_3$ concentration at the end of the `Greenhouse Earth' period, and the percentage of terrigenous dust found in ice cores during the desertification of North Africa. Critical slowing down is also shown to occur in a number of ecological systems approaching tipping point \citep{rinaldi2000geometric, scheffer2001, van2007, scheffer2009} including the composite tipping point of species extinction in a deteriorating environment \citep{drake2010early}. The critical slowing down phenomenon is not often observed, however, in noise-induced tipping points, as noted by \cite{ditlevsen2010} who argue that the EWS techniques discussed here may be insensitive to Dansgaard‐Oeschger events\footnote{``Dansgaard–Oeschger events are a prominent mode of variability in the records of the last glacial cycle. Various prototype models have been proposed to explain these rapid climate fluctuations, and no agreement has emerged on which may be the more correct for describing the palaeo-climatic signal.'' — \cite{cimatoribus2013dansgaard}} thereby making the interglacial cycle unpredictable \citep{crucifix2013} although these have more recently shown to display weak early warning signals \citep{cimatoribus2013dansgaard}.
+
+%******* POTENTIAL ANALYSIS ***** 
+An approach often complimentary to these early warning signal techniques is that of reconstructing the phase space of a system \citep{cimatoribus2013dansgaard} or the governing potential function\footnote{in this thesis referred to as a \emph{generalised} potential (see page~\pageref{pageref:intro:generalisedpotential})} \citep{livina2011} by looking at historical data to assess the presence of equilibrium states. This has been applied, for example, to the desertification of the Sahara \citep{bathiany2012implications}, shown to be bistable (green/desert). And this idea is extended, by \cite{livina2010, livina2011}, to the `potential analysis' technique, where by tracking the changing shape of the generalised potential function, one may predict a tipping point where a stable `well' seen in the potential function profile decays.
+
+%******* NETWORK STABILITY ***** 
+Yet other methods have been developed besides these fingerprinting `EWS indicator' techniques which are the primary focus of this thesis. A \emph{network analysis} approach is used by \cite{ludescher2013,ludescher2014} in the prediction of El Ni\~{n}o events, and a similar technique is adopted by \cite{scheffer2009} where spatial correlations in the vegetation-cover levels between different areas of the Sahara are used to predict tipping points in the greening/desertification of North Africa \citep{kefi2014early}, which has been modelled as a bistable system \citep{brovkin1998stability}. Elsewhere, spatial correlations have also been shown to predict tipping points in ecosystems, and the global climate system is shown to be highly interconnected \citep{palus2011discerning}. These ideas have been extended to detecting `hotspots' of stability loss, also applied to the Sahara greening process \citep{bathiany2013p1,bathiany2013p2}. A more complex approach in the same vein aims to predict tipping points by analysis `resilience patterns' in networks of interacting processes \citep{gao2016} where the loss of stability in one or more processes may or may not lead to a total loss of stability (a system-wide tipping point) depending upon the pattern of resilience across all the individual elements. This brings to mind, again, the interconnectedness of the many geophysical systems \citep{steffen2018trajectories,lenton2019climate}, whereby the loss of Arctic sea-ice may slow down the Atlantic overturning circulation which, in turn, may lead to ice-loss in the West Antarctic ice sheet, etc.. Such a cascade scenario, if immanent, would be an emergency and makes clear the need for effective early warning signals. 
+}}
+
+\section{Outline of thesis}
+\label{sec:intro:outline}
+
+In chapter~\ref{chap:1D} we study different early warning signal indicators which are applied to one-dimensional time series exhibiting tipping points. The indicators include the lag-1 autocorrelation function \citep{held2004,dakos2008}, the use of which has been mentioned in this introduction, the detrended fluctuations analysis (DFA) coefficient \citep{kantelhardt2001}, which has been used previously in tipping point research \citep{livina2007}, and the power spectrum scaling exponent, the use of which in tipping point analysis is a novel outcome of this research \citep{prettyman2018}. {\Red{Various properties of the power spectrum scaling exponent, and the justification of its use as an early warning signal indicator are also presented in this chapter.}}
+
+In chapter~\ref{chap:2D} the tipping point indicators used in chapter~\ref{chap:1D} are adapted for use in multi-dimensional systems, both by evaluating the indicators simultaneously at many points over a field to provide a visual description of the indicator's behaviour, and also by reducing the dimension of a system using empirical orthogonal functions (EOFs) \citep{held2004}. The specific applicability of the EOF method to tipping point analysis is investigated analytically using a general dynamical system containing a tipping point, and experiments are also made with novel variations of the EOF method in a tipping points context. The methods presented are also compared to an existing method for producing early warning signals of tipping points in two-dimensional systems \citep{williamson2015}. 
+
+In chapter~\ref{chap:cyclones} the methods introduced throughout the thesis are applied to measurement data from a geophysical system, that is, to measurements of sea-level pressure at points close to the landfall locations of tropical cyclones. A stochastic model of an approaching tropical cyclone is also presented, modified from a simple existing model \citep{holland1980} and parametrised using the results from our tipping point analysis. 

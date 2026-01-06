@@ -1,0 +1,156 @@
+\PassOptionsToPackage{svgnames}{xcolor}
+\documentclass[11pt,a4paper,reqno]{article}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig,subfig}
+\usepackage[margin=1.4in]{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+\tcbuselibrary{skins,breakable}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+\usepackage{dsfont}
+\numberwithin{equation}{section}
+\usetikzlibrary{intersections}
+\usetikzlibrary{calc}
+
+\newtheorem{thm}{Theorem} 
+\newcommand{\Cr}{\textcolor{red}}
+
+\newenvironment{myblock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=LightBlue,colframe=DarkBlue,%
+    colbacklower=DarkBlue!75!LightBlue,%
+    title=#1]}%
+    {\endtcolorbox}
+
+
+
+\usepackage{listings}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+
+\bibliographystyle{apalike}
+
+\title{PhD Notes}
+%\author{Joshua Prettyman}
+\maketitle
+
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=10em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+    
+\section*{Overview}
+
+The project intends to create a multi-purpose tool to predict a tipping point (critical transition) in a dynamical system, specifically a geophysical system, given time series data as input.\\
+
+We have the following structure:
+\begin{itemize}
+\item[\ref{sec_tippingpoints}.] Introduction to tipping points
+\item[\ref{sec_EWS_methods}.] Analytical derivation of 1D and 2D (and higher) EWS 
+\begin{itemize}
+\item Different EWS methods, all based on rising autocorrelation/variance, linked to a critical slowing down (literature review)
+\item Examples of artificial and real data
+\item Extension to 2 variable case somehow (and possibly many-variable)
+\end{itemize}
+\item[\ref{sec_gridded}.] Extension to gridded data (EOF/other)
+\begin{itemize}
+\item Analysis of suitability of EOF method in general
+\item Compatibility of EOF and 1D EWS methods
+\item Other method for using EWS methods with gridded data
+\end{itemize}
+\item[\ref{sec_hurricanes}.] Application to tropical cyclones
+\begin{itemize}
+\item Results from EWS methods
+\item Stochastic model of tropical cyclone progression
+\item Results from stochastic model
+\item Repeat process for some different type of data
+\end{itemize}
+\end{itemize}
+
+\section{Introduction to tipping points}
+\label{sec_tippingpoints}
+
+This project is concerned with tipping points, or critical transitions \cite{scheffer2009}, in dynamical systems, and methods that enable us to predict these. \cite{livina2011} identifies three types of system changes which may be the cause of a tipping event:
+\begin{enumerate}
+\item A forced transition, where the potential function stays the same shape, but is moved, so that there is a trend (or possibly a sudden jump) in the time series.
+\item A noise-induced transition, where the system shifts from one stable state to another due to a large initial perturbation.
+\item A genuine bifurcation, where the shape of the potential function is changed. 
+\end{enumerate}
+
+
+
+
+\section{Analytical derivation of 1D and 2D (and higher) EWS}
+\label{sec_EWS_methods}
+
+We wish to detect an Early Warning Signal (EWS) in a time series which will predicate a tipping point. Dakos \cite{dakos2008} lists several techniques which have been attempted: analysis of spectral properties \cite{kleinen2003}, degenerate fingerprinting \cite{held2004} and a modification of Detrended Fluctuation Analysis (DFA) \cite{livina2007}.\\
+
+A key concept involved in these methods is that of resilience or recovery rates \cite{scheffer2001}, \cite{dakos2012}, that is, how quickly the system returns to the stable state having received a small perturbation. The theory states that the recovery rate will slow down as the system approaches a bifurcation point \cite{scheffer2009}, this is known as critical slowing down. As an example we take the system in equation \ref{fork_system}:
+\begin{align}
+\dot{z}(t) & = -\frac{\partial}{\partial z}(z^4 + \left(3-t\right)z^2) + \eta_t
+\label{fork_system}
+\end{align}
+where $\eta_t$ are independent and Gaussian. This system is trapped within a single well of attraction (at $z=0$) for $t\leq 3$, at $t=3$ a bifurcation occurs creating a double well potential system for $t>3$. The shape of the potential at $t=0$, $t=2$ and $t=3$ is shown in figure \ref{three_shapes}. Intuitively, the system will take longer to return to the $z=0$ equilibrium, following a small perturbation, as the sides of the potential well become less steep. The hypothesis is that this critical slowing down will be seen in a wide variety of dynamical systems approaching a bifurcation.\\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = \textwidth]{../../notes/images/three_potential_function_shapes.png}
+\caption{Showing the shape of the system potential of the system in equation \ref{fork_system} at $t = 0,2,3$. The sides of the potential well become less steep as the system approaches the bifurcation.}
+\label{three_shapes}
+\end{figure}
+
+Van Nes and Scheffer \cite{vannes2007} test this hypothesis with a number of ecological models and find that the intensity of the critical slowing down effect is linearly, or almost linearly, related to the distance from the tipping point in all cases.\\
+
+\subsection{Degenerate fingerprinting: autocorrelation}
+
+Scheffer et al. \cite{scheffer2009} justify the use of measuring autocorrelation to provide an EWS by studying a simple 1D auto regressive system,
+\begin{align}
+y_{n+1} = e^{\kappa\Delta t}y_{n} + \eta_n
+\end{align}
+where $\eta_n$ are independent and Gaussian, the state $y_n=0$ is the equilibrium. The system returns to equilibrium exponentially with rate $\kappa$ (the decay rate). If we simulate critical slowing down by decreasing $\kappa$, the autocorrelation coefficient $\alpha \equiv e^{\lambda\Delta t}$ increases, $\alpha\xrightarrow[\kappa\rightarrow 0]{}1$. It is also shown that as the autocorrelation increases so does the variance, thus detecting an increase in variance provides another EWS. \\
+
+Held and Klienen \cite{held2004} use this observation to argue that in a multi-dimensional system one should project onto the first EOF (the basis vector for which the variance of the system is maximised) as this be the 1D basis in which the rise in autocorrelation (and also variance) will occur. We note that the basis in which the variance is maximimal may not be the same as the basis in which the variance is increasing. At least, this is not immediately obvious a priori and may be wanting further investigation.\footnote{An investigation of this is an ongoing project, progress is documented in section \ref{sec_gridded}.}\marginpar{\large $\star$}\\
+
+The autocorrelation of a 1D time series $X=\{x_k\}_{k=1}^{N}$ is estimated using the autocorrelation function (ACF) formula:\footnote{This may not be the best estimator to use. An approach using a maximum likelihood estimator has been discussed and is a possible future project.}\marginpar{\large $\star$}
+\begin{align}
+\text{ACF}_{l}(X) = \frac{1}{(N-l)\sigma^2}\sum_{j=1}^{N-l}(x_{j}-\mu)(x_{j+l} - \mu)
+\end{align} 
+where $l$ is the lag and $\mu$ and $\sigma$ are the mean and standard deviation of the series, it is likely in applications that $\mu$ and $\sigma$ are also estimated from the data, using the standard formulae. \\
+
+The ACF (typically lag$=1$) is calculated in a sliding window \cite{held2004} and it is hoped that an increase will be followed by a bifurcation.\\
+
+\subsection{DFA and spectral properties}
+
+Livina \cite{livina2007} introduces Detrended Fluctuation Analysis, which is discussed in detail in \cite{kantelhardt2001}. The idea is similar to the auto-correlation method in \cite{held2004}. The method will produce, for a time series input, a number $\alpha$ which is the ``bifurcation indicator''.\\
+
+
+\section{Extension to gridded data}
+\label{sec_gridded}
+
+\section{Application to Tropical Cyclones}
+\label{sec_hurricanes}
+
+
+
+
+\newpage
+\bibliography{../../notes/bibliography.bib}
+
+\end{document}

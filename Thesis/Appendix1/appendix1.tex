@@ -1,0 +1,117 @@
+%!TEX root = ../thesis.tex
+% *************** Thesis Appendix A ******************
+
+\chapter{Further working for section \ref{sec:2D:EOF-justification}}
+\label{appendix:EOF-justification}
+In this appendix we present an extension to the work in section~\ref{sec:2D:EOF-justification} where the use of EOFs was justified by considering a simple, general dynamical system. Here we consider the cases where the transform matrix $B$ is not diagonal.
+
+If $S$ is diagonal but $B$ is not, then we have many more terms. We find that
+{\small
+\begin{align*}
+d_{11}=&
+-\frac{1}{k}\left[
+(b_{11}b_{12}^2b_{22}-b_{12}^3b_{21}+b_{12}^2)s_{22}^2+(b_{11}b_{22}^3+(-b_{12}b_{21}-1)b_{22}^2-b_{11}b_{22}-b_{12}b_{21}+1)s_{11}^2
+\right]\,,\\
+d_{12}=&
+\frac{1}{k}\left[
+((b_{11}^2-1)b_{12}b_{22}-b_{11}b_{12}^2b_{21})s_{22}^2+
+(b_{11}b_{21}b_{22}^2-b_{12}b_{21}^2b_{22}-b_{11}b_{21})s_{11}^2
+\right]\,,\\
+d_{21}=&
+\frac{1}{k}\left[
+((b_{11}^2-1)b_{12}b_{22}-b_{11}b_{12}^2b_{21})s_{22}^2+
+(b_{11}b_{21}b_{22}^2-b_{12}b_{21}^2b_{22}-b_{11}b_{21})s_{11}^2
+\right]\,,\\
+d_{22}=&
+-\frac{1}{k}\left[
+((b_{11}^3-b_{11})b_{22}+(-b_{11}^2-1)b_{12}b_{21}-b_{11}^2+1)s_{22}^2+
+(b_{11}b_{21}^2b_{22}-b_{12}b_{21}^3+b_{21}^2)s_{11}^2
+\right]\,,
+\end{align*} 
+}
+where 
+\begin{align*}
+k =& (b_{11}^3-b_{11})b_{22}^3+
+((1-3b_{11}^2)b_{12}b_{21}-b_{11}^2+1)b_{22}^2+\\
+& (3b_{11}b_{12}^2b_{21}^2-b_{11}^3+b_{11})b_{22}-b_{12}^3b_{21}^3+b_{12}^2b_{21}^2+\\
+& (b_{11}^2+1)b_{12}b_{21}+b_{11}^2-1\,.
+\end{align*}
+If neither $S$ nor $B$ is diagonal then it is very hard to fit on the page. The denominator $k$ is the same but there are even more terms in the numerator.
+
+
+Extra working for the $B$ diagonal case:
+\label{extra_working}
+We would like to expand the square root
+\begin{align*}
+\sqrt{\left(\frac{s_{12}^2+s_{11}^2}{1-b_{11}^2}-\frac{s_{22}^2+s_{21}^2}{1-b_{22}^2}\right)^2+4\left(\frac{s_{12}s_{22}+s_{11}s_{21}}{1-b_{11}b_{22}}\right)^2}\,.
+\end{align*}
+For clarity, say $\varepsilon:=1-b_{11}$, $p := s_{11}^2+s_{12}^2$, $q := s_{21}^2+s_{22}^2$ and $r := s_{12}s_{22}+s_{11}s_{21}$, then we have
+\begin{align*}
+& \sqrt{\left(\frac{p}{\varepsilon(1+b_{11})}-\frac{q}{1-b_{22}^2}\right)^2+4\left(\frac{r}{1-(1-\varepsilon) b_{22}}\right)^2}\\
+=& \frac{1}{\varepsilon}\sqrt{\frac{p^2}{(1+b_{11})^2}-\varepsilon\frac{2pq}{(1+b_{11})(1-b_{22}^2)}-\varepsilon^2\frac{q^2}{(1-b_{22}^2)^2}+\varepsilon^2\frac{4r^2}{(1-(1-\varepsilon) b_{22})^2}}\,.
+\end{align*}
+We need to express $\varepsilon^2\frac{4r^2}{(1-(1-\varepsilon) b_{22})^2}$ in leading order terms of $\varepsilon$:\\
+\begin{align*}
+\frac{1}{1-(1-\varepsilon) b_{22}} &= 1+(1-\varepsilon) b_{22}+(1-\varepsilon)^2 b_{22}^2+...\\
+&=\frac{1}{1-b_{22}} -
+\varepsilon\sum_{k=1}^\infty kb_{22}^k + \varepsilon^2\sum_{k=2}^\infty\left(\begin{array}{c}k\\2\end{array}\right)b_{22}^k + \mathcal{O}(\varepsilon^3)\\
+\varepsilon^2\frac{4r^2}{(1-(1-\varepsilon) b_{22})^2} & = \varepsilon^2\frac{4r^2}{(1-b_{22})^2}+\mathcal{O}(\varepsilon^3) \text{   (as you'd expect)}
+\end{align*}
+Then we can return to our square root:
+{\small
+\begin{align*}
+& \frac{1}{\varepsilon}\sqrt{\frac{p^2}{(1+b_{11})^2}-\varepsilon\frac{2pq}{(1+b_{11})(1-b_{22}^2)}+\varepsilon^2\left[ \frac{4r^2(1+ b_{22})^2 -  q^2 }{(1-b_{22}^2)^2} \right] + \mathcal{O}(\varepsilon^3)}\\
+= & \frac{p}{\varepsilon (1+b_{11})} \sqrt{1+\varepsilon\frac{-2q(1+b_{11})}{p(1-b_{22}^2)}+\varepsilon^2(1+b_{11})^2\left[ \frac{4r^2(1+ b_{22})^2 -  q^2 }{p^2(1-b_{22}^2)^2} \right] + \mathcal{O}(\varepsilon^3)}\\
+%=& \frac{p}{\varepsilon (1+b_{11})}\left[1+
+%\varepsilon\frac{-q(1+b_{11})}{p(1-b_{22}^2)}+\varepsilon^2\frac{(1+b_{11})^2}{2}\left[ \frac{4r^2(1+ b_{22})^2 -  q^2 }{p^2(1-b_{22}^2)^2}\right] - 
+%\frac{1}{8}\left(\varepsilon\frac{-2q(1+b_{11})}{p(1-b_{22}^2)} \right)^2
+%+ \mathcal{O}(\varepsilon^3)
+%\right]\\
+%=& \frac{p}{\varepsilon (1+b_{11})}\left[1+
+%\varepsilon\frac{-q(1+b_{11})}{p(1-b_{22}^2)}+
+%\varepsilon^2 \left[ \frac{4r^2(1+ %b_{22})^2(1+b_{11})^2 -  q^2(1+b_{11})^2 %}{2p^2(1-b_{22}^2)^2}\right] - 
+%\varepsilon^2\left[\frac{q^2(1+b_{11})^2}{2p^2(1-b_{22}^2)^2}\right]
+%+ \mathcal{O}(\varepsilon^3)
+%\right]\\
+=& \frac{p}{\varepsilon (1+b_{11})}\left[1+
+\varepsilon\frac{-q(1+b_{11})}{p(1-b_{22}^2)}+
+\varepsilon^2(1+b_{11})^2 \left[ \frac{4r^2(1+ b_{22})^2 -  2q^2 }{2p^2(1-b_{22}^2)^2}\right]
++ \mathcal{O}(\varepsilon^3)
+\right]\\
+=&
+\frac{p}{\varepsilon (1+b_{11})} + 
+\frac{-q}{(1-b_{22}^2)}+
+\varepsilon(1+b_{11}) \left[ \frac{2r^2(1+ b_{22})^2 -  q^2 }{p(1-b_{22}^2)^2}\right]
++ \mathcal{O}(\varepsilon^2)\\
+=&
+\frac{p}{(1-b_{11}^2)} + 
+\frac{-q}{(1-b_{22}^2)}+
+(1-b_{11}^2) \left[ \frac{2r^2(1+ b_{22})^2 -  q^2 }{p(1-b_{22}^2)^2}\right]
++ \mathcal{O}((1-b_{11})^2)\,.
+\end{align*}
+}
+Returning to our eigenvector, we can now replace the square root term in the first component with its expansion to find
+\begin{align*}
+& \frac{2p}{(1-b_{11}^2)} + 
+\frac{-2q}{(1-b_{22}^2)}+
+(1-b_{11}^2) \left[ \frac{2r^2(1+ b_{22})^2 -  q^2 }{p(1-b_{22}^2)^2}\right]
++ \mathcal{O}((1-b_{11})^2)\,,\\
+\text{or, }~& \frac{2p}{(1-b_{11}^2)} + 
+\frac{-2q}{(1-b_{22}^2)}
++ \mathcal{O}((1-b_{11}))\,,\\
+\end{align*} 
+where we also know that the second vector component is
+\begin{align*}
+\frac{2r}{1-b_{11}b_{22}} & = 2r\left[\frac{1}{1-b_{22}} -
+\varepsilon\sum_{k=1}^\infty kb_{22}^k + \varepsilon^2\sum_{k=2}^\infty\left(\begin{array}{c}k\\2\end{array}\right)b_{22}^k + \mathcal{O}(\varepsilon^3)
+\right]\\
+& = 2r\left[\frac{1}{1-b_{22}} -
+\varepsilon\frac{b_{22}}{(1-b_{22})^2}
+\right]
++ \mathcal{O}(\varepsilon^2)\\
+& = \frac{2r(1 - 2b_{22} + b_{11}b_{22})}{(1-b_{22})^2}
++ \mathcal{O}((1-b_{11})^2)\,,\\
+\text{or,  }~ & \frac{2r}{1-b_{22}}+ \mathcal{O}((1-b_{11}))\,.
+\end{align*}
+
+

@@ -1,0 +1,11 @@
+New contributions of the paper "Generalised early warning signals..." to the fields of Early warning signals and Tropical cyclones:
+
+1. An application of the method introduced by Williamson and Lenton (2015) to a geophysical system.
+
+2. An analytic justification of using EOF for dimension reduction prior to a tipping point analysis.
+
+3. The introduction of a new simple stochastic model of a moving tropical cyclone.
+
+4. The application of a tipping point technique (i.e. detection of early warning signals) to predict the spacial direction of progression of an event.
+
+We believe that this contribution significantly increases the breadth of the literature on tipping point prediction in two-dimensional systems. The application of these techniques to geophysical or meteorological data is novel and relevant. In addition, the analysis, presented here, of the validity of using EOFs for dimension reduction in an early warning signal context makes steps towards a solid mathematical basis of an established technique.  
