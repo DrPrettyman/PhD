@@ -4,9 +4,9 @@
 
 This repository contains all materials from my PhD research on detecting early warning signals (EWS) that precede critical transitions in complex systems. The work spans theoretical analysis, numerical simulations, and applications to real-world climate and weather data.
 
-> **Note:** The MATLAB analysis code is maintained in a separate repository: [MatlabCodePhD](https://github.com/DrPrettyman/MatlabCodePhD)
-
 ## Repository Structure
+
+> **Note:** The MATLAB analysis code is maintained in a separate repository: [MatlabCodePhD](https://github.com/DrPrettyman/MatlabCodePhD)
 
 ```
 PhD/
@@ -18,11 +18,13 @@ PhD/
 ├── Presentations/       # Conference talks and posters
 ├── GraphicsProjects/    # Figure design files
 ├── Assets/              # Shared images and resources
-├── Admin/               # Administrative documents
-└── *.pdf                # Final thesis and publications
+└── Admin/               # Administrative documents
+
 ```
 
 ## Publications
+
+This research resulted in three journal publications, listed here:
 
 **Prettyman, J.**, Kuna, T., & Livina, V. (2018). A novel scaling indicator of early warning signals helps anticipate tropical cyclones. *EPL (Europhysics Letters)*, 121(1), 10002.
 [doi:10.1209/0295-5075/121/10002](https://doi.org/10.1209/0295-5075/121/10002)
