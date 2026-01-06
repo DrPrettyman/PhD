@@ -10,26 +10,9 @@ MatlabCode/
 # Thumbnails
 Thumbs.db
 
-# Large binary files
-*.pdf
-*.eps
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.tiff
-*.bmp
-
-# Affinity design files
-*.afdesign
-*.afphoto
-*.afpub
-
 # MATLAB generated files
 *.asv
 *.m~
-*.mat
-*.fig
 *.mlx
 
 # LaTeX auxiliary files
