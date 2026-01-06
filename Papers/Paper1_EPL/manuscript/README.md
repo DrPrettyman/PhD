@@ -7,7 +7,7 @@
 ## Code
 
 The MATLAB code for reproducing the figures and analysis is available at:
-[MatlabCodePhD/Projects/Paper1_EPL](https://github.com/joshuaprettyman/MatlabCodePhD/tree/main/Projects/Paper1_EPL)
+[MatlabCodePhD/Projects/Paper1_EPL](https://github.com/DrPrettyman/MatlabCodePhD/tree/main/Projects/Paper1_EPL)
 
 ## Abstract
 

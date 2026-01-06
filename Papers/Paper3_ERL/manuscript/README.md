@@ -7,7 +7,7 @@
 ## Code
 
 The MATLAB code for reproducing the figures and analysis is available at:
-[MatlabCodePhD/Projects/Paper3_ERL](https://github.com/joshuaprettyman/MatlabCodePhD/tree/main/Projects/Paper3_ERL)
+[MatlabCodePhD/Projects/Paper3_ERL](https://github.com/DrPrettyman/MatlabCodePhD/tree/main/Projects/Paper3_ERL)
 
 ## Abstract
 

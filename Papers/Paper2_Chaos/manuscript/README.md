@@ -7,7 +7,7 @@
 ## Code
 
 The MATLAB code for reproducing the figures and analysis is available at:
-[MatlabCodePhD/Projects/Paper2_Chaos](https://github.com/joshuaprettyman/MatlabCodePhD/tree/main/Projects/Paper2_Chaos)
+[MatlabCodePhD/Projects/Paper2_Chaos](https://github.com/DrPrettyman/MatlabCodePhD/tree/main/Projects/Paper2_Chaos)
 
 ## Abstract
 
