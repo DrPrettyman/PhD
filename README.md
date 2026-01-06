@@ -4,6 +4,8 @@
 
 This repository contains all materials from my PhD research on detecting early warning signals (EWS) that precede critical transitions in complex systems. The work spans theoretical analysis, numerical simulations, and applications to real-world climate and weather data.
 
+PhD completed at the University of Reading 2021 in collaboration with the National Physical Laboratory (NPL), London. Supervised by Dr. Tobias Kuna and Dr. Valerie Livina. 
+
 ## Repository Structure
 
 > **Note:** The MATLAB analysis code is maintained in a separate repository: [MatlabCodePhD](https://github.com/DrPrettyman/MatlabCodePhD)
