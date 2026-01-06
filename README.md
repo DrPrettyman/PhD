@@ -4,6 +4,8 @@
 
 This repository contains all materials from my PhD research on detecting early warning signals (EWS) that precede critical transitions in complex systems. The work spans theoretical analysis, numerical simulations, and applications to real-world climate and weather data.
 
+> **Note:** The MATLAB analysis code is maintained in a separate repository: [PhD_Matlab](https://github.com/DrPrettyman/PhD_Matlab)
+
 ## Repository Structure
 
 ```
