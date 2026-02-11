@@ -4,29 +4,31 @@
 
 This repository contains all materials from my PhD research on detecting early warning signals (EWS) that precede critical transitions in complex systems. The work spans theoretical analysis, numerical simulations, and applications to real-world climate and weather data.
 
-PhD completed at the University of Reading 2021 in collaboration with the National Physical Laboratory (NPL), London. Supervised by Dr. Tobias Kuna and Dr. Valerie Livina. 
+PhD completed at the University of Reading, 2021, in collaboration with the National Physical Laboratory (NPL), London. Supervised by Dr. Tobias Kuna and Dr. Valerie Livina.
 
 ## Repository Structure
 
-> **Note:** The MATLAB analysis code is maintained in a separate repository: [MatlabCodePhD](https://github.com/DrPrettyman/MatlabCodePhD)
-
 ```
 PhD/
-├── PythonCode/          # Python scripts and notebooks
-├── Papers/              # Published and in-progress papers
+├── MatlabCodePhD/       # MATLAB analysis code (git submodule)
+├── PythonCode/          # Python EWS library, thesis figure reproduction, and docs
 ├── Thesis/              # PhD thesis (LaTeX source)
-├── Notes/               # Research notes and documentation
+├── Papers/              # Published papers (manuscripts, reviews, proofs)
 ├── Literature/          # Reference papers and resources
+├── Notes/               # Research notes and documentation
 ├── Presentations/       # Conference talks and posters
-├── GraphicsProjects/    # Figure design files
+├── GraphicsProjects/    # Figure design files (Grace, Affinity, GIMP)
 ├── Assets/              # Shared images and resources
 └── Admin/               # Administrative documents
-
 ```
 
-## Publications
+> **Cloning:** The MATLAB code is a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). Clone with:
+> ```bash
+> git clone --recurse-submodules https://github.com/DrPrettyman/PhD.git
+> ```
+> Or, if already cloned: `git submodule update --init`
 
-This research resulted in three journal publications, listed here:
+## Publications
 
 **Prettyman, J.**, Kuna, T., & Livina, V. (2018). A novel scaling indicator of early warning signals helps anticipate tropical cyclones. *EPL (Europhysics Letters)*, 121(1), 10002.
 [doi:10.1209/0295-5075/121/10002](https://doi.org/10.1209/0295-5075/121/10002)
@@ -39,66 +41,47 @@ This research resulted in three journal publications, listed here:
 
 ## Code
 
-### MatlabCodePhD/
-Primary codebase containing:
-- **Core_Functions/** - Reusable EWS analysis functions (ACF, DFA, PSE, EOF)
-- **Projects/** - Paper-specific analysis scripts
-- **Data/** - HadISD weather data, ice cores, processed datasets
-- **Tests/** - Unit tests for core functions
+### MatlabCodePhD/ (submodule)
+
+Primary analysis codebase containing:
+- **Core_Functions/** -- Reusable EWS functions (ACF, DFA, PSE, EOF)
+- **Projects/** -- Paper-specific analysis scripts
+- **Data/** -- HadISD weather data, ice cores, processed datasets
+- **Tests/** -- Unit tests for core functions
 
 See [MatlabCodePhD/README.md](MatlabCodePhD/README.md) for detailed documentation.
 
 ### PythonCode/
-Supplementary Python analysis and visualization scripts.
+
+Python implementation of the EWS analysis methods, including:
+- **tippingpoints/** -- Core library (autocorrelation, DFA, power spectrum scaling, numerical integration, noise generation)
+- **thesisfigures/** -- Code to reproduce thesis figures and tables
+- **docs/** -- Sphinx documentation source
+
+See [PythonCode/README.md](PythonCode/README.md) for usage details.
 
 ## Research Topics
 
 ### Critical Slowing Down
-The phenomenon where systems approaching a tipping point recover more slowly from perturbations, manifesting as:
+
+Systems approaching a tipping point recover more slowly from perturbations, manifesting as:
 - Increased autocorrelation (ACF)
 - Increased variance
 - Spectral reddening (PSE)
 - Changed scaling behavior (DFA)
 
 ### Methods Developed
-1. **Sliding window indicators** - Track EWS evolution over time
-2. **Scaling exponents** - DFA and spectral analysis for long-range correlations
-3. **Multidimensional EWS** - EOF-based methods for multivariate systems
-4. **Alternative EOF** - Projection maximizing autocorrelation rather than variance
+
+1. **Sliding window indicators** -- Track EWS evolution over time
+2. **Scaling exponents** -- DFA and spectral analysis for long-range correlations
+3. **Multidimensional EWS** -- EOF-based methods for multivariate systems
+4. **Alternative EOF** -- Projection maximizing autocorrelation rather than variance
 
 ### Applications
-- **Dynamical systems** - Hopf, homoclinic, pitchfork bifurcations
-- **Climate** - African Humid Period termination, Sahara greening
-- **Weather** - Hurricane intensification using HadISD pressure data
 
-## Notes Organization
-
-| Folder | Contents |
-|--------|----------|
-| `01_Methods/` | EWS methodology notes |
-| `02_Theory/` | Mathematical background |
-| `03_Applications/` | Case study documentation |
-| `04_Meeting_Notes/` | Supervisor meeting records |
-| `05_Summaries/` | Paper summaries and reviews |
-| `06_Feedback/` | Reviewer comments and responses |
-
-## Getting Started
-
-1. **Run MATLAB analysis:**
-   ```matlab
-   cd MatlabCodePhD
-   addpath(genpath('Core_Functions'))
-   % Run any project script
-   ```
-
-2. **Build thesis:**
-   ```bash
-   cd Thesis
-   pdflatex main.tex
-   bibtex main
-   pdflatex main.tex
-   pdflatex main.tex
-   ```
+- **Dynamical systems** -- Hopf, homoclinic, pitchfork bifurcations
+- **Climate** -- African Humid Period termination, Sahara greening
+- **Weather** -- Hurricane intensification using HadISD pressure data
 
 ## Dependencies
 
@@ -106,6 +89,11 @@ The phenomenon where systems approaching a tipping point recover more slowly fro
 - R2016b or later
 - Statistics and Machine Learning Toolbox
 - Signal Processing Toolbox
+
+### Python
+- Python 3.9+
+- NumPy
+- Matplotlib
 
 ### LaTeX
 - TeX Live or similar distribution

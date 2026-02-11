@@ -1,0 +1,3 @@
+[submodule "MatlabCodePhD"]
+	path = MatlabCodePhD
+	url = https://github.com/DrPrettyman/MatlabCodePhD.git

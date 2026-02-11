@@ -1,6 +1,3 @@
-# MatlabCodePhD has its own git repository
-MatlabCodePhD/
-
 # macOS
 .DS_Store
 .AppleDouble
@@ -35,6 +32,9 @@ Thumbs.db
 *.o
 *.pyc
 __pycache__/
+
+# Sphinx documentation build
+PythonCode/docs/build/
 
 # IDE
 .vscode/

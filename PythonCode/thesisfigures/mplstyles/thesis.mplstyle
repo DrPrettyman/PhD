@@ -1,0 +1,10 @@
+axes.titlesize :   24
+axes.labelsize :   12
+axes.grid:         True
+lines.linewidth :  0.5
+lines.markersize : 10
+xtick.labelsize :  10
+ytick.labelsize :  10
+axes.xmargin:      0
+font.family:       DejaVu Serif
+font.serif:        DejaVu Serif
